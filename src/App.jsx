@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { Route, Routes } from "react-router-dom";
+import Top from "./Pages/top.jsx"
+import Home from "./Pages/home.jsx"
+import Trending from "./Pages/trending.jsx" 
+import NewRelease from "./Pages/newRelease.jsx"
+import Special from "./Pages/Special.jsx"
+import WatchSection from "./Pages/watchSectionPage.jsx"
+import RandomPage from "./Pages/randomPage.jsx"
+import ReadMangaPage from "./Pages/readMangaPage.jsx"
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Routes>
+      <Route path="/"  element={<Top/>} />
+      <Route path="/home"  element={<Home/>}  />
+      <Route path="/trending" element={<Trending/>} />
+      <Route path="/newRelease"element={<NewRelease/>} />
+      <Route path="/special" element={<Special/>} />
+      <Route path="/watch2gether" element={<WatchSection/>} />
+      <Route path="/random" element={<RandomPage/>} />
+      <Route path="/readManga" element={<ReadMangaPage/>} />
+      <Route path="error"/>
+    </Routes>
+  );
 }
 
-export default App
+export default App;
