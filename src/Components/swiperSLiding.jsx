@@ -10,20 +10,41 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Pagination } from 'swiper/modules';
-const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles})=>{
+const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,data})=>{
+ const animeImages=data?.data?.data
+//  console.log(animeImages)
     return(
         <>
       <div className=" w-[96vw]  ">
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper w-full  py-6 ">
+        
 
-{animeTitles.map((titles,index)=>{
+{animeImages?.map((response,index)=>{
+ const images= response?.images?.jpg?.image_url;
+ const titles=response?.title_english;
+ const animeRating=response?.rating;
+ const synopsis= response?.synopsis
+ const animeYear=response?.year
+
+ const truncateSynopsis=(text,maxlength)=>{
+  const words=text.split(' ');
+
+  if(words.length >maxlength){
+    return words.slice(0,maxlength).join(' ') + "...";
+
+  } else {
+    return text
+  }
+ }
+
+ console.log(synopsis);
     return(
         <>
         <SwiperSlide key={index}   >  
         <div className={`grid  mt-10  ${
       !viewPortWidth
         ? `grid-cols-[1fr,2fr] p-5 `
-        : `block bg-[url(/img2.jpg)] bg- bg-cover bg-fit bg-no-repeat bg-center min-h-[30vh]  w-[100%] h-[30rem]`
+        : `block bg-[url(${images})] bg- bg-cover bg-fit bg-no-repeat bg-center min-h-[30vh]  w-[100%] h-[30rem]`
     }`}>
        <div className={` flex flex-col  text-start px-4 box-border   h-full gap-4 text-[#9797a596] mobile:w-full mobile:items-center lgMobile:w-[70%] ${viewPortWidth? `justify-end w-[50%]   py-2`:`w-full justify-center`} `}>
    
@@ -38,7 +59,7 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles})=>{
                               border-teal-900    text-center font-bold flex items-center text-xs w-[50px] 
                               h-[30px] justify-center"
      >
-       PG {rating}
+      {animeRating}
      </CustomButton>
 
      <CustomButton
@@ -64,16 +85,11 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles})=>{
        className="
              flex jsutify-center items-center text-center"
      >
-       time-e-e
+       {animeYear}
      </span>
    </Box>
    <Box className="mobile:text-center">
-     niggas tryna pull up type shiiii but i aint stressing
-     ............ ............. ................... ..........
-     .............. ..... ................. .............. ......
-     ....................... ............
-     .................................... ...................
-     .............
+   {truncateSynopsis(synopsis,20)}
    </Box>
 
 
@@ -96,11 +112,11 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles})=>{
 <div
  className={`  ${
    !viewPortWidth
-     ? `border-2 border-[#767676a7] rounded-xl  max-h-[500px] overflow-hidden flex justify-center items-center`
+     ? `border-2 border-[#767676a7] rounded-xl object-fit  max-h-[500px] overflow-hidden flex justify-center items-center`
      : `hidden`
  }`}
 >
- <img className="rounded-xl   w-[100%]" src="img10.jpg" alt="" />
+ <img className="rounded-xl   w-[100%]" src={images} alt="" />
 </div>
     </div>
         </SwiperSlide>

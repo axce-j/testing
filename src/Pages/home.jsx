@@ -1,11 +1,23 @@
 import { useEffect, useState } from "react";
+import TopAnime from "../hooks/useTopAnime.jsx"
 // import HomeInput from "../Components/homeInput";
 import MiddleSection from "../modules/homePage  Modules/middleSection.jsx"
 import FooterSection from "../modules/homePage  Modules/footerSection.jsx"
 import NavBarSection from "../modules/homePage  Modules/navbarrSection.jsx"
+// import  Axios  from "axios";
 const Home = () => {
 
- 
+ const {isError,isLoading,data,error}=TopAnime();
+//  console.log(data);
+
+//  const help = () => { 
+//   Axios.get("https://api.jikan.moe/v4/top/anime")
+//     .then(response => console.log(response))
+//     .catch(error => console.log(error.message));
+// };
+
+// help();
+
 
   // const topDiv=document.getElementById("topDiv")
   const [clicked, setclick] = useState(false);
@@ -151,13 +163,13 @@ const Home = () => {
       >
         <nav className="fixed bg-[#101010] w-full z-50">
 
-          <NavBarSection viewPortWidth2={viewPortWidth2} viewPortWidth={viewPortWidth} clicked={clicked} dropDownItems={dropDownItems} handleclick={handleclick}  setSearchBar2={setSearchBar2} searchClick2={searchClick2} setSearchBar={setSearchBar} searchClick={searchClick}/>
+          <NavBarSection viewPortWidth2={viewPortWidth2} viewPortWidth={viewPortWidth} clicked={clicked} dropDownItems={dropDownItems} handleclick={handleclick}  setSearchBar2={setSearchBar2} searchClick2={searchClick2} setSearchBar={setSearchBar} searchClick={searchClick} />
         
         </nav>
 
         <div className="w-full mt-10 z-30">
           {" "}
-          <MiddleSection animeTitles={animeTitles} viewPortWidth={viewPortWidth} subtitle={subtitle} rating={rating} animeBlocks={animeBlocks} method={method} Days={Days} viewPortWidth2={viewPortWidth2} handleDisplaysection={handleDisplaysection} displaySection={displaySection} setDisplaySection={setDisplaySection}/>
+          <MiddleSection animeTitles={animeTitles} viewPortWidth={viewPortWidth} subtitle={subtitle} rating={rating} animeBlocks={animeBlocks} method={method} Days={Days} viewPortWidth2={viewPortWidth2} handleDisplaysection={handleDisplaysection} displaySection={displaySection} setDisplaySection={setDisplaySection} data={data}/>
          
         
         </div>

@@ -1,13 +1,13 @@
  
 import SeriesDisplaySection from "../../Components/seriesDisplaySection.jsx"
 import SwiperSliding from "../../Components/swiperSLiding.jsx"
-const MiddleSection= ({rating,subtitle,viewPortWidth,animeBlocks,method,Days,viewPortWidth2,handleDisplaysection,displaySection,setDisplaySection,animeTitles})=>{
+const MiddleSection= ({rating,subtitle,viewPortWidth,animeBlocks,method,Days,viewPortWidth2,handleDisplaysection,displaySection,setDisplaySection,animeTitles,data})=>{
     return(
         <>
          <header
             className=" w-full flex flex-col justify-center items-center "
           >
-           <SwiperSliding animeTitles={animeTitles} rating={rating} subtitle={subtitle} viewPortWidth={viewPortWidth}/>
+           <SwiperSliding animeTitles={animeTitles} rating={rating} subtitle={subtitle} viewPortWidth={viewPortWidth} data={data}/>
           
             
           </header>
