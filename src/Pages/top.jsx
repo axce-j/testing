@@ -6,7 +6,7 @@ const Top = () => {
   const navigate = useNavigate();
 
   const handleIndividualClick = (e) => {
-    navigate(`#/${e}`);
+    navigate(`${e}`);
   };
 
   const [clicked, setClicked] = useState(false);
