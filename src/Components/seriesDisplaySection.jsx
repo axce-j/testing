@@ -24,7 +24,9 @@ const SeriesDisplaySection = ({
         >
           <div className="grid grid-rows-[auto,1fr] gap-4">
             <div className="flex flex-row items-center min-h-[80px] justify-between mobile:flex-col mobile:items-start mobile:min-h-[60px]">
-              <div className="text-2xl mobile:text-[15px] mobile:font-medium">Recently Updated</div>
+              <div className="text-2xl mobile:text-[15px] mobile:font-medium">
+                Recently Updated
+              </div>
               <div className="flex gap-2 mobile:text-xs  ">
                 <span>
                   <a href="">All</a>
@@ -53,7 +55,8 @@ const SeriesDisplaySection = ({
               </div>
             </div>
             <div className="flex flex-col justify-center items-center gap-6">
-              <div className="grid 
+              <div
+                className="grid 
               ml:grid-cols-[repeat(5,minmax(150px,2fr))] 
               xl:grid-cols-[repeat(5,minmax(150px,2fr))] 
               lg:grid-cols-[repeat(5,minmax(150px,2fr))]
@@ -61,7 +64,8 @@ const SeriesDisplaySection = ({
               sm:grid-cols-[repeat(3,minmax(100px,1fr))]
               lgMobile:grid-cols-[repeat(3,minmax(100px,1fr))]
               mobile:grid-cols-[repeat(1,minmax(100px,1fr))]
-              grid-rows-auto  gap-x-6 gap-y-9 box-border">
+              grid-rows-auto  gap-x-6 gap-y-9 box-border"
+              >
                 {animeBlocks.map((items, index) => {
                   return (
                     <>
@@ -70,7 +74,7 @@ const SeriesDisplaySection = ({
                           {" "}
                           <img
                             className="h-[15rem] object-cover object-top"
-                            src="./img3.jpg"
+                            src="img3.jpg"
                             alt=""
                           />
                           <div className="flex flex-row justify-between px-1 py-1">
@@ -82,7 +86,7 @@ const SeriesDisplaySection = ({
                                 <i>
                                   <img
                                     className="bg-teal-900 p-1 rounded"
-                                    src="/mic.png"
+                                    src="mic.png"
                                     width="20"
                                     alt=""
                                   />
@@ -138,12 +142,12 @@ const SeriesDisplaySection = ({
                     key={index}
                     className="grid rounded-lg grid-cols-[1fr,2fr,6fr] gap-2 items-center px-2 bg-[#101010] "
                   >
-                    <div  className="text-[3.3rem] font-bold text-center">
+                    <div className="text-[3.3rem] font-bold text-center">
                       {index}
                     </div>
                     <div>
                       {" "}
-                      <img src="/img7.jpg" className="h-fill" alt="" />
+                      <img src="img7.jpg" className="h-fill" alt="" />
                     </div>
                     <div className="flex flex-col items-start gap-1">
                       <div>{item}</div>
@@ -153,7 +157,7 @@ const SeriesDisplaySection = ({
                           <span>1098</span>
                         </CustomButton>
                         <CustomButton classname="flex flex-row gap-2 bg-teal-900 p-1 text-xs font-medium items-center rounded-lg ">
-                          <img src="/mic.png" width="10" alt="" />{" "}
+                          <img src="mic.png" width="10" alt="" />{" "}
                           <span>1061</span>
                         </CustomButton>
                         <span>. {method}</span>
@@ -179,19 +183,22 @@ const SeriesDisplaySection = ({
               onClick={() => handleDisplaysection(1)}
               classname="hover:bg-gray-600 py-1 px-2 focus:bg-teal-800 rounded-lg w-full gap-3 flex flex-row mobile:flex-col mobile:text-xs mobile:justify-center mobile:items-center mobile:px-0 mobile:gap-2  lgMobile:text-xs lgMobile:px-0 lgMobile:gap-2 lgMobile:justify-center "
             >
-              <span>New</span><span>Release</span>  
+              <span>New</span>
+              <span>Release</span>
             </CustomButton>
             <CustomButton
               onClick={() => handleDisplaysection(2)}
               classname="hover:bg-gray-600 py-1 px-2 focus:bg-teal-800 rounded-lg w-full gap-3 flex flex-row mobile:flex-col mobile:text-xs mobile:justify-center mobile:items-center mobile:px-0 mobile:gap-2  lgMobile:text-xs lgMobile:px-0 lgMobile:gap-2 lgMobile:justify-center  "
             >
-              <span>Newly</span><span>Added</span> 
+              <span>Newly</span>
+              <span>Added</span>
             </CustomButton>
             <CustomButton
               onClick={() => handleDisplaysection(3)}
               classname="hover:bg-gray-600 py-1 px-2 focus:bg-teal-800 rounded-lg  w-full gap-3 flex flex-row mobile:flex-col mobile:text-xs mobile:justify-center mobile:items-cente pmobile:x-0r mobile:gap-2 lgMobile:text-xs llgMobile:px-0 gMobile:gap-2 lgMobile:justify-center "
             >
-              <span>Just</span><span>Completed</span> 
+              <span>Just</span>
+              <span>Completed</span>
             </CustomButton>
           </div>
           <ReleaseSectionHomepage
@@ -224,14 +231,20 @@ const SeriesDisplaySection = ({
             viewPortWidth ? `w-full` : `w-[70vw]`
           }`}
         >
-          
-          <div className="bg-[url(/img13.png)] bg-cover bg-no-repeat bg-center grid grid-rows-2 justify-center w-full items-center gap-6  p-3 px-6 text-3xl mobile:text-lg  "
-          style={{
-            backgroundColor:"rgba(0,0,0,0.65)",
-            backgroundBlendMode:"overlay",
-          }}
+          <div
+            className="bg-[url(img13.png)] bg-cover bg-no-repeat bg-center grid grid-rows-2 justify-center w-full items-center gap-6  p-3 px-6 text-3xl mobile:text-lg  "
+            style={{
+              backgroundColor: "rgba(0,0,0,0.65)",
+              backgroundBlendMode: "overlay",
+            }}
           >
-            <div className="flex flex-row  gap-3 mobile:flex-col lgMobile:flex-col "><span className="font-medium">Estimated Schedule- </span><span className="text-gray-500 text-[80%]">  Now: 27/03/2024 14:07:59</span></div>
+            <div className="flex flex-row  gap-3 mobile:flex-col lgMobile:flex-col ">
+              <span className="font-medium">Estimated Schedule- </span>
+              <span className="text-gray-500 text-[80%]">
+                {" "}
+                Now: 27/03/2024 14:07:59
+              </span>
+            </div>
             <div className="flex w-full flex-row gap-8 mobile:gap-5 mobile:text-2xl  lgMobile:gap-5 lgMobile:text-2xl text-5xl font-bold overflow-hidden">
               {Days.map((items) => {
                 return (
@@ -286,7 +299,11 @@ const SeriesDisplaySection = ({
                   </div>
                   <div className="mobile:w-[45px]">
                     {" "}
-                    <img src="/img7.jpg" className="h-20 mobile:w-full " alt="" />
+                    <img
+                      src="img7.jpg"
+                      className="h-20 mobile:w-full "
+                      alt=""
+                    />
                   </div>
                   <div className="flex flex-col justify-start w-full items-start mobile:text-[12px] gap-1">
                     <div>{item}</div>
@@ -296,7 +313,12 @@ const SeriesDisplaySection = ({
                         <span>1098</span>
                       </CustomButton>
                       <CustomButton classname="flex flex-row gap-2 bg-teal-900 p-1 text-xs mobile:text-[.7rem] mobile:gap-1  font-medium items-center rounded-lg ">
-                        <img src="/mic.png" width="10" className="mobile:w-[5px]" alt="" />{" "}
+                        <img
+                          src="mic.png"
+                          width="10"
+                          className="mobile:w-[5px]"
+                          alt=""
+                        />{" "}
                         <span>1061</span>
                       </CustomButton>
                       <span>. {method}</span>

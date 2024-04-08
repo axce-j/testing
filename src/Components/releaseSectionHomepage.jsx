@@ -9,7 +9,7 @@ const ReleaseSectionHomepage=({animeBlocks,subtitle,viewPortWidth,viewPortWidth2
                     <span>New Release</span>
                     <i>
                       <img
-                        src="/arrow.png"
+                        src="arrow.png"
                         className="flex items-center"
                         width="23"
                         alt=""
@@ -27,7 +27,7 @@ const ReleaseSectionHomepage=({animeBlocks,subtitle,viewPortWidth,viewPortWidth2
                       >
                         <div>
                           {" "}
-                          <img src="/img7.jpg" className={`  ${viewPortWidth?` h-[50px] rounded`:`h-fill` }`} alt="" />
+                          <img src="img7.jpg" className={`  ${viewPortWidth?` h-[50px] rounded`:`h-fill` }`} alt="" />
                         </div>
                         <div className="flex flex-col items-start  gap-1">
                           <div>{item}</div>
@@ -37,7 +37,7 @@ const ReleaseSectionHomepage=({animeBlocks,subtitle,viewPortWidth,viewPortWidth2
                               <span>1098</span>
                             </CustomButton>
                             <CustomButton classname="flex flex-row gap-2 bg-teal-900 p-1 text-xs font-medium items-center rounded-lg ">
-                              <img src="/mic.png" width="10" alt="" />{" "}
+                              <img src="mic.png" width="10" alt="" />{" "}
                               <span>1061</span>
                             </CustomButton>
                             <span>. {method}</span>

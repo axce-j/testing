@@ -23,7 +23,7 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles})=>{
         <div className={`grid  mt-10  ${
       !viewPortWidth
         ? `grid-cols-[1fr,2fr] p-5 `
-        : `block bg-[url(/img2.jpg)] bg- bg-cover bg-fit bg-no-repeat bg-center min-h-[30vh]  w-[100%] h-[30rem]`
+        : `block bg-[url(img2.jpg)] bg- bg-cover bg-fit bg-no-repeat bg-center min-h-[30vh]  w-[100%] h-[30rem]`
     }`}>
        <div className={` flex flex-col  text-start px-4 box-border   h-full gap-4 text-[#9797a596] mobile:w-full mobile:items-center lgMobile:w-[70%] ${viewPortWidth? `justify-end w-[50%]   py-2`:`w-full justify-center`} `}>
    
@@ -55,7 +55,7 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles})=>{
      </CustomButton>
      <i>
        <img
-         src="/mic.png"
+         src="mic.png"
          className="w-[20px] h-[20px]"
          alt="mic"
        />
@@ -84,7 +84,7 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles})=>{
                "
            >
              <i>
-               <img src="/playBut.png" className=" w-3  " alt="play button" />
+               <img src="playBut.png" className=" w-3  " alt="play button" />
              </i>{" "}
              Play Now
            </CustomButton></div>
@@ -100,7 +100,7 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles})=>{
      : `hidden`
  }`}
 >
- <img className="rounded-xl   w-[100%]" src="/img10.jpg" alt="" />
+ <img className="rounded-xl   w-[100%]" src="img10.jpg" alt="" />
 </div>
     </div>
         </SwiperSlide>

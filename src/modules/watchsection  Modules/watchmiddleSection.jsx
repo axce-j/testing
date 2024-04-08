@@ -57,14 +57,14 @@ const WatchMiddleSection = ({ animeBlocks }) => {
             return (
               <>
                 <div className="bg-teal-900 hover:bg-teal-700 w-full h-auto flex flex-col gap-3 rounded-xl text-sm  p-3">
-                  <div className="bg-[url(/img1.jpg)] bg-cover bg-center bg-no-repeat flex justify-start rounded-xl items-start pl-5 mobile:pl-2 lgMobile:pl-2 pt-4 w-[100%] h-[200px]">
+                  <div className="bg-[url(img1.jpg)] bg-cover bg-center bg-no-repeat flex justify-start rounded-xl items-start pl-5 mobile:pl-2 lgMobile:pl-2 pt-4 w-[100%] h-[200px]">
                     <div
                       className="flex items-center
                     justift-center  flex-row gap-2  w-[400px] box.border"
                     >
                       <span>
                         <img
-                          src="/img7.jpg"
+                          src="img7.jpg"
                            
                           className="h-[90px] w-[80px]
                           mobile:w-[65px] lgMobile:w-[65px] rounded"
@@ -85,7 +85,7 @@ const WatchMiddleSection = ({ animeBlocks }) => {
                   <div className="flex flex-row pl-4 mobile:pl-2 mobile:gap-1 w-full items-center gap-2">
                     <span>
                       <img
-                        src="/img5.jpg"
+                        src="img5.jpg"
                         className="w-[50px] h-[60px] mobile:h-[40px] lgMobile:h-[40px]"
                         style={{
                         

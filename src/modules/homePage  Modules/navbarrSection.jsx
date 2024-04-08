@@ -3,7 +3,7 @@ import NavBarInput from "../../Components/navbarInput.jsx"
 import { useNavigate } from "react-router-dom";
 
 const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,clicked,setSearchBar2,searchClick2 ,setSearchBar,searchClick})=>{
-  const changeImage = !clicked ? "/dash.png" : "/close.png";
+  const changeImage = !clicked ? "dash.png" : "close.png";
   const navigate= useNavigate()
   
     return(
@@ -59,7 +59,7 @@ const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,cli
                 })}
               </div>
               <i onClick={()=>navigate("/home")} className="flex cursor-pointer w-full">
-                <img src="/logo3.png "  className="w-[150px]  " alt="" />
+                <img src="logo3.png "  className="w-[150px]  " alt="" />
               </i>
               
             </div>
@@ -71,7 +71,7 @@ const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,cli
                 onClick={() => navigate("/watch2gether")}
                  className="flex flex-row gap-1 cursor-pointer items-center hover:text-teal-800">
                   <i>
-                    <img src="/sideshow.png" alt="" />
+                    <img src="sideshow.png" alt="" />
                   </i>
                   Watch2gether
                 </span>
@@ -79,7 +79,7 @@ const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,cli
                  onClick={() => navigate("/random")}
                 className="flex flex-row gap-1 cursor-pointer items-center hover:text-teal-800">
                   <i>
-                    <img src="/shuffle.png" alt="" />
+                    <img src="shuffle.png" alt="" />
                   </i>
                   Random
                 </span>
@@ -87,7 +87,7 @@ const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,cli
                  onClick={() => navigate("/readManga")}
                 className="flex flex-row gap-1 cursor-pointer items-center hover:text-teal-800">
                   <i>
-                    <img src="/book.png" alt="" />
+                    <img src="book.png" alt="" />
                   </i>
                   Read Manga
                 </span>
@@ -115,11 +115,11 @@ const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,cli
             <div className={`flex flex-row items-center gap-3`}>
               
                 <i onClick={setSearchBar2} className={` ${viewPortWidth ?`block` : `hidden`}`}>
-                  <img className="text-white" src="/Vector.png" alt="" />
+                  <img className="text-white" src="Vector.png" alt="" />
                 </i>
               <CustomButton classname=" items-center flex font-bold gap-2 bg-teal-800 hover:bg-teal-900 rounded-lg p-2 px-3 font-bold">
                 <span>Sign in</span>
-                <i className={`${viewPortWidth?`hidden`:`block`}`}><img src="/arrow.png" width="25px" alt="" /></i>
+                <i className={`${viewPortWidth?`hidden`:`block`}`}><img src="arrow.png" width="25px" alt="" /></i>
               </CustomButton>
             </div>
           </div>
@@ -135,7 +135,7 @@ const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,cli
             <div className="flex flex-row items-center gap-3">
               <span>
                 <i>
-                  <img src="/filter.png" width="15" alt="" />
+                  <img src="filter.png" width="15" alt="" />
                 </i>
               </span>
               <span className="text-gray-500 hover:text-white">

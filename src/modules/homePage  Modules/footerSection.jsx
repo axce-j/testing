@@ -27,13 +27,13 @@ const FooterSection=()=>{
               <div className=" flex flex-row items-center gap-6">
                 {" "}
                 <span>
-                  <img src="/logo3.png" alt="logo" width="150" className="mobile:w-20" />
+                  <img src="logo3.png" alt="logo" width="150" className="mobile:w-20" />
                 </span>
                 <span className="bg-white flex flex-row gap-3 rounded-2xl text-black p-2 text-xs font-bold mobile:w-20 mobile:gap-2 mobile:text-[10px] mobile:text-center mobile:flex-col">
                   Join now
                   <span className="flex flex-row gap-2 mobile:gap-3">
                   <i >
-                    <img src="/twitter.png" className="mobile:w-[15px]" alt="twitter" />
+                    <img src="twitter.png" className="mobile:w-[15px]" alt="twitter" />
                   </i>
                   <i>
                     <img src="discord.png" className="mobile:w-[15px]" alt="discord" />

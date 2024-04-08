@@ -11,7 +11,7 @@ const NavBarInput=({setSearchBar,searchClick,className})=>{
                           <div className="flex flex-row bg-[rgba(32,32,35,1)] p-1 items-center px-2 rounded-lg gap-5">
                             <div>
                               <i>
-                                <img src="/Vector.png" alt="" />
+                                <img src="Vector.png" alt="" />
                               </i>
                             </div>
                     
@@ -35,7 +35,7 @@ const NavBarInput=({setSearchBar,searchClick,className})=>{
                                   <div>
                                     <i>
                                       <img
-                                        src="/book.png"
+                                        src="book.png"
                                         width="15"
                                         className="min-w-[13px]"
                                         alt=""
@@ -65,7 +65,7 @@ const NavBarInput=({setSearchBar,searchClick,className})=>{
                             <div className="flex flex-row gap-3 items-center">
                               <span>
                                 <i>
-                                  <img src="/filter.png" width="15" alt="" />
+                                  <img src="filter.png" width="15" alt="" />
                                 </i>
                               </span>
                               <span className="text-gray-500 hover:text-white">
@@ -77,12 +77,12 @@ const NavBarInput=({setSearchBar,searchClick,className})=>{
                             <div className="flex flex-row items-center gap-2">
                               <span>
                                 <i>
-                                  <img src="/arrowUp.png" alt="" />
+                                  <img src="arrowUp.png" alt="" />
                                 </i>
                               </span>
                               <span>
                                 <i>
-                                  <img src="/arrowDown.png" alt="" />
+                                  <img src="arrowDown.png" alt="" />
                                 </i>
                               </span>
                               <span>to navigate</span>
@@ -91,7 +91,7 @@ const NavBarInput=({setSearchBar,searchClick,className})=>{
                               {" "}
                               <span>
                                 <i>
-                                  <img src="/turn_right.png" alt="" />
+                                  <img src="turn_right.png" alt="" />
                                 </i>
                               </span>
                               <span>to select</span>
@@ -99,7 +99,7 @@ const NavBarInput=({setSearchBar,searchClick,className})=>{
                             <div className="flex flex-row  items-center gap-2">
                               <span>
                                 <i>
-                                  <img src="/arrow-square-right.png" alt="" />
+                                  <img src="arrow-square-right.png" alt="" />
                                 </i>
                               </span>
                               <span>to exit</span>
@@ -125,7 +125,7 @@ export default NavBarInput
       <div className="flex flex-row bg-[rgba(32,32,35,1)] p-1 items-center px-2 rounded-lg gap-5">
         <div>
           <i>
-            <img src="/Vector.png" alt="" />
+            <img src="Vector.png" alt="" />
           </i>
         </div>
 
@@ -149,7 +149,7 @@ export default NavBarInput
               <div>
                 <i>
                   <img
-                    src="/book.png"
+                    src="book.png"
                     width="15"
                     className="min-w-[13px]"
                     alt=""
@@ -179,7 +179,7 @@ export default NavBarInput
         <div className="flex flex-row gap-3 items-center">
           <span>
             <i>
-              <img src="/filter.png" width="15" alt="" />
+              <img src="filter.png" width="15" alt="" />
             </i>
           </span>
           <span className="text-gray-500 hover:text-white">
@@ -191,12 +191,12 @@ export default NavBarInput
         <div className="flex flex-row items-center gap-2">
           <span>
             <i>
-              <img src="/arrowUp.png" alt="" />
+              <img src="arrowUp.png" alt="" />
             </i>
           </span>
           <span>
             <i>
-              <img src="/arrowDown.png" alt="" />
+              <img src="arrowDown.png" alt="" />
             </i>
           </span>
           <span>to navigate</span>
@@ -213,7 +213,7 @@ export default NavBarInput
         <div className="flex flex-row  items-center gap-2">
           <span>
             <i>
-              <img src="/arrow-square-right.png" alt="" />
+              <img src="arrow-square-right.png" alt="" />
             </i>
           </span>
           <span>to exit</span>

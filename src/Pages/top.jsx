@@ -42,7 +42,7 @@ const Top = () => {
       >
         <div className="text-white text-center text-9xl flex flex-col justify-center items-center gap-4">
           <div>
-            <img src="/logo3.png" alt="" />
+            <img src="logo3.png" alt="" />
           </div>
           <div>
             <HomeInput width="35rem" height="2rem" />
