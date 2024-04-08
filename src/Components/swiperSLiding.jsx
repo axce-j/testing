@@ -16,7 +16,7 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,data})=>{
     return(
         <>
       <div className=" w-[96vw]  ">
-      <Swiper pagination={true} modules={[Pagination]} className="mySwiper w-full  py-6 ">
+      <Swiper pagination={true} modules={[Pagination]} className="mySwiper w-full  py-8 ">
         
 
 {animeImages?.map((response,index)=>{
@@ -41,11 +41,21 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,data})=>{
     return(
         <>
         <SwiperSlide key={index}   >  
-        <div className={`grid  mt-10  ${
-      !viewPortWidth
-        ? `grid-cols-[1fr,2fr] p-5 `
-        : `block bg-[url("${images}")] bg- bg-cover bg-fit bg-no-repeat bg-center min-h-[30vh]  w-[100%] h-[30rem]`
-    }`}>
+        <div className="  lg:mt-10   lg:p-5" style={viewPortWidth ? {
+    display: "block",
+    backgroundImage: `url(${images})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    minHeight: "30vh",
+    width: "100%",
+    height: "30rem"
+  } : {
+    display:"grid",
+    gridTemplateRows:"1fr",
+    gridTemplateColumns:"1fr 2fr",
+}
+  }>
+    
        <div className={` flex flex-col  text-start px-4 box-border   h-full gap-4 text-[#9797a596] mobile:w-full mobile:items-center lgMobile:w-[70%] ${viewPortWidth? `justify-end w-[50%]   py-2`:`w-full justify-center`} `}>
    
    <Box className="text-[3rem] text-white font-bold md:text-xl sm:text-xl lgMobile:text-xl mobile:text-xl">
