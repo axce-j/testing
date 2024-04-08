@@ -6,7 +6,7 @@ import {  HashRouter} from "react-router-dom";
  import { ChakraProvider } from "@chakra-ui/react";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <HashRouter basename="/tutorial">
+    <HashRouter basename="/">
     <ChakraProvider>
       <App />
     </ChakraProvider>
