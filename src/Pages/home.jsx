@@ -4,10 +4,14 @@ import TopAnime from "../hooks/useTopAnime.jsx"
 import MiddleSection from "../modules/homePage  Modules/middleSection.jsx"
 import FooterSection from "../modules/homePage  Modules/footerSection.jsx"
 import NavBarSection from "../modules/homePage  Modules/navbarrSection.jsx"
+ 
+
 // import  Axios  from "axios";
 const Home = () => {
 
- const {isError,isLoading,data,error}=TopAnime();
+
+ 
+  
 //  console.log(data);
 
 //  const help = () => { 
@@ -169,7 +173,7 @@ const Home = () => {
 
         <div className="w-full mt-10 z-30">
           {" "}
-          <MiddleSection animeTitles={animeTitles} viewPortWidth={viewPortWidth} subtitle={subtitle} rating={rating} animeBlocks={animeBlocks} method={method} Days={Days} viewPortWidth2={viewPortWidth2} handleDisplaysection={handleDisplaysection} displaySection={displaySection} setDisplaySection={setDisplaySection} data={data}/>
+          <MiddleSection animeTitles={animeTitles} viewPortWidth={viewPortWidth} subtitle={subtitle} rating={rating} animeBlocks={animeBlocks} method={method} Days={Days} viewPortWidth2={viewPortWidth2} handleDisplaysection={handleDisplaysection} displaySection={displaySection} setDisplaySection={setDisplaySection}  />
          
         
         </div>

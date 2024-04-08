@@ -10,21 +10,21 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Pagination } from 'swiper/modules';
-const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,data})=>{
- const animeImages=data?.data?.data
-//  console.log(animeImages)
+const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,topAnimeData})=>{
+ const animeHeaderContent=topAnimeData?.data?.data
+//  console.log(animeHeaderContent)
     return(
         <>
       <div className=" w-[96vw]  ">
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper w-full  py-8 ">
         
 
-{animeImages?.map((response,index)=>{
+{animeHeaderContent?.map((response,index)=>{
  const images= response?.images?.jpg?.image_url;
  const titles=response?.title_english;
  const animeRating=response?.rating;
- const synopsis= response?.synopsis
- const animeYear=response?.year
+ const synopsis= response?.synopsis;
+ const animeYear=response?.year;
 
  const truncateSynopsis=(text,maxlength)=>{
   const words=text.split(' ');
@@ -35,15 +35,18 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,data})=>{
   } else {
     return text
   }
- }
+ };
 
- console.log(images);
+//  console.log(titles);
+
     return(
         <>
         <SwiperSlide key={index}   >  
         <div className="  lg:mt-10   lg:p-5" style={viewPortWidth ? {
     display: "block",
     backgroundImage: `url(${images})`,
+    backgroundColor:"rgba(0,0,0,0.8)",
+    backgroundBlendMode:"overlay",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     minHeight: "30vh",

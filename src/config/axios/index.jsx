@@ -8,5 +8,11 @@ const axios =Axios.create({
 export const getTopAnime = ()=> {
     return axios.get("top/anime")
 }
+export const getRecentAnimeRecommendations=()=>{
+    return axios.get("recommendations/anime")
+}
+export const getAnimeTopReviews=()=>{
+    return axios.get("top/reviews")
+}
 
 export default axios;

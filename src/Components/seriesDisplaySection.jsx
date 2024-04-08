@@ -13,7 +13,13 @@ const SeriesDisplaySection = ({
   handleDisplaysection,
   displaySection,
   setDisplaySection,
+  recentData,
+  reviewsData
 }) => {
+  const recentDataContent=recentData?.data?.data;
+  const reviewsDataContent=reviewsData?.data?.data
+
+  console.log(reviewsDataContent)
   return (
     <>
       <section className=" flex mt-20 box-border   px-4   flex-col gap-[10rem] w-full">
@@ -66,7 +72,12 @@ const SeriesDisplaySection = ({
               mobile:grid-cols-[repeat(1,minmax(100px,1fr))]
               grid-rows-auto  gap-x-6 gap-y-9 box-border"
               >
-                {animeBlocks.map((items, index) => {
+                {recentDataContent?.slice(0,10).map((response, index) => {
+                   const images= response?.images?.jpg?.image_url;
+                   const titles=response?.title_english;
+                   const rank=response?.rank;
+                   const type= response?.type;
+                   const score=response?.score;
                   return (
                     <>
                       <div className="flex flex-col gap-4 " key={index}>
@@ -74,13 +85,13 @@ const SeriesDisplaySection = ({
                           {" "}
                           <img
                             className="h-[15rem] object-cover object-top"
-                            src="img3.jpg"
+                            src={images}
                             alt=""
                           />
                           <div className="flex flex-row justify-between px-1 py-1">
                             <div className="flex flex-row  gap-2 items-center justify-start ">
                               <span className="bg-teal-900 p-1 text-xs rounded">
-                                {subtitle}
+                                {score}
                               </span>
                               <span>
                                 <i>
@@ -93,14 +104,14 @@ const SeriesDisplaySection = ({
                                 </i>
                               </span>
                               <span className="bg-teal-900 p-1 text-xs rounded">
-                                {rating}
+                                {rank}
                               </span>
                             </div>
-                            <div>{method}</div>
+                            <div>{type}</div>
                           </div>
                         </div>
 
-                        <div> {items}</div>
+                        <div> {titles}</div>
                       </div>
                     </>
                   );
@@ -136,7 +147,14 @@ const SeriesDisplaySection = ({
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              {animeBlocks.map((item, index) => {
+              {reviewsDataContent?.sort((a,b)=>b.favorites-a.favorites)?.slice(0,10)?.map((response, index) => {
+                 const images= response?.images?.jpg?.image_url;
+                 const titles=response?.title_english;
+                //  const rank=response?.rank;
+                 const type= response?.type;
+                 const score=response?.score;
+                //  const popularity=response?.popularity
+                 const favorites=response?.favorites
                 return (
                   <div
                     key={index}
@@ -147,20 +165,20 @@ const SeriesDisplaySection = ({
                     </div>
                     <div>
                       {" "}
-                      <img src="img7.jpg" className="h-fill" alt="" />
+                      <img src={images} className="h-fill" alt="" />
                     </div>
                     <div className="flex flex-col items-start gap-1">
-                      <div>{item}</div>
+                      <div>{titles}</div>
                       <div className="flex flex-row gap-3 items-center">
                         <CustomButton classname=" flex flex-row gap-3 bg-teal-900 p-1 text-xs font-medium rounded-lg">
-                          <span>{subtitle}</span>
-                          <span>1098</span>
+                          <span>{favorites}</span>
+                        
                         </CustomButton>
                         <CustomButton classname="flex flex-row gap-2 bg-teal-900 p-1 text-xs font-medium items-center rounded-lg ">
                           <img src="mic.png" width="10" alt="" />{" "}
-                          <span>1061</span>
+                          <span>{score}</span>
                         </CustomButton>
-                        <span>. {method}</span>
+                        <span>. { type}</span>
                       </div>
                     </div>
                   </div>
@@ -208,6 +226,7 @@ const SeriesDisplaySection = ({
             viewPortWidth={viewPortWidth}
             viewPortWidth2={viewPortWidth2}
             displaySection={displaySection}
+            reviewsData={reviewsData}
           />
           <NewlyAddedSectionHomepage
             subtitle={subtitle}
@@ -216,7 +235,8 @@ const SeriesDisplaySection = ({
             viewPortWidth={viewPortWidth}
             viewPortWidth2={viewPortWidth2}
             displaySection={displaySection}
-          />
+            recentData={recentData}
+            />
           <JustCompletedSectionHomepage
             subtitle={subtitle}
             method={method}
@@ -224,7 +244,8 @@ const SeriesDisplaySection = ({
             viewPortWidth={viewPortWidth}
             viewPortWidth2={viewPortWidth2}
             displaySection={displaySection}
-          />
+            reviewsData={reviewsData}
+            />
         </div>
         <div
           className={`flex flex-col mb-20 ${

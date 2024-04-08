@@ -1,13 +1,19 @@
  
 import SeriesDisplaySection from "../../Components/seriesDisplaySection.jsx"
 import SwiperSliding from "../../Components/swiperSLiding.jsx"
-const MiddleSection= ({rating,subtitle,viewPortWidth,animeBlocks,method,Days,viewPortWidth2,handleDisplaysection,displaySection,setDisplaySection,animeTitles,data})=>{
+import RecentAnimeRecommendations from "../../hooks/useRecentAnimeRecommendations.jsx";
+import TopAnimeData from "../../hooks/useTopAnime.jsx";
+import TopAnimeReviewsData from "../../hooks/useTopAnimeReviews.jsx";
+const MiddleSection= ({rating,subtitle,viewPortWidth,animeBlocks,method,Days,viewPortWidth2,handleDisplaysection,displaySection,setDisplaySection,animeTitles})=>{
+    const {isError:topAnimeIsError,isLoading:topAnimeIsLoading,data:topAnimeData,error:TopAnimeError}=TopAnimeData();
+    const {isError:recentIsError,isLoading:recentIsLoading,data:recentData,error:recentError}=RecentAnimeRecommendations();
+    const {isError:reviewsIsError,isLoading:reviewsIsLoading,data:reviewsData,error:reviewsError}=TopAnimeReviewsData();
     return(
         <>
          <header
             className=" w-full flex flex-col justify-center items-center "
           >
-           <SwiperSliding animeTitles={animeTitles} rating={rating} subtitle={subtitle} viewPortWidth={viewPortWidth} data={data}/>
+           <SwiperSliding animeTitles={animeTitles} rating={rating} subtitle={subtitle} viewPortWidth={viewPortWidth} topAnimeData={topAnimeData}/>
           
             
           </header>
@@ -16,7 +22,7 @@ const MiddleSection= ({rating,subtitle,viewPortWidth,animeBlocks,method,Days,vie
          
               <SeriesDisplaySection
               
-              viewPortWidth={viewPortWidth} viewPortWidth2={viewPortWidth2}subtitle={subtitle} rating={rating} animeBlocks={animeBlocks} method={method} Days={Days} handleDisplaysection={handleDisplaysection} displaySection={displaySection} setDisplaySection={setDisplaySection}/>
+              viewPortWidth={viewPortWidth} viewPortWidth2={viewPortWidth2}subtitle={subtitle} rating={rating} animeBlocks={animeBlocks} method={method} Days={Days} handleDisplaysection={handleDisplaysection} displaySection={displaySection} setDisplaySection={setDisplaySection} recentData={recentData} reviewsData={reviewsData}/>
            </>
     )
 }
