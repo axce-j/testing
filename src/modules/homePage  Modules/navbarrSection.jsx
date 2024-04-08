@@ -59,7 +59,7 @@ const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,cli
                 })}
               </div>
               <i onClick={()=>navigate("/home")} className="flex cursor-pointer w-full">
-                <img src="logo3.png "  className="w-[150px]  " alt="" />
+                <img src="./logo3.png "  className="w-[150px]  " alt="" />
               </i>
               
             </div>

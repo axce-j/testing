@@ -19,11 +19,11 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles})=>{
 {animeTitles.map((titles,index)=>{
     return(
         <>
-        <SwiperSlide key={index}   > 
+        <SwiperSlide key={index}   >  
         <div className={`grid  mt-10  ${
       !viewPortWidth
         ? `grid-cols-[1fr,2fr] p-5 `
-        : `block bg-[url(img2.jpg)] bg- bg-cover bg-fit bg-no-repeat bg-center min-h-[30vh]  w-[100%] h-[30rem]`
+        : `block bg-[url(/img2.jpg)] bg- bg-cover bg-fit bg-no-repeat bg-center min-h-[30vh]  w-[100%] h-[30rem]`
     }`}>
        <div className={` flex flex-col  text-start px-4 box-border   h-full gap-4 text-[#9797a596] mobile:w-full mobile:items-center lgMobile:w-[70%] ${viewPortWidth? `justify-end w-[50%]   py-2`:`w-full justify-center`} `}>
    

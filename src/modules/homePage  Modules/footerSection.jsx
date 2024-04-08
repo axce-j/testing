@@ -4,7 +4,7 @@ const FooterSection=()=>{
            <footer
           className="py-[5rem]  relative px-[2rem] w-full mobile:h-[300px] mobile:py-[1rem] lgMobile:h-[350px] lgMobile:py-[2rem]"
           style={{
-            backgroundImage: "url(/img10.jpg)",
+            backgroundImage: "url(img10.jpg)",
             backgroundColor: "rgba(0,0,0,.7)",
             backgroundBlendMode: "overlay",
             backgroundPosition: "center",

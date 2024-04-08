@@ -12,7 +12,7 @@ const HomeInput=({width,height})=>{
               fontSize=".8rem"
               height={heightNew}
             >
-              <img src="/Vector.png" width="40%"  alt="" />
+              <img src="Vector.png" width="40%"  alt="" />
             </InputLeftElement>
             <Input height={heightNew}backgroundColor="#272424d9" 
             fontSize=".8rem"
@@ -20,7 +20,7 @@ const HomeInput=({width,height})=>{
             <InputRightElement fontSize=".7rem" width="7rem" height={heightNew}>
               <CheckboxIcon color="green.500" />
               <div className="flex flex-row gap-2  items-center w-100%">
-              <i> <img src="/book.png" width="11"alt="" /></i>
+              <i> <img src="book.png" width="11"alt="" /></i>
                 Easy Access
               </div>
                 
