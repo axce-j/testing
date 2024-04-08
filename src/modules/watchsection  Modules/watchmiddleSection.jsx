@@ -57,7 +57,7 @@ const WatchMiddleSection = ({ animeBlocks }) => {
             return (
               <>
                 <div className="bg-teal-900 hover:bg-teal-700 w-full h-auto flex flex-col gap-3 rounded-xl text-sm  p-3">
-                  <div className="bg-[url(img1.jpg)] bg-cover bg-center bg-no-repeat flex justify-start rounded-xl items-start pl-5 mobile:pl-2 lgMobile:pl-2 pt-4 w-[100%] h-[200px]">
+                  <div className="bg-[url(/img1.jpg)] bg-cover bg-center bg-no-repeat flex justify-start rounded-xl items-start pl-5 mobile:pl-2 lgMobile:pl-2 pt-4 w-[100%] h-[200px]">
                     <div
                       className="flex items-center
                     justift-center  flex-row gap-2  w-[400px] box.border"
