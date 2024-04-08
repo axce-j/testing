@@ -10,14 +10,14 @@ import ReadMangaPage from "./Pages/readMangaPage.jsx"
 function App() {
   return (
     <Routes>
-      <Route path="/"  element={<Top/>} />
-      <Route path="/home"  element={<Home/>}  />
-      <Route path="/trending" element={<Trending/>} />
-      <Route path="/newRelease"element={<NewRelease/>} />
-      <Route path="/special" element={<Special/>} />
-      <Route path="/watch2gether" element={<WatchSection/>} />
-      <Route path="/random" element={<RandomPage/>} />
-      <Route path="/readManga" element={<ReadMangaPage/>} />
+      <Route path="/#/"  element={<Top/>} />
+      <Route path="/#/home"  element={<Home/>}  />
+      <Route path="/#/trending" element={<Trending/>} />
+      <Route path="/#/newRelease"element={<NewRelease/>} />
+      <Route path="/#/special" element={<Special/>} />
+      <Route path="/#/watch2gether" element={<WatchSection/>} />
+      <Route path="/#/random" element={<RandomPage/>} />
+      <Route path="/#/readManga" element={<ReadMangaPage/>} />
       <Route path="error"/>
     </Routes>
   );
