@@ -253,7 +253,7 @@ const SeriesDisplaySection = ({
           }`}
         >
           <div
-            className="bg-[url(img13.png)] bg-cover bg-no-repeat bg-center grid grid-rows-2 justify-center w-full items-center gap-6  p-3 px-6 text-3xl mobile:text-lg  "
+            className="bg-[url(/img13.png)] bg-cover bg-no-repeat bg-center grid grid-rows-2 justify-center w-full items-center gap-6  p-3 px-6 text-3xl mobile:text-lg  "
             style={{
               backgroundColor: "rgba(0,0,0,0.65)",
               backgroundBlendMode: "overlay",
