@@ -20,7 +20,7 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,topAnimeData})=>
         
 
 {animeHeaderContent?.map((response,index)=>{
- const images= response?.images?.jpg?.image_url;
+ const images= response?.images?.jpg?.large_image_url;
  const titles=response?.title_english;
  const animeRating=response?.rating;
  const synopsis= response?.synopsis;

@@ -28,8 +28,8 @@ const SeriesDisplaySection = ({
             viewPortWidth ? `block` : `grid grid-cols-[3fr,1fr]`
           }`}
         >
-          <div className="grid grid-rows-[auto,1fr] gap-4">
-            <div className="flex flex-row items-center min-h-[80px] justify-between mobile:flex-col mobile:items-start mobile:min-h-[60px]">
+          <div className="flex flex-col gap-3">
+            <div className="flex md:flex-row  items-center min-h-[80px] justify-between mobile:flex-col mobile:items-start mobile:min-h-[60px]">
               <div className="text-2xl mobile:text-[15px] mobile:font-medium">
                 Recently Updated
               </div>
@@ -69,7 +69,7 @@ const SeriesDisplaySection = ({
               md:grid-cols-[repeat(4,minmax(150px,1fr))]
               sm:grid-cols-[repeat(3,minmax(100px,1fr))]
               lgMobile:grid-cols-[repeat(3,minmax(100px,1fr))]
-              mobile:grid-cols-[repeat(1,minmax(100px,1fr))]
+              mobile:grid-cols-[repeat(2,minmax(100px,1fr))]
               grid-rows-auto  gap-x-6 gap-y-9 box-border"
               >
                 {recentDataContent?.slice(0,10).map((response, index) => {
@@ -253,7 +253,7 @@ const SeriesDisplaySection = ({
           }`}
         >
           <div
-            className="bg-[url(/img13.png)] bg-cover bg-no-repeat bg-center grid grid-rows-2 justify-center w-full items-center gap-6  p-3 px-6 text-3xl mobile:text-lg  "
+            className="bg-[url(/img13.png)] bg-cover bg-no-repeat bg-center grid grid-rows-2 justify-center w-full items-center gap-6  p-3 px-6 text-3xl mobile:text-lg "
             style={{
               backgroundColor: "rgba(0,0,0,0.65)",
               backgroundBlendMode: "overlay",
@@ -307,11 +307,18 @@ const SeriesDisplaySection = ({
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            {animeBlocks.map((item, index) => {
+          {reviewsDataContent?.sort((a,b)=>b.favorites-a.favorites)?.slice(0,10)?.map((response, index) => {
+                 const images= response?.images?.jpg?.image_url;
+                 const titles=response?.title_english;
+                //  const rank=response?.rank;
+                 const type= response?.type;
+                 const score=response?.score;
+                //  const popularity=response?.popularity
+                 const favorites=response?.favorites
               return (
                 <div
                   key={index}
-                  className="grid rounded-lg grid-cols-[0.2fr,auto,6fr]
+                  className="grid rounded-lg md:grid-cols-[0.2fr,auto,6fr]
                   mobile:grid-cols-[.6fr,auto,2fr] mobile:gap-2 lgMobile:grid-cols-[.6fr,1fr,3fr] gap-4 items-center 
                          px-2 bg-[#101010] "
                 >
@@ -321,16 +328,16 @@ const SeriesDisplaySection = ({
                   <div className="mobile:w-[45px]">
                     {" "}
                     <img
-                      src="img7.jpg"
+                      src={images}
                       className="h-20 mobile:w-full "
                       alt=""
                     />
                   </div>
                   <div className="flex flex-col justify-start w-full items-start mobile:text-[12px] gap-1">
-                    <div>{item}</div>
+                    <div>{titles}</div>
                     <div className="flex flex-row gap-3 mobile:gap-1 w-full items-center">
                       <CustomButton classname=" flex flex-row gap-3 bg-teal-900 p-1 text-xs mobile:text-[.7rem] mobile:gap-1 font-medium rounded-lg">
-                        <span>{subtitle}</span>
+                        <span>{score}</span>
                         <span>1098</span>
                       </CustomButton>
                       <CustomButton classname="flex flex-row gap-2 bg-teal-900 p-1 text-xs mobile:text-[.7rem] mobile:gap-1  font-medium items-center rounded-lg ">
