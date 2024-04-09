@@ -39,14 +39,17 @@ const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,cli
                   return (
                     <CustomButton
                     onClick={() => {
-                      if (response === "watch2gether") {
-                        navigate("/watch2gether");
+                      if (response === "BROWSE") {
+                        navigate("/browse");
                       }
-                      if (response === "RANDOM") {
-                        navigate("/random");
+                      if (response === "NEWS") {
+                        navigate("/news");
                       }
                       if (response === "READ MANGA") {
                         navigate("/readManga");
+                      }
+                      if (response === "HOME") {
+                        navigate("/home");
                       }
                     }}
                     
@@ -73,7 +76,7 @@ const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,cli
                   <i>
                     <img src="sideshow.png" alt="" />
                   </i>
-                  Watch2gether
+                  Browse
                 </span>
                 <span 
                  onClick={() => navigate("/random")}
@@ -81,7 +84,7 @@ const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,cli
                   <i>
                     <img src="shuffle.png" alt="" />
                   </i>
-                  Random
+                  News
                 </span>
                 <span 
                  onClick={() => navigate("/readManga")}

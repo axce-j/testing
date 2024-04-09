@@ -29,7 +29,7 @@ const FooterSection=()=>{
                 <span>
                   <img src="logo3.png" alt="logo" width="150" className="mobile:w-20" />
                 </span>
-                <span className="bg-white flex flex-row gap-3 rounded-2xl text-black p-2 text-xs font-bold mobile:w-20 mobile:gap-2 mobile:text-[10px] mobile:text-center mobile:flex-col">
+                <span className="bg-white flex md:flex-row gap-3 rounded-2xl text-black p-2 text-xs font-bold mobile:w-20 mobile:gap-2 mobile:text-[10px] mobile:text-center mobile:flex-col">
                   Join now
                   <span className="flex flex-row gap-2 mobile:gap-3">
                   <i >

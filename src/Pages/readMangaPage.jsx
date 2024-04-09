@@ -70,17 +70,15 @@ const ReadMangaPage = () => {
         "ADDED",
         "REQUEST",
       ]
-    : [
+      : [
         "HOME",
         "GENRE",
         "NEWEST",
-        "TYPES",
-        "UPDATE",
         "ONGOING",
-        "SPECIAL",
+        "NEWS",
         "ADDED",
         "REQUEST",
-        "watch2gether",
+        "BROWSE",
         "DONATE",
         "RANDOM",
         "READ MANGA",

@@ -45,7 +45,7 @@ const Top = () => {
             <img src="logo3.png" alt="" />
           </div>
           <div>
-            <HomeInput width="35rem" height="2rem" />
+            <HomeInput width="35rem" height="2rem" placeholder="Search anime..."/>
           </div>
         </div>
         <div className="text-white gap-4 flex py-4 flex-col justify-center items-center  rounded-full h-[36rem] w-[36rem] absolute inset-x-[47%] inset-y-[20%]">

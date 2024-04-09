@@ -141,10 +141,10 @@ const SeriesDisplaySection = ({
               {" "}
               <div className="pl-2 text-2xl">Top anime</div>
               <div className="bg-gray-700 flex rounded flex-row p-1 gap-2">
-                <span className="bg-red-400 rounded p-2 text-xs">Day</span>
-                <span className="rounded p-2 text-xs">Week</span>
-                <span className="rounded p-2 text-xs">Month</span>
-              </div>
+               <CustomButton classname="focus:bg-red-400 rounded p-2 text-xs">Days</CustomButton> 
+               <CustomButton classname="focus:bg-red-400 rounded p-2 text-xs">Week</CustomButton> 
+              <CustomButton classname="focus:bg-red-400 rounded p-2 text-xs">Month</CustomButton> 
+            </div>
             </div>
             <div className="flex flex-col gap-2">
               {reviewsDataContent?.sort((a,b)=>b.favorites-a.favorites)?.slice(0,10)?.map((response, index) => {
@@ -301,9 +301,9 @@ const SeriesDisplaySection = ({
             {" "}
             <div className="pl-2 text-2xl">Top anime</div>
             <div className="bg-gray-700 flex rounded flex-row p-1 gap-2">
-              <span className="bg-red-400 rounded p-2 text-xs">Day</span>
-              <span className="rounded p-2 text-xs">Week</span>
-              <span className="rounded p-2 text-xs">Month</span>
+               <CustomButton classname="focus:bg-red-400 rounded p-2 text-xs">Days</CustomButton> 
+               <CustomButton classname="focus:bg-red-400 rounded p-2 text-xs">Week</CustomButton> 
+              <CustomButton classname="focus:bg-red-400 rounded p-2 text-xs">Month</CustomButton> 
             </div>
           </div>
           <div className="flex flex-col gap-4">

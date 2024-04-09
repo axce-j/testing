@@ -68,10 +68,10 @@ const Home = () => {
     "TYPES",
     "UPDATE",
     "ONGOING",
-    "SPECIAL",
+    "RANDOM",
     "ADDED",
-    "REQUEST",
-    "watch2gether",
+    "BROWSE",
+    "NEWS",
     "DONATE",
   ];
   const method = "TV";
@@ -89,17 +89,15 @@ const Home = () => {
         "ADDED",
         "REQUEST",
       ]
-    : [
+      : [
         "HOME",
         "GENRE",
         "NEWEST",
-        "TYPES",
-        "UPDATE",
         "ONGOING",
-        "SPECIAL",
+        "NEWS",
         "ADDED",
         "REQUEST",
-        "watch2gether",
+        "BROWSE",
         "DONATE",
         "RANDOM",
         "READ MANGA",

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // import HomeInput from "../Components/homeInput";
-import WatchMiddleSection from "../modules/watchsection  Modules/watchmiddleSection.jsx";
+import NewsMiddleSection from "../modules/Browse  Modules/newsMiddleSection.jsx";
 import FooterSection from "../modules/homePage  Modules/footerSection.jsx";
 import NavBarSection from "../modules/homePage  Modules/navbarrSection.jsx";
 const RandomPage = () => {
@@ -69,17 +69,15 @@ const RandomPage = () => {
         "ADDED",
         "REQUEST",
       ]
-    : [
+      : [
         "HOME",
         "GENRE",
         "NEWEST",
-        "TYPES",
-        "UPDATE",
         "ONGOING",
-        "SPECIAL",
+        "NEWS",
         "ADDED",
         "REQUEST",
-        "watch2gether",
+        "BROWSE",
         "DONATE",
         "RANDOM",
         "READ MANGA",
@@ -147,7 +145,7 @@ const RandomPage = () => {
         </nav>
 
         <div className="w-full mt-10"> 
-        <WatchMiddleSection animeBlocks={animeBlocks}/>
+        <NewsMiddleSection animeBlocks={animeBlocks}/>
         </div>
 
         <div className="flex flex-col justify-end items-end">

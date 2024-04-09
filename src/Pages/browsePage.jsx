@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // import HomeInput from "../Components/homeInput";
-import WatchMiddleSection from "../modules/watchsection  Modules/watchmiddleSection.jsx";
+import BrowseMiddleSection from "../modules/Browse  Modules/browseMiddleSection.jsx";
 import FooterSection from "../modules/homePage  Modules/footerSection.jsx";
 import NavBarSection from "../modules/homePage  Modules/navbarrSection.jsx";
 const WatchSection = () => {
@@ -69,17 +69,15 @@ const WatchSection = () => {
         "ADDED",
         "REQUEST",
       ]
-    : [
+      : [
         "HOME",
         "GENRE",
         "NEWEST",
-        "TYPES",
-        "UPDATE",
         "ONGOING",
-        "SPECIAL",
+        "NEWS",
         "ADDED",
         "REQUEST",
-        "watch2gether",
+        "BROWSE",
         "DONATE",
         "RANDOM",
         "READ MANGA",
@@ -147,7 +145,7 @@ const WatchSection = () => {
         </nav>
 
         <div className="w-full mt-10"> 
-        <WatchMiddleSection animeBlocks={animeBlocks}/>
+        <BrowseMiddleSection animeBlocks={animeBlocks}/>
         </div>
 
         <div className="     bottom-0 left-0 right-0 ">

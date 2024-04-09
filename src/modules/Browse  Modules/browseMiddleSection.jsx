@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import CustomButton from "../../Components/customButton";
 
-const WatchMiddleSection = ({ animeBlocks }) => {
+const BrowseMiddleSection = ({ animeBlocks }) => {
   const navigate = useNavigate();
   return (
     <>
@@ -22,13 +22,13 @@ const WatchMiddleSection = ({ animeBlocks }) => {
                 All
               </CustomButton>
               <CustomButton classname="hover:text-gray-400 focus:text-gray-300">
-                Live
+                Top
               </CustomButton>
               <CustomButton classname="hover:text-gray-400 focus:text-gray-300">
-                Schedule
+                Recent
               </CustomButton>
               <CustomButton classname="hover:text-gray-400 focus:text-gray-300">
-                Waiting
+                Classics
               </CustomButton>
               <CustomButton classname="hover:text-gray-400 focus:text-gray-300">
                 Ended
@@ -137,4 +137,4 @@ const WatchMiddleSection = ({ animeBlocks }) => {
     </>
   );
 };
-export default WatchMiddleSection;
+export default BrowseMiddleSection;
