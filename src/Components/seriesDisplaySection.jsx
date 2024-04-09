@@ -14,7 +14,13 @@ const SeriesDisplaySection = ({
   displaySection,
   setDisplaySection,
   recentData,
-  reviewsData
+  reviewsData,
+  tabsData,
+  tabState,
+  handleTabData,
+  contentData,
+  contentState,
+  handleContentData
 }) => {
   const recentDataContent=recentData?.data?.data;
   const reviewsDataContent=reviewsData?.data?.data
@@ -141,9 +147,12 @@ const SeriesDisplaySection = ({
               {" "}
               <div className="pl-2 text-2xl">Top anime</div>
               <div className="bg-gray-700 flex rounded flex-row p-1 gap-2">
-               <CustomButton classname="focus:bg-red-400 rounded p-2 text-xs">Days</CustomButton> 
-               <CustomButton classname="focus:bg-red-400 rounded p-2 text-xs">Week</CustomButton> 
-              <CustomButton classname="focus:bg-red-400 rounded p-2 text-xs">Month</CustomButton> 
+              {    console.log(tabsData)}
+              {tabsData?.map((items,index)=>(
+              <span onClick={()=>handleTabData(index)} key={index} className={` ${tabState===items?`bg-red-400`:``} rounded p-2 text-xs`}>{items}</span> 
+              ))
+        
+            }
             </div>
             </div>
             <div className="flex flex-col gap-2">
@@ -196,28 +205,41 @@ const SeriesDisplaySection = ({
             className={`bg-[#202023] px-1 py-1 flex flex-row justify-between rounded-lg gap-1 ${
               viewPortWidth2 ? `block` : `hidden`
             }`}
-          >
-            <CustomButton
-              onClick={() => handleDisplaysection(1)}
-              classname="hover:bg-gray-600 py-1 px-2 focus:bg-teal-800 rounded-lg w-full gap-3 flex flex-row mobile:flex-col mobile:text-xs mobile:justify-center mobile:items-center mobile:px-0 mobile:gap-2  lgMobile:text-xs lgMobile:px-0 lgMobile:gap-2 lgMobile:justify-center "
-            >
-              <span>New</span>
+          >     
+                  {contentData?.map((items,index)=>{
+
+                    return(
+                      <>
+                       <CustomButton
+              onClick={
+                () => [handleDisplaysection(index),handleContentData(index)]
+              }
+
+              classname={` hover:bg-[rgba(152,213,172,.2)] focus:bg-teal-800 py-1 px-2  ${contentState===items?`bg-teal-800`:``} rounded-lg w-full gap-3 flex flex-row mobile:flex-col mobile:text-xs mobile:justify-center mobile:items-center mobile:px-0 mobile:gap-2  lgMobile:text-xs lgMobile:px-0 lgMobile:gap-2 lgMobile:justify-center`}
+            >  {items}</CustomButton>
+                      
+                      </>
+                    )
+                  })}       
+          
+           
+              {/* <span>New</span>
               <span>Release</span>
             </CustomButton>
             <CustomButton
               onClick={() => handleDisplaysection(2)}
-              classname="hover:bg-gray-600 py-1 px-2 focus:bg-teal-800 rounded-lg w-full gap-3 flex flex-row mobile:flex-col mobile:text-xs mobile:justify-center mobile:items-center mobile:px-0 mobile:gap-2  lgMobile:text-xs lgMobile:px-0 lgMobile:gap-2 lgMobile:justify-center  "
+              classname={` py-1 px-2 ${displaySection===2? `hover:bg-gray-600 focus:bg-teal-800`:''} rounded-lg w-full gap-3 flex flex-row mobile:flex-col mobile:text-xs mobile:justify-center mobile:items-center mobile:px-0 mobile:gap-2  lgMobile:text-xs lgMobile:px-0 lgMobile:gap-2 lgMobile:justify-center`}
             >
               <span>Newly</span>
               <span>Added</span>
             </CustomButton>
             <CustomButton
               onClick={() => handleDisplaysection(3)}
-              classname="hover:bg-gray-600 py-1 px-2 focus:bg-teal-800 rounded-lg  w-full gap-3 flex flex-row mobile:flex-col mobile:text-xs mobile:justify-center mobile:items-cente pmobile:x-0r mobile:gap-2 lgMobile:text-xs llgMobile:px-0 gMobile:gap-2 lgMobile:justify-center "
+              classname={` py-1 px-2 ${displaySection===3? `hover:bg-gray-600 focus:bg-teal-800`:''} rounded-lg w-full gap-3 flex flex-row mobile:flex-col mobile:text-xs mobile:justify-center mobile:items-center mobile:px-0 mobile:gap-2  lgMobile:text-xs lgMobile:px-0 lgMobile:gap-2 lgMobile:justify-center`}
             >
               <span>Just</span>
               <span>Completed</span>
-            </CustomButton>
+            </CustomButton> */}
           </div>
           <ReleaseSectionHomepage
             subtitle={subtitle}
@@ -259,7 +281,7 @@ const SeriesDisplaySection = ({
               backgroundBlendMode: "overlay",
             }}
           >
-            <div className="flex flex-row  gap-3 mobile:flex-col lgMobile:flex-col ">
+            <div className="flex sm:flex-row  gap-3 mobile:flex-col lgMobile:flex-col ">
               <span className="font-medium">Estimated Schedule- </span>
               <span className="text-gray-500 text-[80%]">
                 {" "}
@@ -300,10 +322,13 @@ const SeriesDisplaySection = ({
           <div className="flex flex-row justify-between items-center max-h-[50px]">
             {" "}
             <div className="pl-2 text-2xl">Top anime</div>
+
+
+           
             <div className="bg-gray-700 flex rounded flex-row p-1 gap-2">
-               <CustomButton classname="focus:bg-red-400 rounded p-2 text-xs">Days</CustomButton> 
-               <CustomButton classname="focus:bg-red-400 rounded p-2 text-xs">Week</CustomButton> 
-              <CustomButton classname="focus:bg-red-400 rounded p-2 text-xs">Month</CustomButton> 
+            {tabsData?.map((items,index)=>(
+              <CustomButton onClick={()=>handleTabData(index)} key={index} classname={` ${tabState===items?`bg-red-400`:``} rounded p-2 text-xs`}>{items}</CustomButton> 
+            ))}
             </div>
           </div>
           <div className="flex flex-col gap-4">

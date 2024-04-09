@@ -4,7 +4,7 @@ const JustCompletedSectionHomepage=({animeBlocks,subtitle,viewPortWidth,viewPort
   const reviewsDataContent=reviewsData?.data?.data
     return(
         <>
-        <div className={` w-full grid grid-cols-auto  gap-4 py-2 ${viewPortWidth2? (displaySection===3? `block`:`hidden`) :``} `}>
+        <div className={` w-full grid grid-cols-auto  gap-4 py-2 ${viewPortWidth2? (displaySection===2? `block`:`hidden`) :``} `}>
                 <div className="flex flex-row justify-between items-center max-h-[50px]">
                   <div className="flex flex-row justify-start gap-3 text-3xl mobile:text-xl items-center ">
                     <span>JUST COMPLETED</span>

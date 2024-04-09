@@ -21,7 +21,14 @@ const Home = () => {
 // };
 
 // help();
-
+const tabsData = [
+  "Day",
+  "Week",
+  "Month",    ];
+  const contentData = [
+    "New Release",
+    "Newly Added",
+    "Just Completed",    ];
 
   // const topDiv=document.getElementById("topDiv")
   const [clicked, setclick] = useState(false);
@@ -31,9 +38,16 @@ const Home = () => {
   const [searchClick2, setSearchClick2] = useState(false);
   const [languageEnglish, setToNotEnglish] = useState(false);
   const [displaySection ,setDisplaySection]= useState(1)
+  const [tabState,setTabState]=useState(tabsData[0])
+  const [contentState,setContentState]=useState(contentData[0])
   // const topWidth=topDiv.offsetWidth
   // console.log(topWidth)
-  
+  const handleTabData=(i)=>{
+      setTabState(tabsData[i])
+  }
+  const handleContentData=(i)=>{
+    setContentState(contentData[i])
+}
 
   useEffect(() => {
     function handleResize() {
@@ -102,18 +116,7 @@ const Home = () => {
         "RANDOM",
         "READ MANGA",
       ];
-      const animeTitles = [
-        "Attack on Titan",
-        "Naruto",
-        "One Piece",
-        "Death Note",
-        "Dragon Ball Z",
-        "My Hero Academia",
-        "Fullmetal Alchemist: Brotherhood",
-        "Demon Slayer: Kimetsu no Yaiba",
-        "Tokyo Ghoul",
-        "Sword Art Online"
-    ];
+     
   const handleclick = () => {
     // setclick(!clicked);
     if (clicked === false) {
@@ -171,7 +174,7 @@ const Home = () => {
 
         <div className="w-full mt-10 z-30">
           {" "}
-          <MiddleSection animeTitles={animeTitles} viewPortWidth={viewPortWidth} subtitle={subtitle} rating={rating} animeBlocks={animeBlocks} method={method} Days={Days} viewPortWidth2={viewPortWidth2} handleDisplaysection={handleDisplaysection} displaySection={displaySection} setDisplaySection={setDisplaySection}  />
+          <MiddleSection tabsData={tabsData} tabState={tabState} contentData={contentData} handleContentData={handleContentData} contentState={contentState} handleTabData={handleTabData} viewPortWidth={viewPortWidth} subtitle={subtitle} rating={rating} animeBlocks={animeBlocks} method={method} Days={Days} viewPortWidth2={viewPortWidth2} handleDisplaysection={handleDisplaysection} displaySection={displaySection} setDisplaySection={setDisplaySection}  />
          
         
         </div>

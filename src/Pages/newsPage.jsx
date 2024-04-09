@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // import HomeInput from "../Components/homeInput";
-import NewsMiddleSection from "../modules/Browse  Modules/newsMiddleSection.jsx";
+import NewsMiddleSection from "../modules/News Modules/newsMiddleSection.jsx";
 import FooterSection from "../modules/homePage  Modules/footerSection.jsx";
 import NavBarSection from "../modules/homePage  Modules/navbarrSection.jsx";
 const RandomPage = () => {
