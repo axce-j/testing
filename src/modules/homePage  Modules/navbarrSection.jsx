@@ -71,7 +71,7 @@ const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,cli
              </div>
               <div className={`${viewPortWidth2?`hidden`:``}${viewPortWidth&&(!viewPortWidth2)?`text-white text-m flex flex-row items-center gap-6 justify-end w-full `:` text-white text-m flex flex-row items-center gap-6 justify-start w-full`}`}>
                 <span 
-                onClick={() => navigate("/watch2gether")}
+                onClick={() => navigate("/browse")}
                  className="flex flex-row gap-1 cursor-pointer items-center hover:text-teal-800">
                   <i>
                     <img src="sideshow.png" alt="" />
@@ -79,7 +79,7 @@ const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,cli
                   Browse
                 </span>
                 <span 
-                 onClick={() => navigate("/random")}
+                 onClick={() => navigate("/news")}
                 className="flex flex-row gap-1 cursor-pointer items-center hover:text-teal-800">
                   <i>
                     <img src="shuffle.png" alt="" />
