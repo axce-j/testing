@@ -130,7 +130,7 @@ const RandomPage = () => {
         id="topDiv"
         className="grid grid-rows-auto gap-40 h-screen text-white  bg-[#0b0a0b]"
       >
-        <nav className="fixed bg-[#101010] w-full">
+        <nav className="fixed bg-[#101010] w-full z-40">
           <NavBarSection
             viewPortWidth2={viewPortWidth2}
             viewPortWidth={viewPortWidth}
@@ -144,7 +144,7 @@ const RandomPage = () => {
           />
         </nav>
 
-        <div className="w-full mt-10"> 
+        <div className="w-full mt-10 z-10"> 
         <NewsMiddleSection animeBlocks={animeBlocks}/>
         </div>
 

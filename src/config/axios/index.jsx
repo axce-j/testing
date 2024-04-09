@@ -14,6 +14,9 @@ export const getRecentAnimeRecommendations=()=>{
 export const getAnimeTopReviews=()=>{
     return axios.get("top/reviews")
 }
+export const getAnime=()=>{
+    return axios.get("anime")
+}
 export const getAnimeNews=(id)=>{
     return axios.get(`anime/${id}/news`)
 }

@@ -1,13 +1,13 @@
 import {useQuery} from "@tanstack/react-query"
-import { getAnimeNews } from "../config/axios"
+import { getAnime, getAnimeNews} from "../config/axios"
 
-const AnimeNews=()=>{
+const AnimeNewsData=(newsId)=>{
     return useQuery(
         {
-            queryKey:['product-data'],
-            queryFn:()=>getAnimeNews(2),
+            queryKey:['product-data',newsId],
+            queryFn:()=>getAnimeNews(newsId),
         
         }
     )
 }
-export default AnimeNews;
+export default AnimeNewsData;

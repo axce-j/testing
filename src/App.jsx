@@ -4,8 +4,9 @@ import Home from "./Pages/home.jsx"
 import Trending from "./Pages/trending.jsx" 
 import NewRelease from "./Pages/newRelease.jsx"
 import Special from "./Pages/Special.jsx"
-import WatchSection from "./Pages/browsePage.jsx"
-import RandomPage from "./Pages/newsPage.jsx"
+import BrowsePage from "./Pages/browsePage.jsx"
+import NewsPage from "./Pages/newsPage.jsx"
+import NewsMainPage from "./Pages/newsMainPage.jsx"
 import ReadMangaPage from "./Pages/readMangaPage.jsx"
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
       <Route path="/trending" element={<Trending/>} />
       <Route path="/newRelease"element={<NewRelease/>} />
       <Route path="/special" element={<Special/>} />
-      <Route path="/browse" element={<WatchSection/>} />
-      <Route path="/news" element={<RandomPage/>} />
+      <Route path="/browse" element={<BrowsePage/>} />
+      <Route path="/news" id="" element={<NewsPage/>} />
+      <Route path="/newsPage/:newsId" id="" element={<NewsMainPage/>} />
       <Route path="/readManga" element={<ReadMangaPage/>} />
       <Route path="error"/>
     </Routes>
