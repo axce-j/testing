@@ -38,8 +38,10 @@ const NewsMiddleSection = ({ animeBlocks }) => {
             "
             >
               {ani?.map((response, index) => {
+
                 const images = response?.images?.jpg?.image_url;
-                const titles = response?.title_english;
+                const titles = response?.title;
+                const titles_english= response?.title_english;
                 const youtubeImages =
                   response?.trailer?.images?.large_image_url;
                 //  const rank=response?.rank;
@@ -47,8 +49,11 @@ const NewsMiddleSection = ({ animeBlocks }) => {
                 const score = response?.score;
                 //  const popularity=response?.popularity
                 const favorites = response?.favorites;
+                const mainTitle= titles_english !== null ? titles_english
+                 : titles;
+                 console.log(mainTitle);
                 const mainImage =
-                  youtubeImages !== null ? youtubeImages : images;
+                images !== null ? images : youtubeImages;
                 return (
                   <>
                     <div
@@ -97,7 +102,7 @@ const NewsMiddleSection = ({ animeBlocks }) => {
                             <CustomButton classname="bg-red-800  p-1 sm:text-xl sm:w-[150px]  mobile:w-[20px] lgMobile:w-[28px]">
                               News
                             </CustomButton>
-                            <span>{titles}</span>
+                            <span>{mainTitle}</span>
                           </span>
                         </div>
                   
