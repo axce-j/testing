@@ -6,6 +6,7 @@ import FooterSection from "../modules/homePage  Modules/footerSection.jsx";
 import { useEffect, useState } from "react";
 import CustomButton from "../Components/customButton.jsx";
 import defaultImage from "/img12.jpg"
+import { AnimeDataId } from "../hooks/useAnime.jsx";
 
 
 const NewsMainPage = () => {
@@ -155,13 +156,18 @@ const NewsMainPage = () => {
   const params = useParams();
   const { newsId } = params;
   const { isError, isLoading, data, Error } = AnimeNewsData(newsId);
+  const { isError:idIsError, isLoading:idIsLoading, data:idData, Error:idError } = AnimeDataId(newsId);
+  
+  
+  const animeIdData= idData?.data
+  const animeTitleId= animeIdData?.data?.title || animeIdData?.data?.title_english
   const newsData = data?.data;
   const firstImage=newsData?.data[0]?.images?.jpg?.image_url;
   const SecondImage=newsData?.data[1]?.images?.jpg?.image_url;
    
   
   const mainImage=  firstImage|| SecondImage ||  defaultImage
-  console.log(mainImage);
+  console.log(newsData);
   return (
     <>
       <div
@@ -190,49 +196,29 @@ const NewsMainPage = () => {
               className=" h-[550px] w-full text-xl bg-cover bg-no-repeat    font-bold  flex flex-col justify-center items-center"
               style={{
                 backgroundImage: `url(${mainImage})`,
-                backgroundColor:"rgba(0,0,0,0.4)",
-                backgroundBlendMode:"overlay",
+                backgroundColor: "rgba(0,0,0,0.4)",
+                backgroundBlendMode: "overlay",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
               }}
             >
-              <div className="  flex flex-col w-full gap-4 items-center justify-center"
-             
-              
+              <div
+                className="  flex flex-col w-full gap-6 items-center justify-center"
+                // style={{
+                //   transform: " translate(-473px, 17px) "
+                // }}
               >
                 {" "}
-                <div className="flex flex-row w-full gap-20 justify-center "
-                 style={{
-                  transform: "rotateX(29deg) rotateY(-57deg) rotateZ(15deg) skew(21.25deg, 2.5deg)  "
-                }}
-                >
-                
-              
-               {newsData?.data[0]?.title?<div
-                className=" text-2xl p-4"
-                style={{
-                 background: 'rgba( 20, 21, 20, 0.8)',
-                 boxShadow: ' 0 8px 32px 0 rgba( 31, 38, 135, 0.37 )',
-                 backdropFilter: 'blur(13.5px)',
-                 WebkitBackdropFilter: 'blur(13.5px)',
-                 borderRadius: '10px',
-               }}
-               ><span>{newsData?.data[0]?.title}</span></div>:[]} 
-                {newsData?.data[1]?.title?<div
-                               className=" text-2xl p-4"
-                style={{
-                 background: 'rgba( 20, 21, 20, 0.8)',
-                 boxShadow: ' 0 8px 32px 0 rgba( 31, 38, 135, 0.37 )',
-                 backdropFilter: 'blur(13.5px)',
-                 WebkitBackdropFilter: 'blur(13.5px)',
-                 borderRadius: '10px',
-               }}
-               ><span>{newsData?.data[1]?.title}</span></div>:[]} 
-                
+                <div className=" flex w-fit  justify-center p-3 items-center gap-2 flex-col "
+                 style={{ background: 'rgba(10, 21, 20, 0.8)',
+                  boxShadow: '0 3px 5px 0 rgba(31, 38, 135, 0.37)',
+                  backdropFilter: 'blur(13.5px)',
+                  WebkitBackdropFilter: 'blur(13.5px)',
+                  borderRadius: '10px',
+                }}>
+                 <span className="text-sm font-bold text-teal-400"> Review latest knews from </span><span className="text-3xl">{animeTitleId}</span>
                 </div>
-                
-                
                 <CustomButton
                   onClick={() => navigate("/home")}
                   classname="bg-teal-800 text-xl w-48 p-2 rounded-lg"
@@ -241,60 +227,106 @@ const NewsMainPage = () => {
                 </CustomButton>
               </div>
             </div>
-            <div className="flex flex-row justify-center">
-             {
-              newsData?.data[0]?.excerpt? 
-                
-                <div className="  h-full flex flex-col gap-4 p-3 rounded-lg mx-10  -translate-y-[2rem]"
-                style={{
-                  background: 'rgba( 84, 202, 158, 0.25)',
-                  boxShadow: '  0 2px 12px 0 rgba( 31, 38, 135, 0.37)',
-                  backdropFilter: 'blur(7px)',
-                  WebkitBackdropFilter: 'blur(7px)',
-                  borderRadius: '10px',
-                }}>
-                <div className="w-full text-center font-extrabold bg-white text-black rounded">
-                  Last Anime News
-                </div>
-                <div className="flex flex-row items-center">
 
-                <span>$-</span><span>{newsData?.data[0]?.excerpt}</span>
 
-</div>
-                 
-              </div>
-                
-              :   []        } 
+
+
+
+            {(newsData?.data[0]?.mal_id)? (
              
-             {
-              newsData?.data[1]?.excerpt? 
+
+
+
+
+<div className="flex flex-row justify-center">
+{newsData?.data[0]?.excerpt ? (
+  <div
+    className="  h-full flex flex-col gap-4 p-3 rounded-lg mx-10  -translate-y-[2rem]"
+    style={{
+      background: "rgba( 84, 202, 158, 0.25)",
+      boxShadow: "  0 2px 12px 0 rgba( 31, 38, 135, 0.37)",
+      backdropFilter: "blur(7px)",
+      WebkitBackdropFilter: "blur(7px)",
+      borderRadius: "10px",
+    }}
+  >
+    <div className="w-full text-center font-extrabold bg-white text-black rounded">
+    {newsData?.data[0]?.title ? (
+        <div
+        
+        >
+          <span>{newsData?.data[0]?.title}</span>
+        </div>
+      ) : (
+        []
+      )}
+    </div>
+    <div className="flex flex-row items-center">
+      <span>$-</span>
+      <span>{newsData?.data[0]?.excerpt}</span>
+    </div>
+  </div>
+) : (
+  []
+)}
+
+{newsData?.data[1]?.excerpt ? (
+  <div
+    className="  h-full flex flex-col gap-4 p-3 rounded-lg mx-10  -translate-y-[2rem]"
+    style={{
+      background: "rgba( 84, 202, 158, 0.25)",
+      boxShadow: "  0 2px 12px 0 rgba( 31, 38, 135, 0.37)",
+      backdropFilter: "blur(7px)",
+      WebkitBackdropFilter: "blur(7px)",
+      borderRadius: "10px",
+    }}
+  >
+    <div className="w-full text-center font-extrabold bg-white text-black rounded">
+    {newsData?.data[1]?.title ? (
+        <div
+        
+         
+        >
+          <span>{newsData?.data[1]?.title}</span>
+        </div>
+      ) : (
+        []
+      )}
+    </div>
+    <div className="flex flex-row items-center">
+      <span>$-</span>
+      <span>{newsData?.data[1]?.excerpt}</span>
+    </div>
+  </div>
+) : (
+  []
+)}
+</div>
+              ) : (
                 
-                <div className="  h-full flex flex-col gap-4 p-3 rounded-lg mx-10  -translate-y-[2rem]"
-                
+
+
+                <div
+                className="  h-full flex flex-col gap-4 p-3 rounded-lg mx-10  -translate-y-[2rem]"
                 style={{
-                  background: 'rgba( 84, 202, 158, 0.25)',
-                  boxShadow: '  0 2px 12px 0 rgba( 31, 38, 135, 0.37)',
-                  backdropFilter: 'blur(7px)',
-                  WebkitBackdropFilter: 'blur(7px)',
-                  borderRadius: '10px',
+                  background: "rgba( 84, 202, 158, 0.25)",
+                  boxShadow: "  0 2px 12px 0 rgba( 31, 38, 135, 0.37)",
+                  backdropFilter: "blur(7px)",
+                  WebkitBackdropFilter: "blur(7px)",
+                  borderRadius: "10px",
                 }}
-                >
+              >
                 <div className="w-full text-center font-extrabold bg-white text-black rounded">
-                  Last Anime News
+                No news at the moment
                 </div>
                 <div className="flex flex-row items-center">
-
-                <span>$-</span><span>{newsData?.data[1]?.excerpt}</span>
-
-</div>
-                 
+                  <span>$-</span>
+                  <span>No news at the moment </span>
+                </div>
               </div>
-                
-              :   []        } 
-              
-              
-            </div>
-            
+              )}
+
+           
           </div>
         </div>
 

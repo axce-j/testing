@@ -20,5 +20,7 @@ export const getAnime=()=>{
 export const getAnimeNews=(id)=>{
     return axios.get(`anime/${id}/news`)
 }
-
+export const getAnimeId=(id)=>{
+    return axios.get(`anime/${id}`)
+}
 export default axios;
