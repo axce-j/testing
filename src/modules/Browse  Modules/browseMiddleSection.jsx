@@ -38,8 +38,8 @@ const BrowseMiddleSection = ({ animeBlocks,viewPortWidth,handleTabData,tabState,
                 sm:grid-rows-[repeat(3,minmax(200px,300px))]
                 md:grid-cols-[repeat(3,minmax(200px,300px))]
                 lg:grid-cols-[repeat(4,minmax(200px,300px))]
-                xl:grid-cols-[repeat(4,minmax(250px,400px))]
-                ml:grid-cols-[repeat(4,minmax(500px,550px))]
+                xl:grid-cols-[repeat(4,minmax(220px,350px))]
+                ml:grid-cols-[repeat(4,minmax(320px,450px))]
             justify-center grid-rows-auto  gap-5
             
             "
