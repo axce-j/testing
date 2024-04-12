@@ -10,7 +10,7 @@ const FilterTags=({animeDataContent})=>{
                 <input type="text" placeholder="search here..."  className="w-[90%]  pl-5 text-xs h-[20px] bg-gray-700 outline-none rounded" />
                 
             </div>
-            <div className=" mobile:hidden lgMobile:flex sm:flex xl:flex lg:flex md:flex ml:flex  flex-row gap-2 itmes-center bg-pink-900 hover:bg-red-400 px-2"> <span className="flex flex-row items-center "><i><img src="./filter.png" width="15px" height="10px" alt="" /></i></span><CustomButtonBrowse classname="w-16 md:w-16 lg:w-16 md:text-[9px] font-medium h-10 bg-pink-900 hover:bg-red-400 ">Filter</CustomButtonBrowse></div>
+            <div className=" mobile:hidden lgMobile:flex sm:flex xl:flex lg:flex md:flex ml:flex  flex-row gap-2 itmes-center bg-pink-900 hover:bg-red-400 w-fit px-2"> <span className="flex flex-row items-center "><i><img src="./filter.png" width="15px" height="10px" alt="" /></i></span><CustomButtonBrowse classname=" font-medium h-10 bg-pink-900 hover:bg-red-400 ">Filter</CustomButtonBrowse></div>
             </div>
           
             <div><CustomButtonBrowse classname="">Select genre</CustomButtonBrowse></div>
@@ -21,7 +21,7 @@ const FilterTags=({animeDataContent})=>{
             <div><CustomButtonBrowse>Select Rating</CustomButtonBrowse></div>
             <div><CustomButtonBrowse>Select Year</CustomButtonBrowse></div>
             <div><CustomButtonBrowse>Select Score</CustomButtonBrowse></div>
-            <div className="md:hidden sm:hidden lgMobile:hidden flex flex-row gap-2 bg-pink-900 hover:bg-red-400"><span><i><img src="filter.png" width="15px" height="10px" alt="" /></i></span><CustomButtonBrowse>Filter</CustomButtonBrowse></div>
+            <div className="md:hidden sm:hidden lgMobile:hidden flex flex-row justify-center gap-2 bg-pink-900 hover:bg-red-400"><span><i><img src="filter.png" width="10px" height="10px" alt="" /></i></span><CustomButtonBrowse classname="w-32">Filter</CustomButtonBrowse></div>
              
         </div>
         </>
