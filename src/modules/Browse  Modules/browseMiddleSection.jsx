@@ -98,17 +98,17 @@ const BrowseMiddleSection = ({ animeBlocks,viewPortWidth,handleTabData,tabState,
         </div>
       </div>
         <div
-            className={`w-full grid grid-cols-auto  gap-3 py-2 ${
+            className={`w-full grid grid-rows-[auto,1fr]  gap-2 py-2 ${
               viewPortWidth ? `hidden` : `block`
             }`}
           >
-            <div className="flex flex-row justify-between items-center max-h-[50px]">
+            <div className="flex flex-row justify-between items-center max-h-[30px]">
               {" "}
-              <div className="pl-2 text-2xl">Top anime</div>
+              <div className="pl-2 text-xl">Top anime</div>
               <div className="bg-gray-700 flex rounded flex-row p-1 gap-2">
              
               {tabsData?.map((items,index)=>(
-              <span onClick={()=>handleTabData(index)} key={index} className={` ${tabState===items?`bg-red-400`:``} rounded p-2 text-xs`}>{items}</span> 
+              <span onClick={()=>handleTabData(index)} key={index} className={` ${tabState===items?`bg-red-400`:``} rounded p-1 text-[12px]`}>{items}</span> 
               ))
         
             }
