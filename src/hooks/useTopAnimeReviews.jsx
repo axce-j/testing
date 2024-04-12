@@ -1,11 +1,11 @@
 import {useQuery} from "@tanstack/react-query"
 import { getAnimeTopReviews } from "../config/axios"
 
-const TopAnimeReviewsData=()=>{
+const TopAnimeReviewsData=( )=>{
     return useQuery(
         {
             queryKey:['product-data'],
-            queryFn:()=>getAnimeTopReviews(),
+            queryFn:()=>getAnimeTopReviews( ),
         }
     )
 }

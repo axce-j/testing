@@ -1,13 +1,35 @@
  
+import { useState } from "react";
 import SeriesDisplaySection from "../../Components/seriesDisplaySection.jsx"
 import SwiperSliding from "../../Components/swiperSLiding.jsx"
 import RecentAnimeRecommendations from "../../hooks/useRecentAnimeRecommendations.jsx";
 import TopAnimeData from "../../hooks/useTopAnime.jsx";
 import TopAnimeReviewsData from "../../hooks/useTopAnimeReviews.jsx";
-const MiddleSection= ({rating,subtitle,viewPortWidth,animeBlocks,method,Days,viewPortWidth2,handleDisplaysection,displaySection,setDisplaySection,tabsData,tabState,handleTabData,contentData,contentState,handleContentData})=>{
+const MiddleSection= ({rating,subtitle,viewPortWidth,animeBlocks,method,Days,viewPortWidth2,handleDisplaysection,displaySection,setDisplaySection,tabsData,tabState,handleTabData,contentData,contentState,handleContentData})=>
+{
     const {isError:topAnimeIsError,isLoading:topAnimeIsLoading,data:topAnimeData,error:TopAnimeError}=TopAnimeData();
-    const {isError:recentIsError,isLoading:recentIsLoading,data:recentData,error:recentError}=RecentAnimeRecommendations();
+    const {isError:recentIsError,isLoading:recentIsLoading,data:recentData,error:recentError}=RecentAnimeRecommendations(2);
     const {isError:reviewsIsError,isLoading:reviewsIsLoading,data:reviewsData,error:reviewsError}=TopAnimeReviewsData();
+
+    const [paginationNumbers,setPaginationNumbers]=useState({
+        currentPage:1,
+        totalPages:20
+      });
+      
+     
+    
+   
+    
+      const manageNextButtonHome=()=>{
+        if (paginationNumbers.currentPage < paginationNumbers.totalPages){                 
+          setPaginationNumbers({...paginationNumbers, currentPage: paginationNumbers.currentPage + 1})    }
+      }
+    
+      const managePreviousButtonHome=()=>{
+        if (paginationNumbers.currentPage >1 ){
+          setPaginationNumbers({...paginationNumbers, currentPage: paginationNumbers.currentPage - 1});   }}
+
+   
     return(
         <>
          <header
@@ -22,7 +44,7 @@ const MiddleSection= ({rating,subtitle,viewPortWidth,animeBlocks,method,Days,vie
          
               <SeriesDisplaySection
               
-              viewPortWidth={viewPortWidth} viewPortWidth2={viewPortWidth2}subtitle={subtitle} rating={rating} animeBlocks={animeBlocks} method={method} Days={Days} handleDisplaysection={handleDisplaysection} displaySection={displaySection} setDisplaySection={setDisplaySection} recentData={recentData} reviewsData={reviewsData} tabState={tabState} tabsData={tabsData}  handleTabData={handleTabData} contentData={contentData} handleContentData={handleContentData} contentState={contentState}/>
+              viewPortWidth={viewPortWidth} viewPortWidth2={viewPortWidth2}subtitle={subtitle} rating={rating} animeBlocks={animeBlocks} method={method} Days={Days} handleDisplaysection={handleDisplaysection} displaySection={displaySection} setDisplaySection={setDisplaySection} recentData={recentData} reviewsData={reviewsData} tabState={tabState} tabsData={tabsData}  handleTabData={handleTabData} contentData={contentData} handleContentData={handleContentData} contentState={contentState} manageNextButtonHome={manageNextButtonHome} managePreviousButtonHome={managePreviousButtonHome}/>
            </>
     )
 }

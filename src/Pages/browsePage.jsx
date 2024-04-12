@@ -3,8 +3,15 @@ import { useEffect, useState } from "react";
 import BrowseMiddleSection from "../modules/Browse  Modules/browseMiddleSection.jsx";
 import FooterSection from "../modules/homePage  Modules/footerSection.jsx";
 import NavBarSection from "../modules/homePage  Modules/navbarrSection.jsx";
+import TopAnimeReviewsData from "../hooks/useTopAnimeReviews.jsx";
+import AnimeData from "../hooks/useAnime.jsx";
 const WatchSection = () => {
   // const topDiv=document.getElementById("topDiv")
+  const tabsData = [
+    "Day",
+    "Week",
+    "Month",    ];
+
   const [clicked, setclick] = useState(false);
   const [viewPortWidth, setViewPortWidth] = useState(false);
 
@@ -12,6 +19,7 @@ const WatchSection = () => {
   const [searchClick2, setSearchClick2] = useState(false);
   const [languageEnglish, setToNotEnglish] = useState(false);
   const [displaySection, setDisplaySection] = useState(1);
+  const [tabState,setTabState]=useState(tabsData[0])
   // const topWidth=topDiv.offsetWidth
   // console.log(topWidth)
 
@@ -116,7 +124,15 @@ const WatchSection = () => {
   const handleDisplaysection = (e) => {
     setDisplaySection(e);
   };
-  // const changeAllStates=()=>{
+
+
+  const {isError:reviewsIsError,isLoading:reviewsIsLoading,data:reviewsData,error:reviewsError}=TopAnimeReviewsData();
+  const { isError:animeIsError, isLoading:animeIsLoading, data:animeData, error:animeError } = AnimeData(1);
+  const handleTabData=(i)=>{
+    setTabState(tabsData[i])
+}
+ 
+ // const changeAllStates=()=>{
 
   //   setSearchClick(false)
   //   setSearchClick2(false)
@@ -145,7 +161,7 @@ const WatchSection = () => {
         </nav>
 
         <div className="w-full mt-10"> 
-        <BrowseMiddleSection animeBlocks={animeBlocks}/>
+        <BrowseMiddleSection animeBlocks={animeBlocks}viewPortWidth={viewPortWidth} handleTabData={handleTabData} tabState={tabState} reviewsData={reviewsData} tabsData={tabsData} animeData={animeData}/>
         </div>
 
         <div className="     bottom-0 left-0 right-0 ">

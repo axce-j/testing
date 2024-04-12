@@ -1,7 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import CustomButton from "../../Components/customButton";
+import FilterTags from "../../Components/filterTags.jsx"
 
-const BrowseMiddleSection = ({ animeBlocks }) => {
+const BrowseMiddleSection = ({ animeBlocks,viewPortWidth,handleTabData,tabState,tabsData,reviewsData,animeData }) => {
+  const reviewsDataContent=reviewsData?.data?.data
+  const animeDataContent=animeData?.data
+  console.log(animeDataContent);
   const navigate = useNavigate();
   return (
     <>
@@ -12,33 +16,20 @@ const BrowseMiddleSection = ({ animeBlocks }) => {
             <span onClick={() => navigate("/home")} className="text-gray-600">
               <a href="">Home</a>
             </span>{" "}
-            /Watch together
+            /Filter
           </div>
           <div className="text-4xl ">Browse</div>
-          <div className="flex flex-row items-center justify-between">
-            {" "}
-            <span className="flex gap-3 text-gray-600">
-              <CustomButton classname="hover:text-gray-400 focus:text-gray-300">
-                All
-              </CustomButton>
-              <CustomButton classname="hover:text-gray-400 focus:text-gray-300">
-                Top
-              </CustomButton>
-              <CustomButton classname="hover:text-gray-400 focus:text-gray-300">
-                Recent
-              </CustomButton>
-              <CustomButton classname="hover:text-gray-400 focus:text-gray-300">
-                Classics
-              </CustomButton>
-              <CustomButton classname="hover:text-gray-400 focus:text-gray-300">
-                Ended
-              </CustomButton>
-            </span>{" "}
-            <CustomButton classname="bg-white text-black p-1 rounded text-sm">
-              My Rooms
-            </CustomButton>
-          </div>
+         
         </div>
+    <div className="flex gap-12">
+      <div className="flex flex-col gap-12">
+        <div>
+           <FilterTags animeDataContent={animeDataContent}/>
+        </div>
+
+
+
+
         <div
           className="grid
                 mobile:grid-cols-[repeat(2,minmax(100px,180px))]         
@@ -105,6 +96,66 @@ const BrowseMiddleSection = ({ animeBlocks }) => {
             );
           })}
         </div>
+      </div>
+        <div
+            className={`w-full grid grid-cols-auto  gap-3 py-2 ${
+              viewPortWidth ? `hidden` : `block`
+            }`}
+          >
+            <div className="flex flex-row justify-between items-center max-h-[50px]">
+              {" "}
+              <div className="pl-2 text-2xl">Top anime</div>
+              <div className="bg-gray-700 flex rounded flex-row p-1 gap-2">
+             
+              {tabsData?.map((items,index)=>(
+              <span onClick={()=>handleTabData(index)} key={index} className={` ${tabState===items?`bg-red-400`:``} rounded p-2 text-xs`}>{items}</span> 
+              ))
+        
+            }
+            </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              {reviewsDataContent?.sort((a,b)=>b.favorites-a.favorites)?.slice(0,10)?.map((response, index) => {
+                 const images= response?.entry?.images?.jpg?.image_url;
+                 const titles=response?.entry?.title;
+                //  const rank=response?.rank;
+                 const type= response?.type;
+                 const score=response?.score;
+                //  const popularity=response?.popularity
+                //  const favorites=response?.favorites
+                //  console.log(response);
+                return (
+                  <div
+                    key={index}
+                    className="grid rounded-lg grid-cols-[1fr,2fr,6fr] gap-2 items-center px-2 bg-[#101010] "
+                  >
+                    <div className="text-[3.3rem] font-bold text-center">
+                      {index}
+                    </div>
+                    <div>
+                      {" "}
+                      <img src={images} className="h-fill" alt="" />
+                    </div>
+                    <div className="flex flex-col items-start gap-1">
+                      <div>{titles}</div>
+                      <div className="flex flex-row gap-3 items-center">
+                        {/* <CustomButton classname=" flex flex-row gap-3 bg-teal-900 p-1 text-xs font-medium rounded-lg">
+                          <span>{favorites}</span>
+                        
+                        </CustomButton> */}
+                        <CustomButton classname="flex flex-row gap-2 bg-teal-900 p-1 text-xs font-medium items-center rounded-lg ">
+                          <img src="mic.png" width="10" alt="" />{" "}
+                          <span>{score}</span>
+                        </CustomButton>
+                        <span>. { type}</span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+    </div>
         <div
           className=" w-full
               justify-center items-center flex   jsutify-between text-xs flex-row"

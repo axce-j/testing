@@ -40,6 +40,8 @@ const tabsData = [
   const [displaySection ,setDisplaySection]= useState(1)
   const [tabState,setTabState]=useState(tabsData[0])
   const [contentState,setContentState]=useState(contentData[0])
+
+  
   // const topWidth=topDiv.offsetWidth
   // console.log(topWidth)
   const handleTabData=(i)=>{
@@ -174,7 +176,7 @@ const tabsData = [
 
         <div className="w-full mt-10 z-30">
           {" "}
-          <MiddleSection tabsData={tabsData} tabState={tabState} contentData={contentData} handleContentData={handleContentData} contentState={contentState} handleTabData={handleTabData} viewPortWidth={viewPortWidth} subtitle={subtitle} rating={rating} animeBlocks={animeBlocks} method={method} Days={Days} viewPortWidth2={viewPortWidth2} handleDisplaysection={handleDisplaysection} displaySection={displaySection} setDisplaySection={setDisplaySection}  />
+          <MiddleSection tabsData={tabsData} tabState={tabState} contentData={contentData} handleContentData={handleContentData} contentState={contentState} handleTabData={handleTabData} viewPortWidth={viewPortWidth} subtitle={subtitle} rating={rating} animeBlocks={animeBlocks} method={method} Days={Days} viewPortWidth2={viewPortWidth2} handleDisplaysection={handleDisplaysection} displaySection={displaySection} setDisplaySection={setDisplaySection}   />
          
         
         </div>

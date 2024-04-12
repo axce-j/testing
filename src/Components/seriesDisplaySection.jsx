@@ -20,7 +20,9 @@ const SeriesDisplaySection = ({
   handleTabData,
   contentData,
   contentState,
-  handleContentData
+  handleContentData,
+  managePreviousButtonHome,
+  manageNextButtonHome
 }) => {
   const recentDataContent=recentData?.data?.data;
   const reviewsDataContent=reviewsData?.data?.data
@@ -41,28 +43,28 @@ const SeriesDisplaySection = ({
               </div>
               <div className="flex gap-2 mobile:text-xs  ">
                 <span>
-                  <a href="">All</a>
+                  <CustomButton>All</CustomButton>
                 </span>
                 <span>
                   {" "}
-                  <a href="">Sub</a>
+                  <CustomButton>Sub</CustomButton>
                 </span>
                 <span>
-                  <a href="">Dub</a>
+                  <CustomButton>Dub</CustomButton>
                 </span>
                 <span>
-                  <a href="">Chinese</a>
+                  <CustomButton>Chinese</CustomButton>
                 </span>
                 <span>
-                  <a href="">Trending</a>
+                  <CustomButton>Trending</CustomButton>
                 </span>
                 <span>
-                  <a href="">Random</a>
+                  <CustomButton>Random</CustomButton>
                 </span>
 
                 <span className="flex flex-row gap-4">
-                  <a href="">{"<"}</a>
-                  <a href="">{">"}</a>
+                  <CustomButton onClick={()=>manageNextButtonHome()}  >{"<"}</CustomButton>
+                  <CustomButton onClick={()=>managePreviousButtonHome()}  >{">"}</CustomButton>
                 </span>
               </div>
             </div>

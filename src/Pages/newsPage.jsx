@@ -4,6 +4,12 @@ import NewsMiddleSection from "../modules/News Modules/newsMiddleSection.jsx";
 import FooterSection from "../modules/homePage  Modules/footerSection.jsx";
 import NavBarSection from "../modules/homePage  Modules/navbarrSection.jsx";
 const RandomPage = () => {
+
+
+
+
+
+
   // const topDiv=document.getElementById("topDiv")
   const [clicked, setclick] = useState(false);
   const [viewPortWidth, setViewPortWidth] = useState(false);
@@ -12,8 +18,42 @@ const RandomPage = () => {
   const [searchClick2, setSearchClick2] = useState(false);
   const [languageEnglish, setToNotEnglish] = useState(false);
   const [displaySection, setDisplaySection] = useState(1);
+  const [paginationNumbers,setPaginationNumbers]=useState({
+    currentPage:1,
+    displayedPagebegin:1,
+    displayedPageSecondButton:2,
+    displayedPageThirdButton:3,
+    displayedPageFourthButton:4,
+    displayedPageEnd:5,
+    totalPages:1065
+  });
+  const [pagination,setPagination]=useState(paginationNumbers.currentPage);
+
+  const paginationNumbersArray=[paginationNumbers.displayedPagebegin,paginationNumbers.displayedPageSecondButton,paginationNumbers.displayedPageThirdButton,paginationNumbers.displayedPageFourthButton,paginationNumbers.displayedPageEnd];
+ 
   // const topWidth=topDiv.offsetWidth
   // console.log(topWidth)
+
+  const manageNextButton=()=>{
+    if (paginationNumbers.currentPage < paginationNumbers.totalPages){
+      setPaginationNumbers({...paginationNumbers, currentPage: paginationNumbers.currentPage + 1,displayedPagebegin:paginationNumbers.displayedPagebegin+1,displayedPageSecondButton:paginationNumbers.displayedPageSecondButton+1,displayedPageThirdButton:paginationNumbers.displayedPageThirdButton+1,displayedPageFourthButton:paginationNumbers.displayedPageFourthButton+1,displayedPageEnd:paginationNumbers.displayedPageEnd+1})
+      console.log(paginationNumbers.currentPage)
+    }
+  }
+
+  const managePreviousButton=()=>{
+    if (paginationNumbers.currentPage >1 ){
+      setPaginationNumbers({...paginationNumbers, currentPage: paginationNumbers.currentPage - 1,displayedPagebegin:paginationNumbers.displayedPagebegin-1,displayedPageSecondButton:paginationNumbers.displayedPageSecondButton-1,displayedPageThirdButton:paginationNumbers.displayedPageThirdButton-1,displayedPageFourthButton:paginationNumbers.displayedPageFourthButton-1,displayedPageEnd:paginationNumbers.displayedPageEnd-1,});
+      console.log(paginationNumbers.currentPage);
+      
+    }
+  }
+  const managePaginationOnClick=(e)=>{
+    setPaginationNumbers({...paginationNumbers,currentPage:paginationNumbers.currentPage=e})
+  }
+  const setToPaginationEnd=()=>{
+    setPaginationNumbers({...paginationNumbers,currentPage:paginationNumbers.currentPage=paginationNumbers.totalPages ,displayedPagebegin:paginationNumbers.displayedPagebegin=(paginationNumbers.totalPages-4),displayedPageSecondButton:paginationNumbers.displayedPageSecondButton=(paginationNumbers.totalPages-3),displayedPageThirdButton:paginationNumbers.displayedPageThirdButton=(paginationNumbers.totalPages-2),displayedPageFourthButton:paginationNumbers.displayedPageFourthButton=(paginationNumbers.totalPages-1),displayedPageEnd:paginationNumbers.displayedPageEnd=paginationNumbers.totalPages,});
+  }
 
   useEffect(() => {
     function handleResize() {
@@ -41,22 +81,8 @@ const RandomPage = () => {
       window.removeEventListener("resize", handleResize2); // Clean up event listener
     };
   }, []);
-  const Days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
-  const animeBlocks = [
-    "GENRE",
-    "NEWEST",
-    "TYPES",
-    "UPDATE",
-    "ONGOING",
-    "SPECIAL",
-    "ADDED",
-    "REQUEST",
-    "watch2gether",
-    "DONATE",
-  ];
-  const method = "TV";
-  const rating = "13";
-  const subtitle = "cc";
+  
+  
   const dropDownItems = !viewPortWidth2
     ? [
         "HOME",
@@ -105,28 +131,12 @@ const RandomPage = () => {
       setSearchClick2(false);
     }
   };
-  const setLanguage = () => {
-    console.log("iiii");
-    if (languageEnglish === false) {
-      setToNotEnglish(true);
-    } else if (languageEnglish === true) {
-      setToNotEnglish(false);
-    }
-  };
-  const handleDisplaysection = (e) => {
-    setDisplaySection(e);
-  };
-  // const changeAllStates=()=>{
-
-  //   setSearchClick(false)
-  //   setSearchClick2(false)
-  //   setclick(false)
-
-  // }
+   
+  
   return (
     <>
       <div
-        // onClick={changeAllStates}
+        
         id="topDiv"
         className="grid grid-rows-auto gap-40 h-screen text-white  bg-[#0b0a0b]"
       >
@@ -145,7 +155,8 @@ const RandomPage = () => {
         </nav>
 
         <div className="w-full mt-10 z-10"> 
-        <NewsMiddleSection animeBlocks={animeBlocks}/>
+        <NewsMiddleSection  pagination={pagination} paginationNumbers={paginationNumbers} manageNextButton={manageNextButton} paginationNumbersCurrentPage={paginationNumbers.currentPage} managePreviousButton={managePreviousButton}
+         paginationNumbersArray={paginationNumbersArray} setPagination={setPagination} setPaginationNumbers={setPaginationNumbers} managePaginationOnClick={managePaginationOnClick} setToPaginationEnd={setToPaginationEnd}/>
         </div>
 
         <div className="flex flex-col justify-end items-end">
