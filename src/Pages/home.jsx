@@ -144,7 +144,7 @@ const tabsData = [
     }
   };
   const setLanguage = () => {
-    console.log("iiii");
+    // console.log("iiii");
     if (languageEnglish === false) {
       setToNotEnglish(true);
     } else if (languageEnglish === true) {

@@ -26,7 +26,7 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,topAnimeData})=>
  const synopsis= response?.synopsis;
  const animeYear=response?.year;
 
- console.log({synopsis})
+//  console.log({synopsis})
 
  const truncateSynopsis=(text,maxlength)=>{
   // const words=text.split(' ')

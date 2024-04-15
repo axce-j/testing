@@ -27,7 +27,7 @@ const FilterTags = ({ animeDataContent, animeBlocks,animeGenreData }) => {
 
  
 
-console.log(filterByType);
+// console.log(filterByType);
   return (
     <>
       <div className="flex flex-col flex-wrap  items-center justify-center  gap-3">

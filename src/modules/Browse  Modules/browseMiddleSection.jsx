@@ -19,7 +19,7 @@ const BrowseMiddleSection = ({
 }) => {
   const reviewsDataContent = reviewsData?.data?.data;
   const animeDataContent = animeData?.data?.data;
-  console.log( animeDataContent);
+  // console.log( animeDataContent);
   const navigate = useNavigate();
   return (
     <>

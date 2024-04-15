@@ -25,7 +25,7 @@ const MiddleSection= ({rating,subtitle,viewPortWidth,animeBlocks,method,Days,vie
         // if (paginationNumbers.currentPage < paginationNumbers.totalPages){                 
           setPaginationNumbers({...paginationNumbers, currentPage: paginationNumbers.currentPage + 1})
           refetchRecentAnime()
-          console.log(paginationNumbers)
+          // console.log(paginationNumbers)
       }
     
       const managePreviousButtonHome=()=>{

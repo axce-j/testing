@@ -7,14 +7,14 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 const NewsMiddleSection = ({  pagination,paginationNumbers,paginationNumbersArray, setPagination ,manageNextButton,managePreviousButton,setToPaginationEnd,paginationNumbersCurrentPage , setPaginationNumbers,managePaginationOnClick}) => {
   const navigate = useNavigate();
-  const { isError, isLoading, data, error, refetch } = AnimeData(1);
+  const { isError, isLoading, data, error, refetch } = AnimeData(paginationNumbersCurrentPage);
 
   useEffect(() => {
     refetch()
   }, [paginationNumbersCurrentPage])
   
   const ani = data?.data?.data;
-  console.log(ani);
+  // console.log(ani);
   return (
     <>
       <div className="text-white mt-24">

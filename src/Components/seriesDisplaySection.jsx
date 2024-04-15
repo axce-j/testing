@@ -27,7 +27,7 @@ const SeriesDisplaySection = ({
   const recentDataContent=recentData?.data?.data;
   const reviewsDataContent=reviewsData?.data?.data
 
-  console.log(reviewsDataContent)
+  // console.log(reviewsDataContent)
   return (
     <>
       <section className=" flex mt-20 box-border   px-4   flex-col gap-[10rem] w-full">
@@ -153,7 +153,7 @@ const SeriesDisplaySection = ({
               {" "}
               <div className="pl-2 text-2xl">Top anime</div>
               <div className="bg-gray-700 flex rounded flex-row p-1 gap-2">
-                {console.log(tabsData)}
+                {/* {console.log(tabsData)} */}
                 {tabsData?.map((items, index) => (
                   <span
                     onClick={() => handleTabData(index)}
