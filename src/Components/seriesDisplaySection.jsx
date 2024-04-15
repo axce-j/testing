@@ -312,10 +312,10 @@ const SeriesDisplaySection = ({
               })}
             </div>
           </div>
-          <div className="bg-[#101010] grid grid-cols-[.5fr,4fr,1fr] w-full gap-4 p-3 text-lg">
+          <div >
             {animeBlocks.map((items, index) => {
               return (
-                <div key={index}>
+                <div key={index} className="bg-[#101010] grid grid-cols-[.5fr,4fr,1fr] w-full gap-4 p-3 text-lg">
                   <span className="flex justify-end"> {`${index}:00`}</span>
                   <span className="flex justify-start">{items}</span>
                   <span className="flex justify-start">
