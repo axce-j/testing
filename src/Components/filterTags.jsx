@@ -13,7 +13,7 @@ const FilterTags = ({ animeDataContent, animeBlocks,animeGenreData }) => {
   };
   const filterTypes = [
     "Select Genre",
-    "Select people",
+    "Select episodes",
     "Select Season",
     "Select Type",
     "Select Status",
@@ -21,8 +21,137 @@ const FilterTags = ({ animeDataContent, animeBlocks,animeGenreData }) => {
     "Select Year",
     "Select Score",
   ];
-  const filterByType=animeGenreData?.data
-  const animeFiltersBy=[]
+  // const filterByGenre=animeGenreData?.data?.data?.map(item=>item.name) 
+
+  const filterByNumOfGenreFiltered = animeDataContent?.reduce((uniqueGenre, currentItem) => {
+    // Extract the number of episodes from the current item
+    const genre = currentItem.genre;
+  
+    // Check if the set already has the episode count
+    if (!uniqueGenre.has(genre)) {
+      // If not, add it to the set
+      uniqueGenre.add(genre);
+    }
+  
+    return uniqueGenre;
+  }, new Set());
+  
+ 
+  
+  
+  
+  
+  // const filterByNumOfEpisodes = animeDataContent?.reduce((uniqueEpisodes, currentItem) => {
+  //   // Extract the number of episodes from the current item
+  //   const episodes = currentItem.episodes;
+  
+  //   // Check if the set already has the episode count
+  //   if (!uniqueEpisodes.has(episodes)) {
+  //     // If not, add it to the set
+  //     uniqueEpisodes.add(episodes);
+  //   }
+  
+  //   return uniqueEpisodes;
+  // }, new Set());
+  
+  // Now filterByNumOfEpisodes contains unique episode counts
+  
+  // const filterByNumOfScore=animeDataContent?.map(items=>items.score)
+  // const filterByNumOfSeason=animeDataContent?.map(items=>items.season)
+
+  const filterByNumOfSeasonFiltered = animeDataContent?.reduce((uniqueSeason, currentItem) => {
+    // Extract the number of episodes from the current item
+    const season = currentItem.season;
+  
+    // Check if the set already has the episode count
+    if (!uniqueSeason.has(season)) {
+      // If not, add it to the set
+      uniqueSeason.add(season);
+    }
+  
+    return uniqueSeason;
+  }, new Set());
+  
+ 
+  
+
+  // const filterByNumOftype=animeDataContent?.map(items=>items.type)
+  const filterByNumOfTypeFiltered = animeDataContent?.reduce((uniqueType, currentItem) => {
+    // Extract the number of episodes from the current item
+    const type = currentItem.type;
+  
+    // Check if the set already has the episode count
+    if (!uniqueType.has(type)) {
+      // If not, add it to the set
+      uniqueType.add(type);
+    }
+  
+    return uniqueType;
+  }, new Set());
+   
+  // const filterByNumOfstatus=animeDataContent?.map(items=>items.status)
+
+  const filterByNumOfStatusFiltered = animeDataContent?.reduce((uniqueStatus, currentItem) => {
+    // Extract the number of episodes from the current item
+    const status = currentItem.status;
+  
+    // Check if the set already has the episode count
+    if (!uniqueStatus.has(status)) {
+      // If not, add it to the set
+      uniqueStatus.add(status);
+    }
+  
+    return uniqueStatus;
+  }, new Set());
+  
+ 
+  
+  // const filterByNumOfRating=animeDataContent?.map(items=>items.rating)
+
+  const filterByNumOfRatingFiltered = animeDataContent?.reduce((uniqueRating, currentItem) => {
+    // Extract the number of episodes from the current item
+    const rating = currentItem.rating;
+  
+    // Check if the set already has the episode count
+    if (!uniqueRating.has(rating)) {
+      // If not, add it to the set
+      uniqueRating.add(rating);
+    }
+  
+    return uniqueRating;
+  }, new Set());
+  
+ 
+  
+
+  // const filterByNumOfYear=animeDataContent?.map(items=>items.year)
+  
+  const filterByNumOfYearFiltered = animeDataContent?.reduce((uniqueYear, currentItem) => {
+    // Extract the number of episodes from the current item
+    const year = currentItem.year;
+  
+    // Check if the set already has the episode count
+    if (!uniqueYear.has(year)) {
+      // If not, add it to the set
+      uniqueYear.add(year);
+    }
+  
+    return uniqueYear;
+  }, new Set());
+ 
+  
+  console.log({filterByNumOfYearFiltered})
+  
+  const animeFiltersBy=[
+    [filterByNumOfGenreFiltered],
+    ["above 10","above 50","above 100","below 1000"],
+    [filterByNumOfSeasonFiltered],
+    [filterByNumOfTypeFiltered],
+    [filterByNumOfStatusFiltered],
+    [filterByNumOfRatingFiltered],
+    [filterByNumOfYearFiltered],
+    ["6","7","8","9"],
+  ]
  
 
  
@@ -74,7 +203,7 @@ const FilterTags = ({ animeDataContent, animeBlocks,animeGenreData }) => {
                           toggleDown === items ? `` : `hidden`
                         } grid grid-cols-[1fr,1fr] justify-start items-start p-3 gap-x-6 gap-y-3`}
                       >
-                        {animeBlocks?.map((item, innerIndex) => (
+                        {animeFiltersBy[index]?.map((item, innerIndex) => (
                           
                             
                               <CustomButton

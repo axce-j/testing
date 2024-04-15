@@ -4,7 +4,7 @@ import { getAnime, getAnimeNews} from "../config/axios"
 const AnimeNewsData=(newsId)=>{
     return useQuery(
         {
-            queryKey:['product-data',newsId],
+            queryKey:['AnimeNewsData',newsId],
             queryFn:()=>getAnimeNews(newsId),
         
         }

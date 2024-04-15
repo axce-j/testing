@@ -4,7 +4,7 @@ import { getAnimeTopReviews } from "../config/axios"
 const TopAnimeReviewsData=( )=>{
     return useQuery(
         {
-            queryKey:['product-data'],
+            queryKey:['TopAnimeReviewsData'],
             queryFn:()=>getAnimeTopReviews( ),
         }
     )

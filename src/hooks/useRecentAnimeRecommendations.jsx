@@ -4,7 +4,7 @@ import { getRecentAnimeRecommendations } from "../config/axios"
 const RecentAnimeRecommendations=(homePageId)=>{
     return useQuery(
         {
-            queryKey:['product-data'],
+            queryKey:['RecentAnimeRecommendations'],
             queryFn:()=>getRecentAnimeRecommendations(homePageId),
         }
     )

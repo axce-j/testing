@@ -4,8 +4,9 @@ import { getAnimeGenres } from "../config/axios"
 const AnimeGenre=()=>{
     return useQuery(
         {
-            queryKey:['product-data'],
+            queryKey:['anime-genre'],
             queryFn:()=>getAnimeGenres(),
+            onSuccess:(data)=>console.log({data})
         }
     )
 }

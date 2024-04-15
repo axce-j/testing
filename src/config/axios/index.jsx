@@ -25,7 +25,7 @@ export const getAnimeId=(id)=>{
     return axios.get(`anime/${id}`)
 }
 export const getAnimeGenres=()=>{
-    return Axios.get("https://api.jikan.moe/v4/genres/anime")
+    return axios.get(`genres/anime`)
 }
  
 export default axios;
