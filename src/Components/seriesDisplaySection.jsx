@@ -37,6 +37,12 @@ const SeriesDisplaySection = ({
           }`}
         >
           <div className="flex flex-col gap-3">
+            <div className="w-full h-48 bg-teal-700 rounded-xl flex justify-between px-12 items-center"> <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center"><img src="logo3.png" alt="logo" className="w-[12] h-[12]" /></div>
+            <div className="text-white font-black text-xl">Welcome</div>
+            <div className="w-24 h-24 rounded-full bg-white italic flex items-center font-bold text-lg justify-center text-blue-400 text-center">to</div>
+                <div  className="text-white font-black text-xl"><span>Anime</span><span className="text-blue-800">Wave</span></div>
+            <div className="w-24 h-24 rounded-full bg-white  flex items-center justify-center"><img src="logo3.png" alt="logo" className="w-[12] h-[12]" /></div>
+            </div>
             <div className="flex md:flex-row  items-center min-h-[80px] justify-between mobile:flex-col mobile:items-start mobile:min-h-[60px]">
               <div className="text-2xl mobile:text-[15px] mobile:font-medium">
                 Recently Updated
@@ -93,10 +99,10 @@ const SeriesDisplaySection = ({
                   return (
                     
                       <div className="flex flex-col gap-4 " key={index}>
-                        <div className="bg-gray-800 rounded-[.2rem]">
+                        <div className="bg-gray-800 rounded-[.2rem] w-full">
                           {" "}
                           <img
-                            className="h-[15rem] object-cover object-top"
+                            className="h-[15rem]   w-[100%] "
                             src={images}
                             alt=""
                           />
@@ -189,7 +195,7 @@ const SeriesDisplaySection = ({
                       </div>
                       <div>
                         {" "}
-                        <img src={images} className="h-fill" alt="" />
+                        <img src={images} className="h-fill " alt="" />
                       </div>
                       <div className="flex flex-col items-start gap-1">
                         <div>{titles}</div>
