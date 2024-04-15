@@ -58,7 +58,7 @@ const NewsMiddleSection = ({  pagination,paginationNumbers,paginationNumbersArra
                 const favorites = response?.favorites;
                 const mainTitle= titles_english !== null ? titles_english
                  : titles;
-                 console.log( );
+                //  console.log( );
                 const mainImage =
                 images !== null ? images : youtubeImages;
                 return (
