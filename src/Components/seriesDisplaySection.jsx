@@ -37,11 +37,11 @@ const SeriesDisplaySection = ({
           }`}
         >
           <div className="flex flex-col gap-3">
-            <div className="w-full h-48 bg-teal-700 rounded-xl flex justify-between px-12 items-center"> <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center"><img src="logo3.png" alt="logo" className="w-[12] h-[12]" /></div>
+            <div className="w-full h-48 bg-teal-700 rounded-xl flex justify-between px-12 items-center"> <div className="w-24 h-24 rounded-full bg-black flex items-center justify-center"><img src="logo3.png" alt="logo" className="w-[8] h-[8]" /></div>
             <div className="text-white font-black text-xl">Welcome</div>
-            <div className="w-24 h-24 rounded-full bg-white italic flex items-center font-bold text-lg justify-center text-blue-400 text-center">to</div>
+            <div className="w-24 h-24 rounded-full bg-black italic flex items-center font-bold text-lg justify-center text-blue-400 text-center">to</div>
                 <div  className="text-white font-black text-xl"><span>Anime</span><span className="text-blue-800">Wave</span></div>
-            <div className="w-24 h-24 rounded-full bg-white  flex items-center justify-center"><img src="logo3.png" alt="logo" className="w-[12] h-[12]" /></div>
+            <div className="w-24 h-24 rounded-full bg-black  flex items-center justify-center"><img src="logo3.png" alt="logo" className="w-[12] h-[12]" /></div>
             </div>
             <div className="flex md:flex-row  items-center min-h-[80px] justify-between mobile:flex-col mobile:items-start mobile:min-h-[60px]">
               <div className="text-2xl mobile:text-[15px] mobile:font-medium">
