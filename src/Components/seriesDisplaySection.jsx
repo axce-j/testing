@@ -63,10 +63,10 @@ const SeriesDisplaySection = ({
                 </span>
 
                 <span className="flex flex-row gap-4">
-                  <CustomButton onClick={manageNextButtonHome}>
+                  <CustomButton onClick={()=>managePreviousButtonHome()}>
                     {"<"}
                   </CustomButton>
-                  <CustomButton onClick={() => managePreviousButtonHome()}>
+                  <CustomButton onClick={()=>manageNextButtonHome()}>
                     {">"}
                   </CustomButton>
                 </span>
@@ -91,7 +91,7 @@ const SeriesDisplaySection = ({
                   const type = response?.type;
                   const score = response?.score;
                   return (
-                    <>
+                    
                       <div className="flex flex-col gap-4 " key={index}>
                         <div className="bg-gray-800 rounded-[.2rem]">
                           {" "}
@@ -125,7 +125,7 @@ const SeriesDisplaySection = ({
 
                         <div> {titles}</div>
                       </div>
-                    </>
+                    
                   );
                 })}
               </div>
@@ -303,11 +303,11 @@ const SeriesDisplaySection = ({
               </span>
             </div>
             <div className="flex w-full flex-row gap-8 mobile:gap-5 mobile:text-2xl  lgMobile:gap-5 lgMobile:text-2xl text-5xl font-bold overflow-hidden">
-              {Days.map((items) => {
+              {Days.map((items,index) => {
                 return (
-                  <>
-                    <div>{items}</div>
-                  </>
+                
+                    <div key={index}>{items}</div>
+                  
                 );
               })}
             </div>
@@ -315,7 +315,7 @@ const SeriesDisplaySection = ({
           <div className="bg-[#101010] grid grid-cols-[.5fr,4fr,1fr] w-full gap-4 p-3 text-lg">
             {animeBlocks.map((items, index) => {
               return (
-                <>
+                <div key={index}>
                   <span className="flex justify-end"> {`${index}:00`}</span>
                   <span className="flex justify-start">{items}</span>
                   <span className="flex justify-start">
@@ -323,12 +323,12 @@ const SeriesDisplaySection = ({
                       Episode 50
                     </CustomButton>
                   </span>
-                </>
+                </div>
               );
             })}
           </div>
         </div>
-        <div
+        <div 
           className={` w-full grid grid-cols-auto  gap-3 py-2 ${
             viewPortWidth ? `block` : `hidden`
           } `}

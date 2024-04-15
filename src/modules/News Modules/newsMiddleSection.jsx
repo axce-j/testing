@@ -62,8 +62,8 @@ const NewsMiddleSection = ({  pagination,paginationNumbers,paginationNumbersArra
                 const mainImage =
                 images !== null ? images : youtubeImages;
                 return (
-                  <>
-                    <div
+                  
+                    <div key={index}
                       className="    w-full h-auto flex flex-col gap-3 rounded-xl text-sm  p-3"
                       style={{
                         background: 'rgba(53, 125, 112, 0.85)',
@@ -115,7 +115,7 @@ const NewsMiddleSection = ({  pagination,paginationNumbers,paginationNumbersArra
                   
                       </div>
                     </div>
-                  </>
+                  
                 );
               })}
             </div>

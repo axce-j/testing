@@ -14,7 +14,7 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,topAnimeData})=>
  const animeHeaderContent=topAnimeData?.data?.data
 //  console.log(animeHeaderContent)
     return(
-        <>
+        
       <div className=" w-[96vw]  ">
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper w-full  py-8 ">
         
@@ -29,20 +29,23 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,topAnimeData})=>
 //  console.log({synopsis})
 
  const truncateSynopsis=(text,maxlength)=>{
-  // const words=text.split(' ')
+  if (!text ){
+    return ""
+  }
+  const words=text.split(' ')
 
-  // if(words.length >maxlength){
-  //   return words.slice(0,maxlength).join(' ') + "...";
+  if(words.length >maxlength){
+    return words.slice(0,maxlength).join(' ') + "...";
 
-  // } else {
+  } else {
     return text
-  // }
+  }
  };
 
 //  console.log(titles);
 
     return(
-        <>
+        
         <SwiperSlide key={index}   >  
         <div className="  lg:mt-10   lg:p-5" style={viewPortWidth ? {
     display: "block",
@@ -135,7 +138,7 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,topAnimeData})=>
 </div>
     </div>
         </SwiperSlide>
-        </>
+         
     )
 })}
 
@@ -145,7 +148,7 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,topAnimeData})=>
 
       
          
-        </>
+      
     )
 }
 export default SwiperSliding;

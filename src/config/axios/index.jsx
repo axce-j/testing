@@ -9,7 +9,7 @@ export const getTopAnime = ()=> {
     return axios.get("top/anime")
 }
 export const getRecentAnimeRecommendations=(homePageId)=>{
-    console.log({homePageId})
+    // console.log({homePageId})
     return axios.get(`recommendations/anime?page=${homePageId}`)
 }
 export const getAnimeTopReviews=()=>{
