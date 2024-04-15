@@ -6,28 +6,31 @@ import RecentAnimeRecommendations from "../../hooks/useRecentAnimeRecommendation
 import TopAnimeData from "../../hooks/useTopAnime.jsx";
 import TopAnimeReviewsData from "../../hooks/useTopAnimeReviews.jsx";
 const MiddleSection= ({rating,subtitle,viewPortWidth,animeBlocks,method,Days,viewPortWidth2,handleDisplaysection,displaySection,setDisplaySection,tabsData,tabState,handleTabData,contentData,contentState,handleContentData})=>
+
 {
+  const [paginationNumbers,setPaginationNumbers]=useState({
+      currentPage:1,
+      totalPages:20
+    });
+    
     const {isError:topAnimeIsError,isLoading:topAnimeIsLoading,data:topAnimeData,error:TopAnimeError}=TopAnimeData();
-    const {isError:recentIsError,isLoading:recentIsLoading,data:recentData,error:recentError}=RecentAnimeRecommendations(2);
+    const {isError:recentIsError,isLoading:recentIsLoading,data:recentData,error:recentError,refetch:refetchRecentAnime}=RecentAnimeRecommendations(paginationNumbers.currentPage);
     const {isError:reviewsIsError,isLoading:reviewsIsLoading,data:reviewsData,error:reviewsError}=TopAnimeReviewsData();
 
-    const [paginationNumbers,setPaginationNumbers]=useState({
-        currentPage:1,
-        totalPages:20
-      });
-      
      
     
    
     
       const manageNextButtonHome=()=>{
-        if (paginationNumbers.currentPage < paginationNumbers.totalPages){                 
-          setPaginationNumbers({...paginationNumbers, currentPage: paginationNumbers.currentPage + 1})    }
+        // if (paginationNumbers.currentPage < paginationNumbers.totalPages){                 
+          setPaginationNumbers({...paginationNumbers, currentPage: paginationNumbers.currentPage + 1})
+          refetchRecentAnime()
+          console.log(paginationNumbers)
       }
     
       const managePreviousButtonHome=()=>{
         if (paginationNumbers.currentPage >1 ){
-          setPaginationNumbers({...paginationNumbers, currentPage: paginationNumbers.currentPage - 1});   }}
+          setPaginationNumbers({...paginationNumbers, currentPage: paginationNumbers.currentPage - 1}); refetchRecentAnime()}}
 
    
     return(

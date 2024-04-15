@@ -4,9 +4,15 @@ import AnimeData from "../../hooks/useAnime";
 import AnimeNews from "../../hooks/useAnime";
 import PaginationComponent from "../../Components/paginationComponent.jsx"
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 const NewsMiddleSection = ({  pagination,paginationNumbers,paginationNumbersArray, setPagination ,manageNextButton,managePreviousButton,setToPaginationEnd,paginationNumbersCurrentPage , setPaginationNumbers,managePaginationOnClick}) => {
   const navigate = useNavigate();
-  const { isError, isLoading, data, error } = AnimeData(paginationNumbersCurrentPage);
+  const { isError, isLoading, data, error, refetch } = AnimeData(paginationNumbersCurrentPage);
+
+  useEffect(() => {
+    refetch()
+  }, [paginationNumbersCurrentPage])
+  
   const ani = data?.data?.data;
   console.log(ani);
   return (

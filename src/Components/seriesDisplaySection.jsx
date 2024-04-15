@@ -63,8 +63,12 @@ const SeriesDisplaySection = ({
                 </span>
 
                 <span className="flex flex-row gap-4">
-                  <CustomButton onClick={()=>manageNextButtonHome()}  >{"<"}</CustomButton>
-                  <CustomButton onClick={()=>managePreviousButtonHome()}  >{">"}</CustomButton>
+                  <CustomButton onClick={manageNextButtonHome}>
+                    {"<"}
+                  </CustomButton>
+                  <CustomButton onClick={() => managePreviousButtonHome()}>
+                    {">"}
+                  </CustomButton>
                 </span>
               </div>
             </div>
@@ -80,12 +84,12 @@ const SeriesDisplaySection = ({
               mobile:grid-cols-[repeat(2,minmax(100px,1fr))]
               grid-rows-auto  gap-x-6 gap-y-9 box-border"
               >
-                {recentDataContent?.slice(0,10).map((response, index) => {
-                   const images= response?.images?.jpg?.image_url;
-                   const titles=response?.title_english;
-                   const rank=response?.rank;
-                   const type= response?.type;
-                   const score=response?.score;
+                {recentDataContent?.slice(0, 10).map((response, index) => {
+                  const images = response?.images?.jpg?.image_url;
+                  const titles = response?.title_english;
+                  const rank = response?.rank;
+                  const type = response?.type;
+                  const score = response?.score;
                   return (
                     <>
                       <div className="flex flex-col gap-4 " key={index}>
@@ -149,52 +153,60 @@ const SeriesDisplaySection = ({
               {" "}
               <div className="pl-2 text-2xl">Top anime</div>
               <div className="bg-gray-700 flex rounded flex-row p-1 gap-2">
-              {    console.log(tabsData)}
-              {tabsData?.map((items,index)=>(
-              <span onClick={()=>handleTabData(index)} key={index} className={` ${tabState===items?`bg-red-400`:``} rounded p-2 text-xs`}>{items}</span> 
-              ))
-        
-            }
-            </div>
+                {console.log(tabsData)}
+                {tabsData?.map((items, index) => (
+                  <span
+                    onClick={() => handleTabData(index)}
+                    key={index}
+                    className={` ${
+                      tabState === items ? `bg-red-400` : ``
+                    } rounded p-2 text-xs`}
+                  >
+                    {items}
+                  </span>
+                ))}
+              </div>
             </div>
             <div className="flex flex-col gap-2">
-              {reviewsDataContent?.sort((a,b)=>b.favorites-a.favorites)?.slice(0,10)?.map((response, index) => {
-                 const images= response?.images?.jpg?.image_url;
-                 const titles=response?.title_english;
-                //  const rank=response?.rank;
-                 const type= response?.type;
-                 const score=response?.score;
-                //  const popularity=response?.popularity
-                 const favorites=response?.favorites
-                return (
-                  <div
-                    key={index}
-                    className="grid rounded-lg grid-cols-[1fr,2fr,6fr] gap-2 items-center px-2 bg-[#101010] "
-                  >
-                    <div className="text-[3.3rem] font-bold text-center">
-                      {index}
-                    </div>
-                    <div>
-                      {" "}
-                      <img src={images} className="h-fill" alt="" />
-                    </div>
-                    <div className="flex flex-col items-start gap-1">
-                      <div>{titles}</div>
-                      <div className="flex flex-row gap-3 items-center">
-                        <CustomButton classname=" flex flex-row gap-3 bg-teal-900 p-1 text-xs font-medium rounded-lg">
-                          <span>{favorites}</span>
-                        
-                        </CustomButton>
-                        <CustomButton classname="flex flex-row gap-2 bg-teal-900 p-1 text-xs font-medium items-center rounded-lg ">
-                          <img src="mic.png" width="10" alt="" />{" "}
-                          <span>{score}</span>
-                        </CustomButton>
-                        <span>. { type}</span>
+              {reviewsDataContent
+                ?.sort((a, b) => b.favorites - a.favorites)
+                ?.slice(0, 10)
+                ?.map((response, index) => {
+                  const images = response?.images?.jpg?.image_url;
+                  const titles = response?.title_english;
+                  //  const rank=response?.rank;
+                  const type = response?.type;
+                  const score = response?.score;
+                  //  const popularity=response?.popularity
+                  const favorites = response?.favorites;
+                  return (
+                    <div
+                      key={index}
+                      className="grid rounded-lg grid-cols-[1fr,2fr,6fr] gap-2 items-center px-2 bg-[#101010] "
+                    >
+                      <div className="text-[3.3rem] font-bold text-center">
+                        {index}
+                      </div>
+                      <div>
+                        {" "}
+                        <img src={images} className="h-fill" alt="" />
+                      </div>
+                      <div className="flex flex-col items-start gap-1">
+                        <div>{titles}</div>
+                        <div className="flex flex-row gap-3 items-center">
+                          <CustomButton classname=" flex flex-row gap-3 bg-teal-900 p-1 text-xs font-medium rounded-lg">
+                            <span>{favorites}</span>
+                          </CustomButton>
+                          <CustomButton classname="flex flex-row gap-2 bg-teal-900 p-1 text-xs font-medium items-center rounded-lg ">
+                            <img src="mic.png" width="10" alt="" />{" "}
+                            <span>{score}</span>
+                          </CustomButton>
+                          <span>. {type}</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </div>
           </div>
         </div>
@@ -204,28 +216,28 @@ const SeriesDisplaySection = ({
           }`}
         >
           <div
-            className={`bg-[#202023] px-1 py-1 flex flex-row justify-between rounded-lg gap-1 ${
+            className={`bg-[#202023] px-1 py-1 flex   rounded-lg gap-1 ${
               viewPortWidth2 ? `block` : `hidden`
             }`}
-          >     
-                  {contentData?.map((items,index)=>{
+          >
+            {contentData?.map((items, index) => (
+              <div className="flex-[1] flex justify-center items-center" key={index}>
+                <CustomButton
+                  onClick={() => {
+                    handleDisplaysection(index);
+                    handleContentData(index);
+                  }}
+                  classname={` hover:bg-[rgba(152,213,172,.2)] focus:bg-teal-800 py-1 px-2 w-full flex justify-center items-center  ${
+                    contentState === items ? `bg-teal-800` : ``
+                  } rounded-lg w-full gap-3 flex flex-row mobile:flex-col mobile:text-xs mobile:justify-center mobile:items-center mobile:px-0 mobile:gap-2  lgMobile:text-xs lgMobile:px-0 lgMobile:gap-2 lgMobile:justify-center`}
+                >
+                  {" "}
+                  {items}
+                </CustomButton>
+              </div>
+            ))}
 
-                    return(
-                      <>
-                       <CustomButton
-              onClick={
-                () => [handleDisplaysection(index),handleContentData(index)]
-              }
-
-              classname={` hover:bg-[rgba(152,213,172,.2)] focus:bg-teal-800 py-1 px-2  ${contentState===items?`bg-teal-800`:``} rounded-lg w-full gap-3 flex flex-row mobile:flex-col mobile:text-xs mobile:justify-center mobile:items-center mobile:px-0 mobile:gap-2  lgMobile:text-xs lgMobile:px-0 lgMobile:gap-2 lgMobile:justify-center`}
-            >  {items}</CustomButton>
-                      
-                      </>
-                    )
-                  })}       
-          
-           
-              {/* <span>New</span>
+            {/* <span>New</span>
               <span>Release</span>
             </CustomButton>
             <CustomButton
@@ -260,7 +272,7 @@ const SeriesDisplaySection = ({
             viewPortWidth2={viewPortWidth2}
             displaySection={displaySection}
             recentData={recentData}
-            />
+          />
           <JustCompletedSectionHomepage
             subtitle={subtitle}
             method={method}
@@ -269,7 +281,7 @@ const SeriesDisplaySection = ({
             viewPortWidth2={viewPortWidth2}
             displaySection={displaySection}
             reviewsData={reviewsData}
-            />
+          />
         </div>
         <div
           className={`flex flex-col mb-20 ${
@@ -324,64 +336,72 @@ const SeriesDisplaySection = ({
           <div className="flex flex-row justify-between items-center max-h-[50px]">
             {" "}
             <div className="pl-2 text-2xl">Top anime</div>
-
-
-           
             <div className="bg-gray-700 flex rounded flex-row p-1 gap-2">
-            {tabsData?.map((items,index)=>(
-              <CustomButton onClick={()=>handleTabData(index)} key={index} classname={` ${tabState===items?`bg-red-400`:``} rounded p-2 text-xs`}>{items}</CustomButton> 
-            ))}
+              {tabsData?.map((items, index) => (
+                <CustomButton
+                  onClick={() => handleTabData(index)}
+                  key={index}
+                  classname={` ${
+                    tabState === items ? `bg-red-400` : ``
+                  } rounded p-2 text-xs`}
+                >
+                  {items}
+                </CustomButton>
+              ))}
             </div>
           </div>
           <div className="flex flex-col gap-4">
-          {reviewsDataContent?.sort((a,b)=>b.favorites-a.favorites)?.slice(0,10)?.map((response, index) => {
-                 const images= response?.images?.jpg?.image_url;
-                 const titles=response?.title_english;
+            {reviewsDataContent
+              ?.sort((a, b) => b.favorites - a.favorites)
+              ?.slice(0, 10)
+              ?.map((response, index) => {
+                const images = response?.images?.jpg?.image_url;
+                const titles = response?.title_english;
                 //  const rank=response?.rank;
-                 const type= response?.type;
-                 const score=response?.score;
+                const type = response?.type;
+                const score = response?.score;
                 //  const popularity=response?.popularity
-                 const favorites=response?.favorites
-              return (
-                <div
-                  key={index}
-                  className="grid rounded-lg md:grid-cols-[0.2fr,auto,6fr]
+                const favorites = response?.favorites;
+                return (
+                  <div
+                    key={index}
+                    className="grid rounded-lg md:grid-cols-[0.2fr,auto,6fr]
                   mobile:grid-cols-[.6fr,auto,2fr] mobile:gap-2 lgMobile:grid-cols-[.6fr,1fr,3fr] gap-4 items-center 
                          px-2 bg-[#101010] "
-                >
-                  <div className="text-[3.3rem] mobile:text-[2rem] font-bold text-center">
-                    {index}
-                  </div>
-                  <div className="mobile:w-[45px]">
-                    {" "}
-                    <img
-                      src={images}
-                      className="h-20 mobile:w-full "
-                      alt=""
-                    />
-                  </div>
-                  <div className="flex flex-col justify-start w-full items-start mobile:text-[12px] gap-1">
-                    <div>{titles}</div>
-                    <div className="flex flex-row gap-3 mobile:gap-1 w-full items-center">
-                      <CustomButton classname=" flex flex-row gap-3 bg-teal-900 p-1 text-xs mobile:text-[.7rem] mobile:gap-1 font-medium rounded-lg">
-                        <span>{score}</span>
-                        <span>1098</span>
-                      </CustomButton>
-                      <CustomButton classname="flex flex-row gap-2 bg-teal-900 p-1 text-xs mobile:text-[.7rem] mobile:gap-1  font-medium items-center rounded-lg ">
-                        <img
-                          src="mic.png"
-                          width="10"
-                          className="mobile:w-[5px]"
-                          alt=""
-                        />{" "}
-                        <span>1061</span>
-                      </CustomButton>
-                      <span>. {method}</span>
+                  >
+                    <div className="text-[3.3rem] mobile:text-[2rem] font-bold text-center">
+                      {index}
+                    </div>
+                    <div className="mobile:w-[45px]">
+                      {" "}
+                      <img
+                        src={images}
+                        className="h-20 mobile:w-full "
+                        alt=""
+                      />
+                    </div>
+                    <div className="flex flex-col justify-start w-full items-start mobile:text-[12px] gap-1">
+                      <div>{titles}</div>
+                      <div className="flex flex-row gap-3 mobile:gap-1 w-full items-center">
+                        <CustomButton classname=" flex flex-row gap-3 bg-teal-900 p-1 text-xs mobile:text-[.7rem] mobile:gap-1 font-medium rounded-lg">
+                          <span>{score}</span>
+                          <span>1098</span>
+                        </CustomButton>
+                        <CustomButton classname="flex flex-row gap-2 bg-teal-900 p-1 text-xs mobile:text-[.7rem] mobile:gap-1  font-medium items-center rounded-lg ">
+                          <img
+                            src="mic.png"
+                            width="10"
+                            className="mobile:w-[5px]"
+                            alt=""
+                          />{" "}
+                          <span>1061</span>
+                        </CustomButton>
+                        <span>. {method}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
         </div>
       </section>

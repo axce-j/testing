@@ -26,15 +26,17 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,topAnimeData})=>
  const synopsis= response?.synopsis;
  const animeYear=response?.year;
 
+ console.log({synopsis})
+
  const truncateSynopsis=(text,maxlength)=>{
-  const words=text.split(' ');
+  // const words=text.split(' ')
 
-  if(words.length >maxlength){
-    return words.slice(0,maxlength).join(' ') + "...";
+  // if(words.length >maxlength){
+  //   return words.slice(0,maxlength).join(' ') + "...";
 
-  } else {
+  // } else {
     return text
-  }
+  // }
  };
 
 //  console.log(titles);
@@ -136,7 +138,6 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,topAnimeData})=>
         </>
     )
 })}
-
 
 </Swiper>
 
