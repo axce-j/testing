@@ -1,6 +1,33 @@
+import { useState } from "react";
+import CustomButton from "./customButton.jsx";
 import CustomButtonBrowse from "./customButtonBrowse.jsx";
 
-const FilterTags = ({ animeDataContent }) => {
+const FilterTags = ({ animeDataContent, animeBlocks,animeGenreData }) => {
+  const [toggleDown, setToggleDown] = useState("");
+  const manageToggleDown = (e) => {
+    if (toggleDown === e) {
+      setToggleDown("");
+    } else {
+      setToggleDown(e);
+    }
+  };
+  const filterTypes = [
+    "Select Genre",
+    "Select people",
+    "Select Season",
+    "Select Type",
+    "Select Status",
+    "Select Rating",
+    "Select Year",
+    "Select Score",
+  ];
+  const filterByType=animeGenreData?.data
+  const animeFiltersBy=[]
+ 
+
+ 
+
+console.log(filterByType);
   return (
     <>
       <div className="flex flex-col flex-wrap  items-center justify-center  gap-3">
@@ -28,41 +55,53 @@ const FilterTags = ({ animeDataContent }) => {
           </div>
         </div>
         <div className=" justify-center items-center grid gap-x-3 gap-y-1 mobile:grid-cols-[1fr,1fr] lgMobile:grid-cols-[1fr,1fr,1fr,1fr]">
-          {" "}
-          <div>
-            <CustomButtonBrowse classname="">Select genre</CustomButtonBrowse>
-          </div>
-          <div>
-            <CustomButtonBrowse>Select Rating</CustomButtonBrowse>
-          </div>
-          <div>
-            <CustomButtonBrowse>Select Season</CustomButtonBrowse>
-          </div>
-          <div>
-            <CustomButtonBrowse>Select Type</CustomButtonBrowse>
-          </div>
-          <div>
-            <CustomButtonBrowse>Select Status</CustomButtonBrowse>
-          </div>
-          <div>
-            <CustomButtonBrowse>Select Rating</CustomButtonBrowse>
-          </div>
-          <div>
-            <CustomButtonBrowse>Select Year</CustomButtonBrowse>
-          </div>
-          <div>
-            <CustomButtonBrowse>Select Score</CustomButtonBrowse>
-          </div>
-          
+          {filterTypes?.map((items, index) => (
+             
+            
+                <div key={index} className="flex flex-col gap-2">
+                  <CustomButtonBrowse
+                    key={index}
+                    onClick={() => manageToggleDown(items)}
+                    classname="flex flex-row justify-between items-center px-2"
+                  >               
+                    <span>{items}</span>
+                    <span>$$</span> 
+                  </CustomButtonBrowse>
+                  <div >
+                                     
+                      <div                         
+                        className={` absolute w-fit z-20 bg-[rgba(32,32,35)] ${
+                          toggleDown === items ? `` : `hidden`
+                        } grid grid-cols-[1fr,1fr] justify-start items-start p-3 gap-x-6 gap-y-3`}
+                      >
+                        {animeBlocks?.map((item, innerIndex) => (
+                          
+                            
+                              <CustomButton
+                                key={innerIndex}
+                                classname="w-full flex flex-row gap-2 justify-start items-center"
+                              >
+                                <input type="checkBox" /> {item}
+                              </CustomButton>
+                             
+                        
+          ))}
+                      </div>
+                    </div>
+                  </div>
+               
+             
+            )
+          )}
         </div>
         <div className="md:hidden sm:hidden lgMobile:hidden flex flex-row justify-center gap-2 bg-pink-900 hover:bg-red-400">
-            <span>
-              <i>
-                <img src="filter.png" width="10px" height="10px" alt="" />
-              </i>
-            </span>
-            <CustomButtonBrowse classname="w-32">Filter</CustomButtonBrowse>
-          </div>
+          <span>
+            <i>
+              <img src="filter.png" width="10px" height="10px" alt="" />
+            </i>
+          </span>
+          <CustomButtonBrowse classname="w-32">Filter</CustomButtonBrowse>
+        </div>
       </div>
     </>
   );

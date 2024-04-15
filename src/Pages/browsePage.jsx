@@ -4,7 +4,10 @@ import BrowseMiddleSection from "../modules/Browse  Modules/browseMiddleSection.
 import FooterSection from "../modules/homePage  Modules/footerSection.jsx";
 import NavBarSection from "../modules/homePage  Modules/navbarrSection.jsx";
 import TopAnimeReviewsData from "../hooks/useTopAnimeReviews.jsx";
-import AnimeData from "../hooks/useAnime.jsx";
+import AnimeData from "../hooks/useAnime.jsx"
+import AnimeGenre from "../hooks/useAnimeGenre.jsx";
+import axios from "../config/axios/index.jsx";
+import { Axios } from "axios";
 const WatchSection = () => {
   // const topDiv=document.getElementById("topDiv")
   const tabsData = [
@@ -20,9 +23,12 @@ const WatchSection = () => {
   const [languageEnglish, setToNotEnglish] = useState(false);
   const [displaySection, setDisplaySection] = useState(1);
   const [tabState,setTabState]=useState(tabsData[0])
+  const [filterDisplay,setFilterDisplay]=useState("firstDisplaySection")
   // const topWidth=topDiv.offsetWidth
   // console.log(topWidth)
-
+    const manageFilterDisplay=(filterSection)=>{
+      setFilterDisplay(filterSection)
+    }
   useEffect(() => {
     function handleResize() {
       setViewPortWidth(window.innerWidth < 1203);
@@ -128,10 +134,21 @@ const WatchSection = () => {
 
   const {isError:reviewsIsError,isLoading:reviewsIsLoading,data:reviewsData,error:reviewsError}=TopAnimeReviewsData();
   const { isError:animeIsError, isLoading:animeIsLoading, data:animeData, error:animeError } = AnimeData(1);
+  const { isError:animeGenreIsError, isLoading:animeGenreIsLoading, data:animeGenreData, error:animeGenreError } = AnimeGenre();
+  const { isError, isLoading, data, error, refetch } = AnimeData(1);
+
   const handleTabData=(i)=>{
     setTabState(tabsData[i])
 }
+
  
+
+ 
+
+ 
+ 
+const ani = data?.data?.data;
+  console.log( );
  // const changeAllStates=()=>{
 
   //   setSearchClick(false)
@@ -144,9 +161,9 @@ const WatchSection = () => {
       <div
         // onClick={changeAllStates}
         id="topDiv"
-        className="grid grid-rows-auto gap-12 h-screen text-white  bg-[#0b0a0b]"
+        className="grid grid-rows-auto  gap-12 h-screen text-white  bg-[#0b0a0b]"
       >
-        <nav className="fixed bg-[#101010] w-full">
+        <nav className="fixed bg-[#101010] z-40 w-full">
           <NavBarSection
             viewPortWidth2={viewPortWidth2}
             viewPortWidth={viewPortWidth}
@@ -160,8 +177,8 @@ const WatchSection = () => {
           />
         </nav>
 
-        <div className="w-full mt-10"> 
-        <BrowseMiddleSection animeBlocks={animeBlocks}viewPortWidth={viewPortWidth} handleTabData={handleTabData} tabState={tabState} reviewsData={reviewsData} tabsData={tabsData} animeData={animeData}/>
+        <div className="w-full mt-10 z-20"> 
+        <BrowseMiddleSection animeBlocks={animeBlocks}viewPortWidth={viewPortWidth} handleTabData={handleTabData} tabState={tabState} reviewsData={reviewsData} tabsData={tabsData} animeData={animeData} filterDisplay={filterDisplay} manageFilterDisplay={manageFilterDisplay} animeGenreData={animeGenreData}/>
         </div>
 
         <div className="     bottom-0 left-0 right-0 ">

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 const NewsMiddleSection = ({  pagination,paginationNumbers,paginationNumbersArray, setPagination ,manageNextButton,managePreviousButton,setToPaginationEnd,paginationNumbersCurrentPage , setPaginationNumbers,managePaginationOnClick}) => {
   const navigate = useNavigate();
-  const { isError, isLoading, data, error, refetch } = AnimeData(paginationNumbersCurrentPage);
+  const { isError, isLoading, data, error, refetch } = AnimeData(1);
 
   useEffect(() => {
     refetch()
@@ -58,7 +58,7 @@ const NewsMiddleSection = ({  pagination,paginationNumbers,paginationNumbersArra
                 const favorites = response?.favorites;
                 const mainTitle= titles_english !== null ? titles_english
                  : titles;
-                 console.log(mainTitle);
+                 console.log( );
                 const mainImage =
                 images !== null ? images : youtubeImages;
                 return (
