@@ -2,9 +2,25 @@ import { useState } from "react";
 import CustomButton from "./customButton.jsx";
 import CustomButtonBrowse from "./customButtonBrowse.jsx";
 
-const FilterTags = ({ animeDataContent, animeBlocks,animeGenreData }) => {
+const FilterTags = ({ animeDataContent, animeBlocks,animeGenreData,filterList,setFilterList }) => {
   const [toggleDown, setToggleDown] = useState("");
+  
+  const handleFilterSelection=(e)=>{
+   if (!filterList.includes(e)) { setFilterList([...filterList,e])}
+    else{
+      setFilterList(filterList.filter(items=>items !== e))
+     }
+    
+  }
+  const manageFilterReset=()=>{
+     setFilterList([])
+    ;
+     
+   }
+
+  console.log(filterList)
   const manageToggleDown = (e) => {
+    
     if (toggleDown === e) {
       setToggleDown("");
     } else {
@@ -21,142 +37,51 @@ const FilterTags = ({ animeDataContent, animeBlocks,animeGenreData }) => {
     "Select Year",
     "Select Score",
   ];
-  // const filterByGenre=animeGenreData?.data?.data?.map(item=>item.name) 
-
-  const filterByNumOfGenreFiltered = animeDataContent?.reduce((uniqueGenre, currentItem) => {
-    // Extract the number of episodes from the current item
-    const genre = currentItem.genre;
   
-    // Check if the set already has the episode count
-    if (!uniqueGenre.has(genre)) {
-      // If not, add it to the set
-      uniqueGenre.add(genre);
-    }
+  // Check if animeGenreData exists and has the expected structure
+  const filterByGenre = animeGenreData?.data?.data instanceof Array 
+    ? animeGenreData?.data.data.map(item => item.name)
+    : [];
   
-    return uniqueGenre;
-  }, new Set());
+  const filterByEpisodesNoDuplicates = ["above 10", "above 50", "above 100", "below 1000"];
   
- 
+  const filterBySeasonNoDuplicates = animeDataContent 
+    ? [...new Set(animeDataContent.map(item => item.season))]
+    : [];
   
+  const filterByTypeNoDuplicates = animeDataContent 
+    ? [...new Set(animeDataContent.map(item => item.type))]
+    : [];
   
+  const filterByStatusNoDuplicates = animeDataContent 
+    ? [...new Set(animeDataContent.map(item => item.status))]
+    : [];
   
+  const filterByRatingoDuplicates = animeDataContent 
+    ? [...new Set(animeDataContent.map(item => item.rating))]
+    : [];
   
-  // const filterByNumOfEpisodes = animeDataContent?.reduce((uniqueEpisodes, currentItem) => {
-  //   // Extract the number of episodes from the current item
-  //   const episodes = currentItem.episodes;
+  const filterByYearNoDuplicates = ["> 1950","> 1990","> 2000","> 2010","> 2020"]
   
-  //   // Check if the set already has the episode count
-  //   if (!uniqueEpisodes.has(episodes)) {
-  //     // If not, add it to the set
-  //     uniqueEpisodes.add(episodes);
-  //   }
+  const filterByScoreNoDuplicates = ["+6", "+7", "+8", "+9"];
   
-  //   return uniqueEpisodes;
-  // }, new Set());
+  const animeFiltersBy = [
+    filterByGenre,
+    filterByEpisodesNoDuplicates,
+    filterBySeasonNoDuplicates,
+    filterByTypeNoDuplicates,
+    filterByStatusNoDuplicates,
+    filterByRatingoDuplicates,
+    filterByYearNoDuplicates,
+    filterByScoreNoDuplicates,
+  ];
   
-  // Now filterByNumOfEpisodes contains unique episode counts
+  // console.log(animeFiltersBy[3]);
   
-  // const filterByNumOfScore=animeDataContent?.map(items=>items.score)
-  // const filterByNumOfSeason=animeDataContent?.map(items=>items.season)
-
-  const filterByNumOfSeasonFiltered = animeDataContent?.reduce((uniqueSeason, currentItem) => {
-    // Extract the number of episodes from the current item
-    const season = currentItem.season;
-  
-    // Check if the set already has the episode count
-    if (!uniqueSeason.has(season)) {
-      // If not, add it to the set
-      uniqueSeason.add(season);
-    }
-  
-    return uniqueSeason;
-  }, new Set());
-  
- 
-  
-
-  // const filterByNumOftype=animeDataContent?.map(items=>items.type)
-  const filterByNumOfTypeFiltered = animeDataContent?.reduce((uniqueType, currentItem) => {
-    // Extract the number of episodes from the current item
-    const type = currentItem.type;
-  
-    // Check if the set already has the episode count
-    if (!uniqueType.has(type)) {
-      // If not, add it to the set
-      uniqueType.add(type);
-    }
-  
-    return uniqueType;
-  }, new Set());
-   
-  // const filterByNumOfstatus=animeDataContent?.map(items=>items.status)
-
-  const filterByNumOfStatusFiltered = animeDataContent?.reduce((uniqueStatus, currentItem) => {
-    // Extract the number of episodes from the current item
-    const status = currentItem.status;
-  
-    // Check if the set already has the episode count
-    if (!uniqueStatus.has(status)) {
-      // If not, add it to the set
-      uniqueStatus.add(status);
-    }
-  
-    return uniqueStatus;
-  }, new Set());
-  
- 
-  
-  // const filterByNumOfRating=animeDataContent?.map(items=>items.rating)
-
-  const filterByNumOfRatingFiltered = animeDataContent?.reduce((uniqueRating, currentItem) => {
-    // Extract the number of episodes from the current item
-    const rating = currentItem.rating;
-  
-    // Check if the set already has the episode count
-    if (!uniqueRating.has(rating)) {
-      // If not, add it to the set
-      uniqueRating.add(rating);
-    }
-  
-    return uniqueRating;
-  }, new Set());
-  
- 
-  
-
-  // const filterByNumOfYear=animeDataContent?.map(items=>items.year)
-  
-  const filterByNumOfYearFiltered = animeDataContent?.reduce((uniqueYear, currentItem) => {
-    // Extract the number of episodes from the current item
-    const year = currentItem.year;
-  
-    // Check if the set already has the episode count
-    if (!uniqueYear.has(year)) {
-      // If not, add it to the set
-      uniqueYear.add(year);
-    }
-  
-    return uniqueYear;
-  }, new Set());
- 
-  
-  console.log({filterByNumOfYearFiltered})
-  
-  const animeFiltersBy=[
-    [filterByNumOfGenreFiltered],
-    ["above 10","above 50","above 100","below 1000"],
-    [filterByNumOfSeasonFiltered],
-    [filterByNumOfTypeFiltered],
-    [filterByNumOfStatusFiltered],
-    [filterByNumOfRatingFiltered],
-    [filterByNumOfYearFiltered],
-    ["6","7","8","9"],
-  ]
- 
 
  
 
-// console.log(filterByType);
+// console.log(animeFiltersBy[]);
   return (
     <>
       <div className="flex flex-col flex-wrap  items-center justify-center  gap-3">
@@ -171,18 +96,20 @@ const FilterTags = ({ animeDataContent, animeBlocks,animeGenreData }) => {
               className="w-[90%]  pl-5 text-xs h-[20px] bg-gray-700 outline-none rounded"
             />
           </div>
-          <div className=" mobile:hidden lgMobile:flex sm:flex xl:flex lg:flex md:flex ml:flex  flex-row gap-2 itmes-center bg-pink-900 hover:bg-red-400 w-fit px-2 rounded w-24">
+          <div  onClick={()=>manageFilterReset()} className=" mobile:hidden lgMobile:flex sm:flex xl:flex lg:flex md:flex ml:flex  flex-row gap-2 itmes-center bg-pink-900 hover:bg-red-400 w-fit px-2 rounded w-24">
             {" "}
             <span className="flex flex-row items-center ">
               <i>
                 <img src="./filter.png" width="15px" height="10px" alt="" />
               </i>
             </span>
-            <CustomButtonBrowse classname=" font-medium h-10  bg-pink-900 hover:bg-red-400 ">
+            <CustomButtonBrowse    classname=" font-medium h-10  bg-pink-900 hover:bg-red-400 ">
               Filter
             </CustomButtonBrowse>
           </div>
         </div>
+
+
         <div className=" justify-center items-center grid gap-x-3 gap-y-1 mobile:grid-cols-[1fr,1fr] lgMobile:grid-cols-[1fr,1fr,1fr,1fr]">
           {filterTypes?.map((items, index) => (
              
@@ -191,26 +118,44 @@ const FilterTags = ({ animeDataContent, animeBlocks,animeGenreData }) => {
                   <CustomButtonBrowse
                     key={index}
                     onClick={() => manageToggleDown(items)}
+                    
                     classname="flex flex-row justify-between items-center px-2"
                   >               
                     <span>{items}</span>
                     <span>$$</span> 
                   </CustomButtonBrowse>
-                  <div >
+                  <div className="">
                                      
                       <div                         
-                        className={` absolute w-fit z-20 bg-[rgba(32,32,35)] ${
-                          toggleDown === items ? `` : `hidden`
-                        } grid grid-cols-[1fr,1fr] justify-start items-start p-3 gap-x-6 gap-y-3`}
+                        className={` absolute   z-20 bg-[rgba(32,32,35)] ${
+                          toggleDown === items ? ` ` : `hidden`
+                        } 
+                        flex grid md:flex-wrap
+                        md:flex-col 
+                        mobile:grid-cols-[1fr] 
+                         
+                        mobile:overflow-auto 
+                         mobile:max-h-[20vh]     
+                          md:max-h-[54vh]   md:max-w-[75vw] 
+                          xl:max-h-[40vh]
+                            lg:max-w-[80vw] 
+                           p-3
+                             `}
+
                       >
                         {animeFiltersBy[index]?.map((item, innerIndex) => (
                           
+                          
                             
                               <CustomButton
+                              onClick={()=>handleFilterSelection(item)}
                                 key={innerIndex}
-                                classname="w-full flex flex-row gap-2 justify-start items-center"
+                                classname=" mobile:w-auto md:w-auto flex flex-row gap-2 justify-start hover:text-teal-400 items-center lg:p-[6px] md:p-[3px]"
                               >
-                                <input type="checkBox" /> {item}
+                                <span className={`w-3 h-3 bg-gray-500 rounded ${filterList.includes(item)?`bg-teal-700`:`bg-gray-400`}  flex items-center justify-center`} 
+                                >  
+                                 </span>
+                                <span  className={`${filterList.includes(item)?`text-teal-700 font-bold `:`text-gray-200`} text-[.6rem] `}>{item}</span>
                               </CustomButton>
                              
                         
@@ -229,7 +174,7 @@ const FilterTags = ({ animeDataContent, animeBlocks,animeGenreData }) => {
               <img src="filter.png" width="10px" height="10px" alt="" />
             </i>
           </span>
-          <CustomButtonBrowse classname="w-32">Filter</CustomButtonBrowse>
+          <CustomButtonBrowse onClick={()=>manageFilterReset()} classname="w-32">Filter</CustomButtonBrowse>
         </div>
       </div>
     </>

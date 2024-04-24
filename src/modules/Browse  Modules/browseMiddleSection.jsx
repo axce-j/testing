@@ -16,6 +16,7 @@ const BrowseMiddleSection = ({
   filterDisplay,
   manageFilterDisplay,
   animeGenreData,
+  filterList,setFilterList
 }) => {
   const reviewsDataContent = reviewsData?.data?.data;
   const animeDataContent = animeData?.data?.data;
@@ -42,6 +43,8 @@ const BrowseMiddleSection = ({
                 animeDataContent={animeDataContent}
                 animeBlocks={animeBlocks}
                 animeGenreData={animeGenreData}
+                filterList={filterList} 
+                setFilterList={setFilterList}
               />
             </div>
             <div className="w-full flex gap-3  justify-end pr-5">
@@ -75,15 +78,24 @@ const BrowseMiddleSection = ({
               <FirstDisplayModeInBrowse
                 filterDisplay={filterDisplay}
                 animeBlocks={animeBlocks}
+                animeDataContent={animeDataContent}
+                filterList={filterList} 
+                setFilterList={setFilterList}
               />
               <SecondDisplayModeInBrowse
                 filterDisplay={filterDisplay}
                 animeBlocks={animeBlocks}
                 reviewsDataContent={reviewsDataContent}
+                animeDataContent={animeDataContent}
+                filterList={filterList} 
+                setFilterList={setFilterList}
               />
               <ThirdDisplayModeInBrowse
                 filterDisplay={filterDisplay}
                 reviewsDataContent={reviewsDataContent}
+                animeDataContent={animeDataContent}
+                filterList={filterList} 
+                setFilterList={setFilterList}
               />
             </div>
           </div>

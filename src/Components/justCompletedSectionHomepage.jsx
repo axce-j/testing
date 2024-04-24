@@ -1,7 +1,7 @@
 import CustomButton from "./customButton";
 
-const JustCompletedSectionHomepage=({animeBlocks,subtitle,viewPortWidth,viewPortWidth2, method,displaySection,reviewsData})=>{
-  const reviewsDataContent=reviewsData?.data?.data
+const JustCompletedSectionHomepage=({animeBlocks,subtitle,viewPortWidth,viewPortWidth2, method,displaySection,seasonData})=>{
+  const seasonDataContent=seasonData?.data?.data
     return(
         <>
         <div className={` w-full grid grid-cols-auto  gap-4 py-2 ${viewPortWidth2? (displaySection===2? `block`:`hidden`) :``} `}>
@@ -20,7 +20,7 @@ const JustCompletedSectionHomepage=({animeBlocks,subtitle,viewPortWidth,viewPort
                 </div>
                 <div className={`grid  w-full 
                  mobile:grid-cols-[1fr]   lgMobile:grid-cols-[1fr]   justify-between gap-4 ${viewPortWidth?`grid-cols-[1fr,1fr]`:`grid-cols-auto`}`}>
-                  {reviewsDataContent?.sort((a,b)=>b.year-a.year)?.slice(0,10)?.map((response, index) => {
+                  {seasonDataContent?.sort((a,b)=>b.scored_by-a.scored_by)?.slice(0,10)?.map((response, index) => {
                        const images= response?.images?.jpg?.image_url;
                        const titles=response?.title_english;
                        const year=response?.year;

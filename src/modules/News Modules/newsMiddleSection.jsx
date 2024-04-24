@@ -66,12 +66,18 @@ const NewsMiddleSection = ({  pagination,paginationNumbers,paginationNumbersArra
                     <div key={index}
                       className="    w-full h-auto flex flex-col gap-3 rounded-xl text-sm  p-3"
                       style={{
-                        background: 'rgba(53, 125, 112, 0.85)',
+                        
+                          backgroundColor: "rgb(40,42,47)",
+      
+                          background:
+                            "linear-gradient(90deg, rgba(0182,161,280,0.9276960784313726) 22%, rgba(20,220,207,0.6615896358543417) 58%, rgba(100,308,707,0.468312324929972) 94%, rgba(10,32,44,0.36) 100%)",
+                        
+                         
                         boxShadow: ' 0 8px 32px 0 rgba( 31, 38, 135, 0.17 )',
                         backdropFilter: 'blur(28px)',
                         WebkitBackdropFilter: 'blur(28px)',
                         borderRadius: '10px',
-                        border: '1px solid rgba( 255, 255, 255, 0.98 )'
+                        // border: '1px solid rgba( 255, 255, 255, 0.98 )'
                       }}
                     >
                       <div

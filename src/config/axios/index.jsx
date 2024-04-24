@@ -8,14 +8,19 @@ const axios =Axios.create({
 export const getTopAnime = ()=> {
     return axios.get("top/anime")
 }
-export const getRecentAnimeRecommendations=(homePageId)=>{
-    // console.log({homePageId})
-    return axios.get(`recommendations/anime?page=${homePageId}`)
+export const getSeasonAnimeRecommendations=()=>{
+    
+    return axios.get(`seasons/now`)
 }
-export const getAnimeTopReviews=()=>{
-    return axios.get("top/reviews")
+
+ 
+export const getAnimeTopReviews=(reviewsId)=>{
+    
+    return axios.get(`top/reviews?page=${reviewsId}`)
+       
+    
 }
-export const getAnime=(pageId)=>{
+export const    getAnime=(pageId)=>{
     return axios.get(`anime?page=${pageId}`)
 }
 export const getAnimeNews=(id)=>{

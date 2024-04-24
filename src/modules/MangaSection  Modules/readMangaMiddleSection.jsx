@@ -28,7 +28,8 @@ const ReadMangaMiddleSection = () => {
           </div>
         </div>
         <div >
-          <div className="bg-teal-900 h-full flex flex-col gap-4 p-3 rounded-lg mx-10  -translate-y-20">
+          <div className="bg-teal-900 h-full flex flex-col 
+          gap-4 p-3 rounded-lg mx-10  -translate-y-20">
             <div className="w-full text-center font-extrabold bg-white text-black rounded">
               launches next year
             </div>

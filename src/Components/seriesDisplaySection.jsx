@@ -13,7 +13,7 @@ const SeriesDisplaySection = ({
   handleDisplaysection,
   displaySection,
   setDisplaySection,
-  recentData,
+  seasonData,
   reviewsData,
   tabsData,
   tabState,
@@ -22,12 +22,14 @@ const SeriesDisplaySection = ({
   contentState,
   handleContentData,
   managePreviousButtonHome,
-  manageNextButtonHome
+  manageNextButtonHome,
+  topAnimeData
 }) => {
-  const recentDataContent=recentData?.data?.data;
+  const seasonDataContent=seasonData?.data?.data;
   const reviewsDataContent=reviewsData?.data?.data
+  const topAnimeDataContent=topAnimeData?.data?.data
 
-  // console.log(reviewsDataContent)
+  console.log(seasonDataContent)
   return (
     <>
       <section className=" flex mt-20 box-border   px-4   flex-col gap-[10rem] w-full">
@@ -54,7 +56,7 @@ const SeriesDisplaySection = ({
 
             <div className="flex md:flex-row  items-center min-h-[80px] justify-between mobile:flex-col mobile:items-start mobile:min-h-[60px]">
               <div className="text-2xl mobile:text-[15px] mobile:font-medium">
-                Recently Updated
+                seasonly Updated
               </div>
               <div className="flex gap-2 mobile:text-xs  ">
                 <span>
@@ -78,10 +80,10 @@ const SeriesDisplaySection = ({
                 </span>
 
                 <span className="flex flex-row gap-4">
-                  <CustomButton onClick={()=>managePreviousButtonHome()}>
+                  <CustomButton onClick={()=>managePreviousButtonHome()} >
                     {"<"}
                   </CustomButton>
-                  <CustomButton onClick={()=>manageNextButtonHome()}>
+                  <CustomButton onClick={()=>manageNextButtonHome()} >
                     {">"}
                   </CustomButton>
                 </span>
@@ -99,10 +101,11 @@ const SeriesDisplaySection = ({
               mobile:grid-cols-[repeat(2,minmax(100px,1fr))]
               grid-rows-auto  gap-x-6 gap-y-9 box-border"
               >
-                {recentDataContent?.slice(0, 10).map((response, index) => {
-                  const images = response?.images?.jpg?.image_url;
-                  const titles = response?.title_english;
+                {reviewsDataContent?.slice(0, 10)?.map((response, index) => {
+                  const images = response?.entry?.images?.jpg?.image_url;
+                  const titles = response?.entry?.title;
                   const rank = response?.rank;
+                  const date = response?.date;
                   const type = response?.type;
                   const score = response?.score;
                   return (
@@ -149,10 +152,10 @@ const SeriesDisplaySection = ({
                   viewPortWidth ? `flex` : `hidden`
                 }`}
               >
-                <CustomButton classname=" bg-[rgba(32,32,35,1)] w-[45vw] h-[40px] rounded-lg hover:bg-[rgba(32,32,35,.2)] ">
+                <CustomButton onClick={()=>managePreviousButtonHome()} classname=" bg-[rgba(32,32,35,1)] w-[45vw] h-[40px] rounded-lg hover:bg-[rgba(32,32,135,.2)] ">
                   {"<"}
                 </CustomButton>
-                <CustomButton classname=" bg-[rgba(32,32,35,1)] w-[45vw]  h-[40px] rounded-lg hover:bg-[rgba(32,32,35,.2)] ">
+                <CustomButton onClick={()=>manageNextButtonHome()} classname=" bg-[rgba(32,32,35,1)] w-[45vw]  h-[40px] rounded-lg hover:bg-[rgba(32,32,135,.2)] ">
                   {">"}
                 </CustomButton>
               </div>
@@ -183,17 +186,15 @@ const SeriesDisplaySection = ({
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              {reviewsDataContent
-                ?.sort((a, b) => b.favorites - a.favorites)
+              {topAnimeDataContent
+                ?.sort((a, b) => b.score - a.score)
                 ?.slice(0, 10)
                 ?.map((response, index) => {
                   const images = response?.images?.jpg?.image_url;
-                  const titles = response?.title_english;
-                  //  const rank=response?.rank;
+                  const titles = response?.title;
+                  const rank = response?.rank;
                   const type = response?.type;
                   const score = response?.score;
-                  //  const popularity=response?.popularity
-                  const favorites = response?.favorites;
                   return (
                     <div
                       key={index}
@@ -210,7 +211,7 @@ const SeriesDisplaySection = ({
                         <div>{titles}</div>
                         <div className="flex flex-row gap-3 items-center">
                           <CustomButton classname=" flex flex-row gap-3 bg-teal-900 p-1 text-xs font-medium rounded-lg">
-                            <span>{favorites}</span>
+                            <span>{rank}</span>
                           </CustomButton>
                           <CustomButton classname="flex flex-row gap-2 bg-teal-900 p-1 text-xs font-medium items-center rounded-lg ">
                             <img src="mic.png" width="10" alt="" />{" "}
@@ -277,7 +278,7 @@ const SeriesDisplaySection = ({
             viewPortWidth={viewPortWidth}
             viewPortWidth2={viewPortWidth2}
             displaySection={displaySection}
-            reviewsData={reviewsData}
+            seasonData={seasonData}
           />
           <NewlyAddedSectionHomepage
             subtitle={subtitle}
@@ -286,7 +287,7 @@ const SeriesDisplaySection = ({
             viewPortWidth={viewPortWidth}
             viewPortWidth2={viewPortWidth2}
             displaySection={displaySection}
-            recentData={recentData}
+            seasonData={seasonData}
           />
           <JustCompletedSectionHomepage
             subtitle={subtitle}
@@ -295,7 +296,7 @@ const SeriesDisplaySection = ({
             viewPortWidth={viewPortWidth}
             viewPortWidth2={viewPortWidth2}
             displaySection={displaySection}
-            reviewsData={reviewsData}
+            seasonData={seasonData}
           />
         </div>
         <div

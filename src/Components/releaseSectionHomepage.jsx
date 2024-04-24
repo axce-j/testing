@@ -1,8 +1,8 @@
 import CustomButton from "./customButton";
 
-const ReleaseSectionHomepage=({animeBlocks,subtitle,viewPortWidth,viewPortWidth2,method,displaySection,reviewsData})=>{
+const ReleaseSectionHomepage=({animeBlocks,subtitle,viewPortWidth,viewPortWidth2,method,displaySection,seasonData})=>{
 
-  const reviewsDataContent=reviewsData?.data?.data
+  const seasonDataContent=seasonData?.data?.data
   return(
         <>
            <div className={` w-full grid grid-cols-auto  gap-4 py-2 ${viewPortWidth2? (displaySection===0? `block`:`hidden`) :``} `}>
@@ -21,13 +21,13 @@ const ReleaseSectionHomepage=({animeBlocks,subtitle,viewPortWidth,viewPortWidth2
                 </div>
                 <div className={`grid  w-full 
                 mobile:grid-cols-[1fr]   lgMobile:grid-cols-[1fr] justify-between gap-4 ${viewPortWidth?`grid-cols-[1fr,1fr]`:`grid-cols-auto`}`}>
-                  {reviewsDataContent?.sort((a,b)=>a.year-b.year)?.slice(0,10)?.map((response, index) => {
+                  {seasonDataContent?.sort((a,b)=>b.year-a.year)?.slice(0,10)?.map((response, index) => {
                        const images= response?.images?.jpg?.image_url;
-                       const titles=response?.title_english;
+                       const titles=response?.title;
                        const year=response?.year;
                        const type= response?.type;
                        const score=response?.score;
-                       const popularity=response?.popularity
+                       const rank=response?.rank
                       //  const favorites=response?.favorites
                     return (
                       <div
@@ -47,7 +47,7 @@ const ReleaseSectionHomepage=({animeBlocks,subtitle,viewPortWidth,viewPortWidth2
                             </CustomButton>
                             <CustomButton classname="flex flex-row gap-2 bg-teal-900 p-1 text-xs font-medium items-center rounded-lg ">
                               <img src="mic.png" width="10" alt="" />{" "}
-                              <span>{popularity}</span>
+                              <span>{rank}</span>
                             </CustomButton>
                             <span>. {type}</span>
                           </div>

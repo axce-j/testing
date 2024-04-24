@@ -1,7 +1,7 @@
 import CustomButton from "./customButton";
 
-const NewlyAddedSectionHomepage = ({animeBlocks,subtitle,viewPortWidth,viewPortWidth2,method ,displaySection,recentData}) => {
- const recentDataContent= recentData?.data?.data
+const NewlyAddedSectionHomepage = ({animeBlocks,subtitle,viewPortWidth,viewPortWidth2,method ,displaySection,seasonData}) => {
+ const seasonDataContent= seasonData?.data?.data
   return (<>
   <div className={` w-full grid grid-cols-auto  gap-4 py-2 ${viewPortWidth2? (displaySection===1? `block`:`hidden`) :``} `}>
                 <div className="flex flex-row justify-between items-center max-h-[50px]">
@@ -19,7 +19,7 @@ const NewlyAddedSectionHomepage = ({animeBlocks,subtitle,viewPortWidth,viewPortW
                 </div>
                 <div className={`grid  w-full 
                  mobile:grid-cols-[1fr]   lgMobile:grid-cols-[1fr] justify-between gap-4 ${viewPortWidth?`grid-cols-[1fr,1fr]`:`grid-cols-auto`}`}>
-                {recentDataContent?.sort((a,b)=>a.year-b.year)?.slice(0,10)?.map((response, index) => {
+                {seasonDataContent?.sort((a,b)=>a.year-b.year)?.slice(0,10)?.map((response, index) => {
                        const images= response?.images?.jpg?.image_url;
                        const titles=response?.title_english;
                       //  const year=response?.year;

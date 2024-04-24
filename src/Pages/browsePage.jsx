@@ -8,6 +8,7 @@ import AnimeData from "../hooks/useAnime.jsx"
 import AnimeGenre from "../hooks/useAnimeGenre.jsx";
 import axios from "../config/axios/index.jsx";
 import { Axios } from "axios";
+import useFilter from "../modules/Browse  Modules/hooks/useFilter.js";
 const WatchSection = () => {
   // const topDiv=document.getElementById("topDiv")
   const tabsData = [
@@ -24,6 +25,7 @@ const WatchSection = () => {
   const [displaySection, setDisplaySection] = useState(1);
   const [tabState,setTabState]=useState(tabsData[0])
   const [filterDisplay,setFilterDisplay]=useState("firstDisplaySection")
+  const [filterList,setFilterList]= useState([])
   // const topWidth=topDiv.offsetWidth
   // console.log(topWidth)
     const manageFilterDisplay=(filterSection)=>{
@@ -132,30 +134,58 @@ const WatchSection = () => {
   };
 
 
+  // const {data:hookData} = useFilter({status:"Currently Airing"})
+
   const {isError:reviewsIsError,isLoading:reviewsIsLoading,data:reviewsData,error:reviewsError}=TopAnimeReviewsData();
   const { isError:animeIsError, isLoading:animeIsLoading, data:animeData, error:animeError } = AnimeData(1);
   const { isError:animeGenreIsError, isLoading:animeGenreIsLoading, data:animeGenreData, error:animeGenreError } = AnimeGenre();
-  const { isError, isLoading, data, error, refetch } = AnimeData(1);
+  // const { isError, isLoading, data, error, refetch } = AnimeData(1);
 
   const handleTabData=(i)=>{
     setTabState(tabsData[i])
 }
+// var dataArray = [];
+// var dataArrayBeginingAndEnd = [];
+
+// const dataArrayPaginationBegin = [animeData?.data?.pagination?.current_page];
+// const dataArrayPaginationEnd = [animeData?.data?.pagination?.last_visible_page];
+
+// const getAllPages = () => {
+//   for (let i = dataArrayPaginationBegin; i <= dataArrayPaginationEnd; i++) {
+//     dataArrayBeginingAndEnd.push(i);
+//   }
+// };
+
+// getAllPages();
+
+// dataArrayBeginingAndEnd?.map(async (pageId) => {
+//   try {
+//     const response = await axios.get(`https://api.jikan.moe/v4/anime?page=${pageId}`);
+//     dataArray.push(response.data);
+//   } catch (error) {
+//     console.error('Error fetching data for page', pageId, ':', error);
+//     // Handle error here (e.g., retry, skip page)
+//   }
+// });
+
+
+
+
+// console.log(dataArray);
 
  
 
  
-
  
- 
-const ani = data?.data?.data;
+// const ani = data?.data?.data;
   // console.log( );
- // const changeAllStates=()=>{
+//  const changeAllStates=()=>{
 
-  //   setSearchClick(false)
-  //   setSearchClick2(false)
-  //   setclick(false)
+//     setSearchClick(false)
+//     setSearchClick2(false)
+//     setclick(false)
 
-  // }
+//   }
   return (
     <>
       <div
@@ -178,7 +208,7 @@ const ani = data?.data?.data;
         </nav>
 
         <div className="w-full mt-10 z-20"> 
-        <BrowseMiddleSection animeBlocks={animeBlocks}viewPortWidth={viewPortWidth} handleTabData={handleTabData} tabState={tabState} reviewsData={reviewsData} tabsData={tabsData} animeData={animeData} filterDisplay={filterDisplay} manageFilterDisplay={manageFilterDisplay} animeGenreData={animeGenreData}/>
+        <BrowseMiddleSection animeBlocks={animeBlocks}viewPortWidth={viewPortWidth} handleTabData={handleTabData} tabState={tabState} reviewsData={reviewsData} tabsData={tabsData} animeData={animeData} filterDisplay={filterDisplay} manageFilterDisplay={manageFilterDisplay} animeGenreData={animeGenreData} filterList={filterList} setFilterList={setFilterList}/>
         </div>
 
         <div className="     bottom-0 left-0 right-0 ">
