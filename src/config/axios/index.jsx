@@ -29,6 +29,11 @@ export const getAnimeNews=(id)=>{
 export const getAnimeId=(id)=>{
     return axios.get(`anime/${id}`)
 }
+
+export const getAnimeSearch=(searchValue)=>{
+    return axios.get(`anime/?q=${searchValue}`)
+}
+
 export const getAnimeGenres=()=>{
     return axios.get(`genres/anime`)
 }

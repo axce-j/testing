@@ -4,6 +4,7 @@ import FilterTags from "../../Components/filterTags.jsx";
 import FirstDisplayModeInBrowse from "../Browse  Modules/firstDisplayModeInBrowse.jsx";
 import SecondDisplayModeInBrowse from "../Browse  Modules/secondDisplayModeInBrowse.jsx";
 import ThirdDisplayModeInBrowse from "../Browse  Modules/ThirdDisplayModeInBrowse.jsx";
+import BrowsePagePaginationComponent from "../../Components/browsePagePaginationComponent.jsx"
 
 const BrowseMiddleSection = ({
   animeBlocks,
@@ -16,11 +17,20 @@ const BrowseMiddleSection = ({
   filterDisplay,
   manageFilterDisplay,
   animeGenreData,
-  filterList,setFilterList
+  filterList,setFilterList,
+  filterDisplayArray,
+  // paginationNumbers,
+  paginationNumbersCurrentPage,
+  manageNextButton,
+  managePaginationOnClick,
+  managePreviousButton,
+  paginationNumbersArray,
+  // setPaginationNumbers,
+  setToPaginationEnd
 }) => {
   const reviewsDataContent = reviewsData?.data?.data;
   const animeDataContent = animeData?.data?.data;
-  // console.log( animeDataContent);
+  console.log( animeDataContent,"rrrr");
   const navigate = useNavigate();
   return (
     <>
@@ -45,6 +55,7 @@ const BrowseMiddleSection = ({
                 animeGenreData={animeGenreData}
                 filterList={filterList} 
                 setFilterList={setFilterList}
+                filterDisplayArray={filterDisplayArray}
               />
             </div>
             <div className="w-full flex gap-3  justify-end pr-5">
@@ -172,29 +183,7 @@ const BrowseMiddleSection = ({
           className=" w-full
               justify-center items-center flex   jsutify-between text-xs flex-row"
         >
-          <div className="bg-gray-700 px-2 h-[30px] flex items-center  rounded">
-            <CustomButton classname="px-2 hover:bg-teal-800 w-full h-full focus:bg-teal-700">
-              1
-            </CustomButton>
-            <CustomButton classname="px-2 hover:bg-teal-800 w-full h-full focus:bg-teal-700">
-              2
-            </CustomButton>
-            <CustomButton classname="px-2 hover:bg-teal-800 w-full h-full focus:bg-teal-700">
-              3
-            </CustomButton>
-            <CustomButton classname="px-2 hover:bg-teal-800 w-full h-full focus:bg-teal-700">
-              4
-            </CustomButton>
-            <CustomButton classname="px-2 hover:bg-teal-800 w-full h-full focus:bg-teal-700">
-              5
-            </CustomButton>
-            <CustomButton classname="px-2 hover:bg-teal-800 w-full h-full focus:bg-teal-700">
-              {">"}
-            </CustomButton>
-            <CustomButton classname="px-2 hover:bg-teal-800 w-full h-full focus:bg-teal-700">
-              {">>"}
-            </CustomButton>
-          </div>
+          <BrowsePagePaginationComponent  paginationNumbersArray={paginationNumbersArray}   manageNextButton={manageNextButton} managePreviousButton={managePreviousButton} managePaginationOnClick={managePaginationOnClick} paginationNumbersCurrentPage={paginationNumbersCurrentPage} setToPaginationEnd={setToPaginationEnd}/>
         </div>
       </div>
     </>
