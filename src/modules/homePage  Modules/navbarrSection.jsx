@@ -172,7 +172,7 @@ const NavBarSection = ({
       </div>
       <div
         className={`w-full flex flex-col gap-2 py-1 px-4 ${
-          searchClick2 && viewPortWidth ? `block` : `block`
+          searchClick2 && viewPortWidth ? `block` : `hidden`
         }`}
       >
         <input
