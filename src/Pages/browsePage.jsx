@@ -174,7 +174,7 @@ const WatchSection = () => {
   const { isError:animeGenreIsError, isLoading:animeGenreIsLoading, data:animeGenreData, error:animeGenreError } = AnimeGenre();
   const { isError:animeSearchIsError, isLoading:animeSearchIsLoading, data:animeSearchData, error:animeSearchError,refetch:refetchingSearch } = AnimeOnSearchData(searchOption);
   // const { isError, isLoading, data, error, refetch } = AnimeData(1);
-// console.log(animeSearchData);
+console.log(animeSearchData);
 
 
   useEffect(() => {

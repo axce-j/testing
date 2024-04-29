@@ -24,7 +24,7 @@ const NavBarSection = ({
     } else {
       setSearchOption(searchValue.target.value);
     }
-    console.log(searchValue.target.value);
+    // console.log(searchValue.target.value);
   };
   const animeSearchDataContent = animeSearchData?.data?.data;
   return (
@@ -96,6 +96,7 @@ const NavBarSection = ({
               animeSearchData={animeSearchData}
               setSearchOption={setSearchOption}
               manageInputSearchOption={manageInputSearchOption}
+              animeSearchDataContent={animeSearchDataContent}
               className={`${viewPortWidth ? `hidden` : `block`}`}
             />
           </div>
