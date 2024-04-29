@@ -183,15 +183,15 @@ const NavBarSection = ({
           className="w-full text-black rounded p-2"
           value={searchOption === null ? "" : searchOption}
         />
-        <div className="flex justify-between ">
+        <div className="flex justify-between items-center">
           <div className=" inline-block underline mb-[4px] text-gray-500">Anime</div>
           <CustomButton  onClick={() => {
                           manageInputSearchOption("empty");
                         }} classname={`   block ${(searchOption !== null )?`block`:`hidden`}cursor-pointer text-gray-500`}> Clear</CustomButton>
-          <CustomButton className=" w-full flex flex-row items-center justify-center gap-3">
+          <CustomButton classname=" w-full flex flex-row items-center justify-center gap-3">
             <span>
               
-                <img src="filter.png" width="15" alt="" />
+                <img src="filter.png" width="10" alt="" />
               
             </span>
             <span className="text-gray-500 hover:text-white">Filter</span>
