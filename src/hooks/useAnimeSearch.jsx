@@ -1,5 +1,6 @@
 import {useQuery} from "@tanstack/react-query"
-import getAnimeSearch from "../config/axios"
+import { getAnimeSearch } from "../config/axios";
+
 
 const AnimeOnSearchData=(searchValue)=>{
     return useQuery(

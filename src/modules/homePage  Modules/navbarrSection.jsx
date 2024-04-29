@@ -2,9 +2,17 @@ import CustomButton from "../../Components/customButton.jsx";
 import NavBarInput from "../../Components/navbarInput.jsx"
 import { useNavigate } from "react-router-dom";
 
-const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,clicked,setSearchBar2,searchClick2 ,setSearchBar,searchClick})=>{
+const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,clicked,setSearchBar2,searchClick2 ,setSearchBar,searchClick,setSearchOption,searchOption,animeSearchData})=>{
   const changeImage = !clicked ? "dash.png" : "close.png";
   const navigate= useNavigate()
+  const manageInputSearchOption=(searchValue)=>{
+    if (searchValue ==="empty") {
+
+      setSearchOption(null)
+    }else{
+    setSearchOption(searchValue.target.value)}
+    console.log(searchValue.target.value)
+  }
   
     return(
         <>
@@ -67,8 +75,12 @@ const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,cli
               
             </div>
              <div>
-              <NavBarInput searchClick={searchClick} setSearchBar={setSearchBar} className={`${viewPortWidth?`hidden`:`block`}`}/>
+              <NavBarInput searchClick={searchClick} setSearchBar={setSearchBar} searchOption={searchOption} animeSearchData={animeSearchData} setSearchOption={setSearchOption} manageInputSearchOption={manageInputSearchOption} className={`${viewPortWidth?`hidden`:`block`}`}/>
              </div>
+
+
+
+
               <div className={`${viewPortWidth2?`hidden`:``}${viewPortWidth&&(!viewPortWidth2)?`text-white text-m flex flex-row items-center gap-6 justify-end w-full `:` text-white text-m flex flex-row items-center gap-6 justify-start w-full`}`}>
                 <span 
                 onClick={() => navigate("/browse")}
@@ -129,6 +141,7 @@ const NavBarSection=({viewPortWidth2,viewPortWidth,handleclick,dropDownItems,cli
         </div>
         <div className={`w-full flex flex-col gap-2 py-4 px-4 ${searchClick2&&viewPortWidth?`block`:`hidden`}`}>
           <input
+          onChange={manageInputSearchOption}
             type="text"
             placeholder="search Anime..."
             className="w-full text-black rounded p-2"

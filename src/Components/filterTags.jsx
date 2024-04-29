@@ -8,8 +8,14 @@ const FilterTags = ({
   animeGenreData,
   filterList,
   setFilterList,
+  setSearchOption
 }) => {
   const [toggleDown, setToggleDown] = useState("");
+
+  const manageInputSearchOption=(searchValue)=>{
+    setSearchOption(searchValue.target.value)
+    // console.log(searchValue.target.value)
+  }
 
   const handleFilterSelection = (item, index) => {
     // Check if the item is already in the filterList subarray
@@ -117,9 +123,11 @@ const FilterTags = ({
               <img src="Vector.png" alt="" />
             </span>
             <input
+            // onInput={manageInputSearchOption}
               type="text"
               placeholder="search here..."
-              className="w-[90%]  pl-5 text-xs h-[20px] bg-gray-700 outline-none rounded"
+              className="w-[90%]  pl-5 text-sm text-teal-400 font-medium h-[20px] bg-gray-700 outline-none rounded"
+              value={filterList.flat().length == 0? "":filterList.flat()}
             />
           </div>
           <div

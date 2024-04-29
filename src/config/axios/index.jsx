@@ -1,8 +1,9 @@
+// import { axios } from "./config"
 import  Axios  from "axios";
 import { BASE_API_URL } from "../../export";
-
+ const x=3
 const axios =Axios.create({
-    baseURL: `${BASE_API_URL}`
+    baseURL: BASE_API_URL
 })
 
 export const getTopAnime = ()=> {
@@ -31,11 +32,12 @@ export const getAnimeId=(id)=>{
 }
 
 export const getAnimeSearch=(searchValue)=>{
-    return axios.get(`anime/?q=${searchValue}`)
+    // console.log(searchValue);
+    return axios.get(`anime?q=${searchValue}`)
 }
 
 export const getAnimeGenres=()=>{
     return axios.get(`genres/anime`)
 }
- 
-export default axios;
+
+export default x;

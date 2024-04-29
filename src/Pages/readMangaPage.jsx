@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import ReadMangaMiddleSection from "../modules/MangaSection  Modules/readMangaMiddleSection.jsx";
 import FooterSection from "../modules/homePage  Modules/footerSection.jsx";
 import NavBarSection from "../modules/homePage  Modules/navbarrSection.jsx";
+import AnimeOnSearchData from "../hooks/useAnimeSearch.jsx";
 const ReadMangaPage = () => {
   // const topDiv=document.getElementById("topDiv")
   const [clicked, setclick] = useState(false);
@@ -13,6 +14,7 @@ const ReadMangaPage = () => {
   const [searchClick2, setSearchClick2] = useState(false);
   const [languageEnglish, setToNotEnglish] = useState(false);
   const [displaySection, setDisplaySection] = useState(1);
+  const [searchOption,setSearchOption]= useState("")
   // const topWidth=topDiv.offsetWidth
   // console.log(topWidth)
 
@@ -95,8 +97,8 @@ const ReadMangaPage = () => {
   };
 
   const setSearchBar = () => {
-    setSearchClick(!searchClick);
-    setclick(false);
+    // setSearchClick(!searchClick);
+    // setclick(false);
   };
   const setSearchBar2 = () => {
     setclick(false);
@@ -124,6 +126,13 @@ const ReadMangaPage = () => {
   //   setclick(false)
 
   // }
+  const { isError:animeSearchIsError, isLoading:animeSearchIsLoading, data:animeSearchData, error:animeSearchError,refetch:refetchingSearch } = AnimeOnSearchData(searchOption);
+  useEffect(() => {
+    refetchingSearch()
+  
+  
+  }, [searchOption])
+  
   return (
     <>
       <div
@@ -142,6 +151,7 @@ const ReadMangaPage = () => {
             searchClick2={searchClick2}
             setSearchBar={setSearchBar}
             searchClick={searchClick}
+            searchOption={searchOption} setSearchOption={setSearchOption}  animeSearchData={animeSearchData && animeSearchData}
           />
         </nav>
 

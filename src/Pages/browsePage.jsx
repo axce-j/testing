@@ -9,6 +9,7 @@ import AnimeGenre from "../hooks/useAnimeGenre.jsx";
 import axios from "../config/axios/index.jsx";
 import { Axios } from "axios";
 import useFilter from "../modules/Browse  Modules/hooks/useFilter.js";
+import AnimeOnSearchData from "../hooks/useAnimeSearch.jsx";
 const WatchSection = () => {
   // const topDiv=document.getElementById("topDiv")
   const tabsData = [
@@ -28,6 +29,7 @@ const WatchSection = () => {
   const [tabState,setTabState]=useState(tabsData[0])
   const [filterDisplay,setFilterDisplay]=useState("firstDisplaySection")
   const [filterList,setFilterList]= useState(filterDisplayArray)
+  const [searchOption,setSearchOption]= useState("")
   // const topWidth=topDiv.offsetWidth
   // console.log(topWidth)
 
@@ -129,7 +131,7 @@ const WatchSection = () => {
     // setclick(!clicked);
     if (clicked === false) {
       setclick(true);
-    } else if (clicked === true) {
+    } else if (clicked === true ) {
       setclick(false);
     }
     setSearchClick2(false);
@@ -137,8 +139,12 @@ const WatchSection = () => {
   };
 
   const setSearchBar = () => {
-    setSearchClick(!searchClick);
-    setclick(false);
+    // if (searchClick === false) {
+    //   setSearchClick(true);
+    // } else if ( searchClick === true && (searchOption == 0)) {
+    //   setSearchClick(false);
+    // }
+    // setclick(false);
   };
   const setSearchBar2 = () => {
     setclick(false);
@@ -164,9 +170,20 @@ const WatchSection = () => {
   // const {data:hookData} = useFilter({status:"Currently Airing"})
 
   const {isError:reviewsIsError,isLoading:reviewsIsLoading,data:reviewsData,error:reviewsError}=TopAnimeReviewsData(4);
-  const { isError:animeIsError, isLoading:animeIsLoading, data:animeData, error:animeError,refetch } = AnimeData(paginationNumbers.currentPage);
+  const { isError:animeIsError, isLoading:animeIsLoading, data:animeData, error:animeError,refetch:refetchingBrowse } = AnimeData(paginationNumbers.currentPage);
   const { isError:animeGenreIsError, isLoading:animeGenreIsLoading, data:animeGenreData, error:animeGenreError } = AnimeGenre();
+  const { isError:animeSearchIsError, isLoading:animeSearchIsLoading, data:animeSearchData, error:animeSearchError,refetch:refetchingSearch } = AnimeOnSearchData(searchOption);
   // const { isError, isLoading, data, error, refetch } = AnimeData(1);
+// console.log(animeSearchData);
+
+
+  useEffect(() => {
+    refetchingSearch()
+  
+  
+  }, [searchOption])
+  
+
 
   const handleTabData=(i)=>{
     setTabState(tabsData[i])
@@ -175,7 +192,7 @@ const manageNextButton=()=>{
   if (paginationNumbers.currentPage < paginationNumbers.totalPages){
     setPaginationNumbers({...paginationNumbers, currentPage: paginationNumbers.currentPage + 1,displayedPagebegin:paginationNumbers.displayedPagebegin+1,displayedPageSecondButton:paginationNumbers.displayedPageSecondButton+1,displayedPageThirdButton:paginationNumbers.displayedPageThirdButton+1,displayedPageFourthButton:paginationNumbers.displayedPageFourthButton+1,displayedPageEnd:paginationNumbers.displayedPageEnd+1});
     console.log(paginationNumbers.currentPage);
-    refetch();
+    refetchingBrowse();
   }
 }
 
@@ -183,17 +200,17 @@ const managePreviousButton=()=>{
   if (paginationNumbers.currentPage >1 ){
     setPaginationNumbers({...paginationNumbers, currentPage: paginationNumbers.currentPage - 1,displayedPagebegin:paginationNumbers.displayedPagebegin-1,displayedPageSecondButton:paginationNumbers.displayedPageSecondButton-1,displayedPageThirdButton:paginationNumbers.displayedPageThirdButton-1,displayedPageFourthButton:paginationNumbers.displayedPageFourthButton-1,displayedPageEnd:paginationNumbers.displayedPageEnd-1,});
     console.log(paginationNumbers.currentPage);
-    refetch();
+    refetchingBrowse();
     
   }
 }
 const managePaginationOnClick=(e)=>{
   setPaginationNumbers({...paginationNumbers,currentPage:paginationNumbers.currentPage=e});
-  refetch()
+  refetchingBrowse()
 }
 const setToPaginationEnd=()=>{
   setPaginationNumbers({...paginationNumbers,currentPage:paginationNumbers.currentPage=paginationNumbers.totalPages ,displayedPagebegin:paginationNumbers.displayedPagebegin=(paginationNumbers.totalPages-4),displayedPageSecondButton:paginationNumbers.displayedPageSecondButton=(paginationNumbers.totalPages-3),displayedPageThirdButton:paginationNumbers.displayedPageThirdButton=(paginationNumbers.totalPages-2),displayedPageFourthButton:paginationNumbers.displayedPageFourthButton=(paginationNumbers.totalPages-1),displayedPageEnd:paginationNumbers.displayedPageEnd=paginationNumbers.totalPages,});
-  refetch();
+  refetchingBrowse();
 }
 
 
@@ -202,7 +219,7 @@ const setToPaginationEnd=()=>{
 //   refetch()
 // }, [paginationNumbers.currentPage])
 
-console.log(animeData,"www");
+// console.log(animeSearchData);
 
 // var dataArray = [];
 // var dataArrayBeginingAndEnd = [];
@@ -264,12 +281,15 @@ console.log(animeData,"www");
             searchClick2={searchClick2}
             setSearchBar={setSearchBar}
             searchClick={searchClick}
+            searchOption={searchOption}
+            setSearchOption={setSearchOption}
+            animeSearchData={animeSearchData && animeSearchData}
           />
         </nav>
 
         <div className="w-full mt-10 z-20"> 
         <BrowseMiddleSection animeBlocks={animeBlocks}viewPortWidth={viewPortWidth} handleTabData={handleTabData} tabState={tabState} reviewsData={reviewsData} tabsData={tabsData} animeData={animeData} filterDisplay={filterDisplay} manageFilterDisplay={manageFilterDisplay} animeGenreData={animeGenreData} filterList={filterList} setFilterList={setFilterList} filterDisplayArray={filterDisplayArray}
-         setPaginationNumbers={setPaginationNumbers}  manageNextButton={manageNextButton} managePreviousButton={managePreviousButton} managePaginationOnClick={managePaginationOnClick} paginationNumbersCurrentPage={paginationNumbers.currentPage} setToPaginationEnd={setToPaginationEnd} paginationNumbersArray={paginationNumbersArray}
+         setPaginationNumbers={setPaginationNumbers}  manageNextButton={manageNextButton} managePreviousButton={managePreviousButton} managePaginationOnClick={managePaginationOnClick} paginationNumbersCurrentPage={paginationNumbers.currentPage} setToPaginationEnd={setToPaginationEnd} paginationNumbersArray={paginationNumbersArray} setSearchOption={setSearchOption} searchOption={searchOption} animeSearchData={animeSearchData}
         />
         </div>
 

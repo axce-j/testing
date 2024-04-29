@@ -26,11 +26,14 @@ const BrowseMiddleSection = ({
   managePreviousButton,
   paginationNumbersArray,
   // setPaginationNumbers,
-  setToPaginationEnd
+  setToPaginationEnd,
+  searchOption,
+  setSearchOption,
+  animeSearchData
 }) => {
   const reviewsDataContent = reviewsData?.data?.data;
   const animeDataContent = animeData?.data?.data;
-  console.log( animeDataContent,"rrrr");
+  // console.log( animeSearchData);
   const navigate = useNavigate();
   return (
     <>
@@ -56,6 +59,7 @@ const BrowseMiddleSection = ({
                 filterList={filterList} 
                 setFilterList={setFilterList}
                 filterDisplayArray={filterDisplayArray}
+                setSearchOption={setSearchOption}
               />
             </div>
             <div className="w-full flex gap-3  justify-end pr-5">

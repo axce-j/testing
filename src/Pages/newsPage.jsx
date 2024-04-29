@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import NewsMiddleSection from "../modules/News Modules/newsMiddleSection.jsx";
 import FooterSection from "../modules/homePage  Modules/footerSection.jsx";
 import NavBarSection from "../modules/homePage  Modules/navbarrSection.jsx";
+import AnimeOnSearchData from "../hooks/useAnimeSearch.jsx";
 const RandomPage = () => {
 
 
@@ -13,7 +14,8 @@ const RandomPage = () => {
   // const topDiv=document.getElementById("topDiv")
   const [clicked, setclick] = useState(false);
   const [viewPortWidth, setViewPortWidth] = useState(false);
-
+  const [searchOption,setSearchOption]= useState("")
+  const [searchOptionNews,setSearchOptionNews]= useState("")
   const [searchClick, setSearchClick] = useState(false);
   const [searchClick2, setSearchClick2] = useState(false);
   const [languageEnglish, setToNotEnglish] = useState(false);
@@ -120,8 +122,8 @@ const RandomPage = () => {
   };
 
   const setSearchBar = () => {
-    setSearchClick(!searchClick);
-    setclick(false);
+    // setSearchClick(!searchClick);
+    // setclick(false);
   };
   const setSearchBar2 = () => {
     setclick(false);
@@ -131,7 +133,26 @@ const RandomPage = () => {
       setSearchClick2(false);
     }
   };
-   
+  const { isError:animeOnSearchDataForNewsIsError, isLoading:animeOnSearchDataForNewsLoading, data:animeOnSearchDataForNewsData, error:animeOnSearchDataForNewsError,refetch:refetchingAnimeOnSearchDataForNews } = AnimeOnSearchData(searchOptionNews);
+
+  const manageSearchBarNews=(searchNewsValue)=>{
+      setSearchOptionNews(searchNewsValue)
+  }
+ 
+
+  useEffect(() => {
+    refetchingAnimeOnSearchDataForNews()
+    console.log(searchOptionNews)
+  
+  }, [searchOptionNews])
+  const { isError:animeSearchIsError, isLoading:animeSearchIsLoading, data:animeSearchData, error:animeSearchError,refetch:refetchingSearch } = AnimeOnSearchData(searchOption);
+  useEffect(() => {
+    refetchingSearch()
+  
+  
+  }, [searchOption])
+
+  
   
   return (
     <>
@@ -151,12 +172,13 @@ const RandomPage = () => {
             searchClick2={searchClick2}
             setSearchBar={setSearchBar}
             searchClick={searchClick}
+            searchOption={searchOption} setSearchOption={setSearchOption}  animeSearchData={animeSearchData && animeSearchData}
           />
         </nav>
 
         <div className="w-full mt-10 z-10"> 
         <NewsMiddleSection  pagination={pagination} paginationNumbers={paginationNumbers} manageNextButton={manageNextButton} paginationNumbersCurrentPage={paginationNumbers.currentPage} managePreviousButton={managePreviousButton}
-         paginationNumbersArray={paginationNumbersArray} setPagination={setPagination} setPaginationNumbers={setPaginationNumbers} managePaginationOnClick={managePaginationOnClick} setToPaginationEnd={setToPaginationEnd}/>
+         paginationNumbersArray={paginationNumbersArray} setPagination={setPagination} setPaginationNumbers={setPaginationNumbers} managePaginationOnClick={managePaginationOnClick} setToPaginationEnd={setToPaginationEnd}  animeOnSearchDataForNewsData={animeOnSearchDataForNewsData} searchOptionNews={searchOptionNews} manageSearchBarNews={manageSearchBarNews}/>
         </div>
 
         <div className="flex flex-col justify-end items-end">
