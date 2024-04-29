@@ -188,7 +188,7 @@ const NavBarSection = ({
           <CustomButton  onClick={() => {
                           manageInputSearchOption("empty");
                         }} classname={`   block ${(searchOption !== null )?`block`:`hidden`}cursor-pointer text-gray-500`}> Clear</CustomButton>
-          <CustomButton classname=" w-full flex flex-row items-center justify-center gap-3">
+          <CustomButton classname=" flex flex-row items-center justify-center gap-3">
             <span>
               
                 <img src="filter.png" width="10" alt="" />
