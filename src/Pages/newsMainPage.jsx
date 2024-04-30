@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import CustomButton from "../Components/customButton.jsx";
 import defaultImage from "/img12.jpg"
 import { AnimeDataId } from "../hooks/useAnime.jsx";
+import AnimeOnSearchData from "../hooks/useAnimeSearch.jsx";
 
 
 const NewsMainPage = () => {
@@ -34,6 +35,7 @@ const NewsMainPage = () => {
   const [displaySection, setDisplaySection] = useState(1);
   const [tabState, setTabState] = useState(tabsData[0]);
   const [contentState, setContentState] = useState(contentData[0]);
+  const [searchOption,setSearchOption]= useState("")
   // const topWidth=topDiv.offsetWidth
   // console.log(topWidth)
   const handleTabData = (i) => {
@@ -123,8 +125,8 @@ const NewsMainPage = () => {
   };
 
   const setSearchBar = () => {
-    setSearchClick(!searchClick);
-    setclick(false);
+    // setSearchClick(!searchClick);
+    // setclick(false);
   };
   const setSearchBar2 = () => {
     setclick(false);
@@ -158,6 +160,12 @@ const NewsMainPage = () => {
   const { isError, isLoading, data, Error } = AnimeNewsData(newsId);
   const { isError:idIsError, isLoading:idIsLoading, data:idData, Error:idError } = AnimeDataId(newsId);
   
+  const { isError:animeSearchIsError, isLoading:animeSearchIsLoading, data:animeSearchData, error:animeSearchError,refetch:refetchingSearch } = AnimeOnSearchData(searchOption);
+  useEffect(() => {
+    refetchingSearch()
+  
+  
+  }, [searchOption])
   
   const animeIdData= idData?.data
   const animeTitleId= animeIdData?.data?.title || animeIdData?.data?.title_english
@@ -186,6 +194,7 @@ const NewsMainPage = () => {
             searchClick2={searchClick2}
             setSearchBar={setSearchBar}
             searchClick={searchClick}
+            searchOption={searchOption} setSearchOption={setSearchOption}  animeSearchData={animeSearchData && animeSearchData}
           />
         </nav>
 
