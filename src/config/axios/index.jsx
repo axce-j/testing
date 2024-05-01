@@ -40,4 +40,14 @@ export const getAnimeGenres=()=>{
     return axios.get(`genres/anime`)
 }
 
+export const getAnimeEpisodes=(episodeId,pageId)=>{
+    return axios.get(`anime/${episodeId}/episodes?page=${pageId}`)
+}
+
+export const getAnimeStreamingLink=(animeID)=>{
+    return axios.get(`anime/${animeID}/streaming`)
+}
+
+
+
 export default x;

@@ -72,6 +72,9 @@ const NavBarSection = ({
                       if (response === "HOME") {
                         navigate("/home");
                       }
+                      if (response === "SPECIAL") {
+                        navigate("/special");
+                      }
                     }}
                     key={index}
                     classname="hover:bg-[rgba(0,0,0,.6)] py-2 hover:text-teal-900 px-5 w-full"
