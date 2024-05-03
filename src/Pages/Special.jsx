@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 // import MiddleSection from "../modules/homePage  Modules/middleSection.jsx"
 import FooterSection from "../modules/homePage  Modules/footerSection.jsx"
 import NavBarSection from "../modules/homePage  Modules/navbarrSection.jsx"
-import AnimeOnSearchData from "../hooks/useAnimeSearch.jsx";
+import AnimeOnSearchData, { AnimeOnSearchRelatedData } from "../hooks/useAnimeSearch.jsx";
  
 import MiddleSectionWatchAnime from "../modules/View Anime Modules/middleSectionWatchAnime.jsx"
 import TopAnimeReviewsData from "../hooks/useTopAnimeReviews.jsx";
@@ -48,6 +48,7 @@ const tabsData = [
   const [contentState,setContentState]=useState(contentData[0])
   const [searchOption,setSearchOption]= useState("")
   const [currentEpisode,setCurrentEpisode]=useState("")
+  const [animeOption,setAnimeOption]=useState("")
 
 
   const handleCurrentEpisode=(episodeValue)=>{
@@ -175,19 +176,27 @@ const tabsData = [
   // }
   const {isError:reviewsIsError,isLoading:reviewsIsLoading,data:reviewsData,error:reviewsError}=TopAnimeReviewsData(4);
 
-   const {isError:animeEpisodesIsError,isLoading:animeEpisodesIsLoading,data:animeEpisodesData,error:animeEpisodesError}=AnimeEpisodes(29,1)
+   const {isError:animeEpisodesIsError,isLoading:animeEpisodesIsLoading,data:animeEpisodesData,error:animeEpisodesError}=AnimeEpisodes(29,1);
 
+   const {isError:animeOnSearchRelatedIsError,isLoading:animeOnSearchRelatedIsLoading,data:animeOnSearchRelatedData,error:animeOnSearchRelatedError,refetch:refetchanimeOnSearchRelated}=AnimeOnSearchRelatedData(animeOption);
+   useEffect(() => {
+    refetchanimeOnSearchRelated()
+  
+  
+  }, [animeOption]);
+  
 
 const {isError:animeStreamingLinkIsError,isLoading:animeStreamingLinkIsLoading,data:animeStreamingLinkData,error:animeStreamingLinkError}=AnimeStreamingLink(20)
-const {isError:animeDataIdIsError,isLoading:animeDataIdIsLoading,data:animeDataIdData,error:animeDataIdError}=AnimeDataId(20)
-console.log(animeDataIdData);
+const {isError:animeDataIdIsError,isLoading:animeDataIdIsLoading,data:animeDataIdData,error:animeDataIdError}=AnimeDataId(20);
+// console.log(animeDataIdData);
   const { isError:animeSearchIsError, isLoading:animeSearchIsLoading, data:animeSearchData, error:animeSearchError,refetch:refetchingSearch } = AnimeOnSearchData(searchOption);
   useEffect(() => {
     refetchingSearch()
   
   
-  }, [searchOption])
+  }, [searchOption]);
   
+  // console.log(animeOption,"www")
   return (
     <>
       <div 
@@ -205,7 +214,7 @@ console.log(animeDataIdData);
         <div className="w-full mt-24 z-30">
           {" "}
           
-          <MiddleSectionWatchAnime viewPortWidth={viewPortWidth} tabState={tabState} tabsData={tabsData} handleTabData={handleTabData} reviewsData={reviewsData} animeEpisodesData={animeEpisodesData} currentEpisode={currentEpisode} setCurrentEpisode={setCurrentEpisode} handleCurrentEpisode={handleCurrentEpisode} animeStreamingLinkData={animeStreamingLinkData} animeDataIdData={animeDataIdData}/>
+          <MiddleSectionWatchAnime viewPortWidth={viewPortWidth} tabState={tabState} tabsData={tabsData} handleTabData={handleTabData} reviewsData={reviewsData} animeEpisodesData={animeEpisodesData} currentEpisode={currentEpisode} setCurrentEpisode={setCurrentEpisode} handleCurrentEpisode={handleCurrentEpisode} animeStreamingLinkData={animeStreamingLinkData} animeDataIdData={animeDataIdData} setAnimeOption={setAnimeOption} animeOnSearchRelatedData={animeOnSearchRelatedData}/>
         
         </div>
 

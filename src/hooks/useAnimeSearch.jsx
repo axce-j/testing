@@ -12,5 +12,17 @@ const AnimeOnSearchData=(searchValue)=>{
     )
 };
 
+
+export const AnimeOnSearchRelatedData=(AnimeOption)=>{
+    return useQuery(
+        {
+            queryKey:['AnimeOnSearchRelatedData'],
+            queryFn:()=>getAnimeSearch(AnimeOption),
+        
+        }
+    )
+};
+
+
  
 export default AnimeOnSearchData;
