@@ -56,7 +56,7 @@ const Top = () => {
           <div className="text-white bg-black w-full    ">
             <CustomButton
               onClick={() => handleIndividualClick("home")}
-              classname={`  bg-[rgba(11,10,8)] rounded-full h-[6rem] w-[6rem] p-6  break-words text-m font-bold absolute  lg:inset-x-[47%]  lg:inset-y-[28%] sm:inset-x-[8%] sm:inset-y-[42%] inset-x-[42%] inset-y-[20%]  ${
+              classname={`  bg-[rgba(11,10,8)] rounded-full h-[6rem] w-[6rem] p-6  break-words text-m font-bold absolute  lg:inset-x-[47%]  lg:inset-y-[24%] sm:inset-x-[8%] sm:inset-y-[42%] inset-x-[42%] inset-y-[20%]  ${
                 clicked ? `hidden` : `block`
               }`}
             >
@@ -89,7 +89,7 @@ const Top = () => {
             <CustomButton
               onClick={() => handleIndividualClick("readManga")}
               classname={`
-                                                      bg-[rgba(26,13,23)] rounded-full h-[6rem] w-[6rem] p-4  break-words text-m font-bold absolute lg:inset-x-[47%] lg:inset-y-[74%] sm:inset-x-[85%] sm:inset-y-[39%] inset-x-[39%] inset-y-[75%] ${
+                                                      bg-[rgba(26,13,23)] rounded-full h-[6rem] w-[6rem] p-4  break-words text-m font-bold absolute lg:inset-x-[47%] lg:inset-y-[71%] sm:inset-x-[85%] sm:inset-y-[39%] inset-x-[39%] inset-y-[75%] ${
                                                         clicked
                                                           ? `hidden`
                                                           : `block`
@@ -110,7 +110,7 @@ const Top = () => {
                                                     mobile:h-[8rem] mobile:w-[8rem]
                                                     mobile:text-md
                                                     mobile:p-4
-                                                    mobile:font-extra-bold p-8 break-words text-2xl font-bold absolute lg:inset-x-[46%] lg:inset-y-[51%] sm:inset-x-[44%] sm:inset-y-[29%] inset-x-[13%] inset-y-[42%]"
+                                                    mobile:font-extra-bold p-8 break-words text-2xl font-bold absolute lg:inset-x-[46%] lg:inset-y-[49%] sm:inset-x-[44%] sm:inset-y-[29%] inset-x-[13%] inset-y-[42%]"
             >
               Explore
             </CustomButton>
