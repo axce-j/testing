@@ -39,7 +39,7 @@ const MiddleSection= ({rating,subtitle,viewPortWidth,animeBlocks,method,Days,vie
     return(
         <>
          <header
-            className=" w-full flex flex-col justify-center items-center "
+            className=" w-full mt-12 flex flex-col justify-center items-center "
           >
            <SwiperSliding viewPortWidth={viewPortWidth} topAnimeData={topAnimeData} navigate={navigate}/>
           

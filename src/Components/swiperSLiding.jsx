@@ -16,7 +16,7 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,topAnimeData,nav
     return(
         
       <div className=" w-[96vw]  ">
-      <Swiper pagination={true} modules={[Pagination]} className="mySwiper w-full  py-8 ">
+      <Swiper pagination={true} modules={[Pagination]} className="mySwiper w-full  py-2 ">
         
 
 {animeHeaderContent?.map((response,index)=>{
