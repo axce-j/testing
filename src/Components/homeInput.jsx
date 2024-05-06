@@ -1,8 +1,9 @@
 import { CheckboxIcon, InputGroup,Input, InputLeftElement, InputRightElement } from "@chakra-ui/react";
 
-const HomeInput=({width,height,placeholder,onChange})=>{
+const HomeInput=({width,height,placeholder,onChange,className})=>{
   const widthNew=`${width}`
   const heightNew=`${height}`
+  const mainClalssName=`${className}`
   const placeholderNew=`${placeholder}`
   const handleChange=(e)=>{
     if(onChange){
@@ -11,7 +12,7 @@ const HomeInput=({width,height,placeholder,onChange})=>{
   }
     return(
     <>
-    <InputGroup width={widthNew} >
+    <InputGroup width={widthNew} className={mainClalssName} >
             <InputLeftElement
               pointerEvents="none"
               color="gray.300"

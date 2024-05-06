@@ -31,27 +31,27 @@ const Top = () => {
       style={{
         backgroundImage: "url(img6.jpg) ",
       }}
-      className="h-screen  bg-[url(img6.jpg)] w-screen bg-cover bg-center bg-no-repeat box-border bg-white"
+      className="h-screen  bg-[url(img6.jpg)] w-screen bg-cover  bg-center bg-no-repeat box-border bg-white min-w-[297px]"
     >
       <div
         style={{
-          background: "linear-gradient(to bottom, #000000e2,  black )",
+          background: "linear-gradient(to bottom, #2f44466b,  black )",
           backdropFilter: "grayscale(100%)",
         }}
-        className="p-3 h-full"
+        className="p-3 h-[100vh] w-full relative overflow-hidden"
       >
         <div className="text-white text-center text-9xl flex flex-col justify-center items-center gap-4">
           <div>
             <img src="logo3.png" alt="" />
           </div>
-          <div>
-            <HomeInput width="35rem" height="2rem" placeholder="Search anime..."/>
+          <div >
+            <HomeInput className="md:w-[35rem] w-[sm:25rem]" height="2rem" placeholder="Search anime..."/>
           </div>
         </div>
-        <div className="text-white gap-4 flex py-4 flex-col justify-center items-center  rounded-full h-[36rem] w-[36rem] absolute inset-x-[47%] inset-y-[20%]">
+        <div className="text-white bg-black    ">
           <CustomButton
             onClick={() => handleIndividualClick("home")}
-            classname={`  bg-[rgba(11,10,8)] rounded-full h-[6rem] w-[6rem] p-6  break-words text-m font-bold absolute  inset-x-[55%] inset-y-[15%] ${
+            classname={`  bg-[rgba(11,10,8)] rounded-full h-[6rem] w-[6rem] p-6  break-words text-m font-bold absolute  lg:inset-x-[47%]  lg:inset-y-[12%] sm:inset-x-[8%] sm:inset-y-[42%] inset-x-[42%] inset-y-[10%]  ${
               clicked ? `hidden` : `block`
             }`}
           >
@@ -60,7 +60,8 @@ const Top = () => {
           <CustomButton
             onClick={() => handleIndividualClick("browse")}
             classname={`
-                                                     bg-[rgba(12,13,15)] rounded-full h-[6rem] w-[6rem] p-  break-words text-m  font-bold absolute inset-x-[80%] inset-y-[34%] ${
+                                                     bg-[rgba(12,13,15)] rounded-full h-[6rem] w-[6rem] p-  break-words text-m  font-bold absolute lg:inset-x-[12%] lg:inset-y-[44%] sm:inset-x-[33%] sm:inset-y-[66%]
+                                                     inset-x-[66%] inset-y-[26%] ${
                                                        clicked
                                                          ? `hidden`
                                                          : `block`
@@ -71,7 +72,8 @@ const Top = () => {
           <CustomButton
             onClick={() => handleIndividualClick("news")}
             classname={`
-                                                      bg-[rgba(26,13,15)] rounded-full h-[6rem] w-[6rem] p-3  break-words text-m font-bold absolute inset-x-[74%] inset-y-[64%] ${
+                                                      bg-[rgba(26,13,15)] rounded-full h-[6rem] w-[6rem] p-3  break-words text-m font-bold absolute lg:inset-x-[82%] lg:inset-y-[44%] sm:inset-x-[66%] sm:inset-y-[64%]
+                                                      inset-x-[59%] inset-y-[48%] ${
                                                         clicked
                                                           ? `hidden`
                                                           : `block`
@@ -81,7 +83,7 @@ Anime News          </CustomButton>
           <CustomButton
             onClick={() => handleIndividualClick("readManga")}
             classname={`
-                                                      bg-[rgba(26,13,23)] rounded-full h-[6rem] w-[6rem] p-4  break-words text-m font-bold absolute inset-x-[48%] inset-y-[81%] ${
+                                                      bg-[rgba(26,13,23)] rounded-full h-[6rem] w-[6rem] p-4  break-words text-m font-bold absolute lg:inset-x-[47%] lg:inset-y-[78%] sm:inset-x-[85%] sm:inset-y-[39%] inset-x-[39%] inset-y-[65%] ${
                                                         clicked
                                                           ? `hidden`
                                                           : `block`
@@ -94,7 +96,15 @@ Anime News          </CustomButton>
           <CustomButton
             onClick={handleClick}
             classname="
-                                                    bg-[rgba(135,137,126)] rounded-full h-[10rem] w-[10rem] p-8 break-words text-2xl font-bold absolute inset-x-[56%] inset-y-[52%]"
+                                                    bg-[rgba(135,137,126)] rounded-full h-[10rem] w-[10rem]
+                                                    lg:h-[4rem] lg:w-[8rem]
+                                                    lg:text-md
+                                                    lg:p-4
+                                                    lg:font-extra-bold
+                                                    mobile:h-[8rem] mobile:w-[8rem]
+                                                    mobile:text-md
+                                                    mobile:p-4
+                                                    mobile:font-extra-bold p-8 break-words text-2xl font-bold absolute lg:inset-x-[46%] lg:inset-y-[46%] sm:inset-x-[44%] sm:inset-y-[29%] inset-x-[13%] inset-y-[32%]"
           >
             Explore
           </CustomButton>
@@ -109,10 +119,13 @@ Anime News          </CustomButton>
           About Us
         </CustomButton>
       )}
-      <div className="text-white flex  items-end">
+      <div className="text-white flex w-[100vw]justify-center items-end">
         {dropped && (
-          <div className="gap-4 text-sm gap-3 bg-black text-start flex flex-col justify-around px-[20rem]">
-            <div>
+          <div className="gap-4 text-sm gap-3  bg-black text-start flex flex-col justify-center items-ce w-full">
+            <div className=" max-w-[60vw]">
+
+
+            <div className="w-[full]">
               <h1 className="text-2xl">
                 Aniwave.to - Watch Anime Online for FREE
               </h1>
@@ -122,26 +135,26 @@ Anime News          </CustomButton>
               development team created 9anime to provide anime fans with a
               better one.
             </div>
-            <div>
+            <div className="w-full">
               Because of DMCA issues and multiple ISPs blocking our domain, by
               the end of 2023, we decided to rebrand 9anime as AniWave. This new
               wave aims to bring even better things to anime fans.
             </div>
-            <div>
+            <div className="w-full">
               <h1 className="text-2xl">1/ Whats Aniwave?</h1>
               Aniwave is a free anime streaming site where you can watch anime
               online in HD quality for free with English subtitles or dubbing.
               You can also download any anime you want without registration or
               payment required. Everything is free!
             </div>
-            <div>
+            <div className="w-full">
               <h1 className="text-2xl">2/ Is Aniwave.to safe?</h1>
               Yes. We started this site to improve UX and are committed to
               keeping our users safe. We encourage all our users to notify us if
               anything looks suspicious. Please understand that we do have to
               run advertisements to maintain the site.
             </div>
-            <div>
+            <div className="w-full">
               <h1 className="text-2xl">
                 3/ What make Aniwave.to the best site to watch anime free
                 online?
@@ -181,6 +194,8 @@ Anime News          </CustomButton>
                 forget to bookmark our site.
               </div>
               Thanks!
+            </div>
+
             </div>
           </div>
         )}
