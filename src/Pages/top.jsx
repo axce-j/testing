@@ -56,7 +56,7 @@ const Top = () => {
           <div className="text-white bg-black w-full    ">
             <CustomButton
               onClick={() => handleIndividualClick("home")}
-              classname={`  bg-[rgba(11,10,8)] rounded-full h-[6rem] w-[6rem] p-6  break-words text-m font-bold absolute  lg:inset-x-[47%]  lg:inset-y-[20%] sm:inset-x-[8%] sm:inset-y-[42%] inset-x-[42%] inset-y-[10%]  ${
+              classname={`  bg-[rgba(11,10,8)] rounded-full h-[6rem] w-[6rem] p-6  break-words text-m font-bold absolute  lg:inset-x-[47%]  lg:inset-y-[20%] sm:inset-x-[8%] sm:inset-y-[42%] inset-x-[42%] inset-y-[20%]  ${
                 clicked ? `hidden` : `block`
               }`}
             >
@@ -66,7 +66,7 @@ const Top = () => {
               onClick={() => handleIndividualClick("browse")}
               classname={`
                                                      bg-[rgba(12,13,15)] rounded-full h-[6rem] w-[6rem] p-  break-words text-m  font-bold absolute lg:inset-x-[12%] lg:inset-y-[44%] sm:inset-x-[33%] sm:inset-y-[66%]
-                                                     inset-x-[66%] inset-y-[26%] ${
+                                                     inset-x-[66%] inset-y-[36%] ${
                                                        clicked
                                                          ? `hidden`
                                                          : `block`
@@ -78,7 +78,7 @@ const Top = () => {
               onClick={() => handleIndividualClick("news")}
               classname={`
                                                       bg-[rgba(26,13,15)] rounded-full h-[6rem] w-[6rem] p-3  break-words text-m font-bold absolute lg:inset-x-[82%] lg:inset-y-[44%] sm:inset-x-[66%] sm:inset-y-[64%]
-                                                      inset-x-[59%] inset-y-[48%] ${
+                                                      inset-x-[59%] inset-y-[58%] ${
                                                         clicked
                                                           ? `hidden`
                                                           : `block`
@@ -89,7 +89,7 @@ const Top = () => {
             <CustomButton
               onClick={() => handleIndividualClick("readManga")}
               classname={`
-                                                      bg-[rgba(26,13,23)] rounded-full h-[6rem] w-[6rem] p-4  break-words text-m font-bold absolute lg:inset-x-[47%] lg:inset-y-[74%] sm:inset-x-[85%] sm:inset-y-[39%] inset-x-[39%] inset-y-[65%] ${
+                                                      bg-[rgba(26,13,23)] rounded-full h-[6rem] w-[6rem] p-4  break-words text-m font-bold absolute lg:inset-x-[47%] lg:inset-y-[74%] sm:inset-x-[85%] sm:inset-y-[39%] inset-x-[39%] inset-y-[75%] ${
                                                         clicked
                                                           ? `hidden`
                                                           : `block`
@@ -110,7 +110,7 @@ const Top = () => {
                                                     mobile:h-[8rem] mobile:w-[8rem]
                                                     mobile:text-md
                                                     mobile:p-4
-                                                    mobile:font-extra-bold p-8 break-words text-2xl font-bold absolute lg:inset-x-[46%] lg:inset-y-[46%] sm:inset-x-[44%] sm:inset-y-[29%] inset-x-[13%] inset-y-[32%]"
+                                                    mobile:font-extra-bold p-8 break-words text-2xl font-bold absolute lg:inset-x-[46%] lg:inset-y-[46%] sm:inset-x-[44%] sm:inset-y-[29%] inset-x-[13%] inset-y-[42%]"
             >
               Explore
             </CustomButton>
