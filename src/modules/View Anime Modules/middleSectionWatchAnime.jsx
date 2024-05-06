@@ -168,7 +168,7 @@ const MiddleSectionWatchAnime = ({
               </div>
             </div>
 
-            <div className="mobile:flex lgMobile:flex sm:flex  mobile:flex-col-reverse lgMobile:flex-col-reverse sm:flex-col-reverse lg:grid lg:grid-cols-[2fr,1fr]  w-full lg:w-[75vw] p-2 gap-5 justify-start lg:h-72 ">
+            <div className="mobile:flex lgMobile:flex sm:flex  mobile:flex-col-reverse lgMobile:flex-col-reverse sm:flex-col-reverse lg:grid lg:grid-cols-[2fr,1fr]  w-full lg:w-[75vw] p-2 gap-5 justify-start lg:min-h-72 lg:h-auto ">
               <div className="w-full flex flex-row justify-start items-center" >
                 <div className="w-full  p-4">
                   <img src={imagesDataContent} alt="image" className="object-cover w-full object-center" />

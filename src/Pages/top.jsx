@@ -29,9 +29,9 @@ const Top = () => {
   return (
     <div
       style={{
-        backgroundImage: "url(/img8.jpg) ",
+        backgroundImage: "url(img12.jpg) ",
       }}
-      className="h-screen w-screen bg-cover bg-center bg-no-repeat box-border bg-white"
+      className="h-screen  bg-[url(img12.jpg)] w-screen bg-cover bg-center bg-no-repeat box-border bg-white"
     >
       <div
         style={{
@@ -58,7 +58,7 @@ const Top = () => {
             Home
           </CustomButton>
           <CustomButton
-            onClick={() => handleIndividualClick("trending")}
+            onClick={() => handleIndividualClick("browse")}
             classname={`
                                                      bg-[rgba(12,13,15)] rounded-full h-[6rem] w-[6rem] p-  break-words text-m  font-bold absolute inset-x-[80%] inset-y-[34%] ${
                                                        clicked
@@ -66,10 +66,10 @@ const Top = () => {
                                                          : `block`
                                                      }`}
           >
-            Trending
+            Browse
           </CustomButton>
           <CustomButton
-            onClick={() => handleIndividualClick("newRelease")}
+            onClick={() => handleIndividualClick("news")}
             classname={`
                                                       bg-[rgba(26,13,15)] rounded-full h-[6rem] w-[6rem] p-3  break-words text-m font-bold absolute inset-x-[74%] inset-y-[64%] ${
                                                         clicked
@@ -77,10 +77,9 @@ const Top = () => {
                                                           : `block`
                                                       }`}
           >
-            New Release
-          </CustomButton>
+Anime News          </CustomButton>
           <CustomButton
-            onClick={() => handleIndividualClick("special")}
+            onClick={() => handleIndividualClick("readManga")}
             classname={`
                                                       bg-[rgba(26,13,23)] rounded-full h-[6rem] w-[6rem] p-4  break-words text-m font-bold absolute inset-x-[48%] inset-y-[81%] ${
                                                         clicked
@@ -88,7 +87,7 @@ const Top = () => {
                                                           : `block`
                                                       }`}
           >
-            Special
+            Manga Page
           </CustomButton>
         </div>
         <div>
