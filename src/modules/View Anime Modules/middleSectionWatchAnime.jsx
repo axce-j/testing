@@ -1,5 +1,6 @@
+import { QueryClient, useQueryClient } from "@tanstack/react-query";
 import CustomButton from "../../Components/customButton";
-
+ 
 const MiddleSectionWatchAnime = ({
   viewPortWidth,
   tabState,
@@ -45,7 +46,8 @@ const MiddleSectionWatchAnime = ({
     setAnimeOption(titlesDataContent);
   };
   handleAnimeOption();
-  console.log(relatedDataContent, "wwww");
+  // console.log(relatedDataContent, "wwww");
+  const queryClient = useQueryClient()
   return (
     <>
       <div className="flex flex-col gap-4 lg:gap-8">
@@ -139,7 +141,7 @@ const MiddleSectionWatchAnime = ({
                       background: "rgba( 35, 27, 27, 0.5 )",
                       boxShadow: " 0 2px 2px 0 rgba( 31, 38, 135, 0.37 )",
                       backdropFilter: "blur( 9px )",
-                      webkitBackdropFilter: "blur( 9px )",
+                      WebkitBackdropFilter: "blur( 9px )",
                       // borderRadius: "10px",
                       // border: "1px solid rgba( 255, 255, 255, 0.18 )",
                     }}
@@ -310,7 +312,11 @@ const MiddleSectionWatchAnime = ({
                   //  console.log(response);
                   return (
                     <div
-                    onClick={()=> navigate(`/special/${animeId}`)}
+                    onClick={()=> {
+                      console.log("rrr");
+                      navigate(`/special/${animeId}`)
+                    queryClient.invalidateQueries()
+                  }}
 
                       key={index}
                       className="grid rounded-lg grid-cols-[1fr,2fr,6fr] cursor-pointer gap-2 items-center px-2 bg-[#101010] "
@@ -372,8 +378,11 @@ const MiddleSectionWatchAnime = ({
                   //  console.log(response);
                   return (
                     <div
-                    onClick={()=> navigate(`/special/${animeId}`)}
-
+                    onClick={
+                      ()=> navigate(`/special/${animeId}`)
+                
+                }
+                      
                       key={index}
                       className="grid rounded-lg grid-cols-[1fr,2fr,6fr] gap-2 cursor-pointer items-center px-2 bg-[#101010] "
                     >

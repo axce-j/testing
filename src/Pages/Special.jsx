@@ -20,7 +20,7 @@ const Special = () => {
   const {animeId}= useParams()
   const mainAnimeId=animeId
 const navigate=useNavigate()
- console.log(animeId,"wwwwhjgjgjh");
+//  console.log(animeId,"wwwwhjgjgjh");
   
 //  console.log(data);
 
@@ -201,6 +201,7 @@ const {isError:animeDataIdIsError,isLoading:animeDataIdIsLoading,data:animeDataI
   
   
   }, [searchOption]);
+
   useEffect(() => {
     setClickedAnimeID(mainAnimeId);
     refetchCliquedAnime();

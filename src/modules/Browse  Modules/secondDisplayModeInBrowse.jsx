@@ -41,7 +41,7 @@ const SecondDisplayModeInBrowse = ({
                           "linear-gradient(90deg, rgba(4,22,47,0.9276960784313726) 22%, rgba(8,32,47,0.6615896358543417) 58%, rgba(10,38,77,0.468312324929972) 74%, rgba(17,31,144,0.36) 86%)",
                       }}
                       key={index}
-                      className="grid rounded-lg  
+                      className="grid rounded-lg cursor-pointer  
                   gap-6  h-48  grid-cols-[auto,3fr]   
                          pr-2 bg-[#101010] "
                     >

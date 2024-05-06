@@ -191,7 +191,7 @@ const WatchSection = () => {
 const manageNextButton=()=>{
   if (paginationNumbers.currentPage < paginationNumbers.totalPages){
     setPaginationNumbers({...paginationNumbers, currentPage: paginationNumbers.currentPage + 1,displayedPagebegin:paginationNumbers.displayedPagebegin+1,displayedPageSecondButton:paginationNumbers.displayedPageSecondButton+1,displayedPageThirdButton:paginationNumbers.displayedPageThirdButton+1,displayedPageFourthButton:paginationNumbers.displayedPageFourthButton+1,displayedPageEnd:paginationNumbers.displayedPageEnd+1});
-    console.log(paginationNumbers.currentPage);
+    // console.log(paginationNumbers.currentPage);
     refetchingBrowse();
   }
 }
@@ -214,56 +214,7 @@ const setToPaginationEnd=()=>{
 }
 
 
-
-// useEffect(() => {
-//   refetch()
-// }, [paginationNumbers.currentPage])
-
-// console.log(animeSearchData);
-
-// var dataArray = [];
-// var dataArrayBeginingAndEnd = [];
-
-// const dataArrayPaginationBegin = [animeData?.data?.pagination?.current_page];
-// const dataArrayPaginationEnd = [animeData?.data?.pagination?.last_visible_page];
-
-// const getAllPages = () => {
-//   for (let i = dataArrayPaginationBegin; i <= dataArrayPaginationEnd; i++) {
-//     dataArrayBeginingAndEnd.push(i);
-//   }
-// };
-
-// getAllPages();
-
-// dataArrayBeginingAndEnd?.map(async (pageId) => {
-//   try {
-//     const response = await axios.get(`https://api.jikan.moe/v4/anime?page=${pageId}`);
-//     dataArray.push(response.data);
-//   } catch (error) {
-//     console.error('Error fetching data for page', pageId, ':', error);
-//     // Handle error here (e.g., retry, skip page)
-//   }
-// });
-
-
-
-
-// console.log(reviewsData);
-
- 
-
- 
- 
-// const ani = data?.data?.data;
-  // console.log( );
-//  const changeAllStates=()=>{
-
-//     setSearchClick(false)
-//     setSearchClick2(false)
-//     setclick(false)
-
-//   }
-  return (
+   return (
     <>
       <div
         // onClick={changeAllStates}

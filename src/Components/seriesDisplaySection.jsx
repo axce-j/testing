@@ -112,18 +112,29 @@ const SeriesDisplaySection = ({
                   const date = response?.date;
                   const type = response?.type;
                   const score = response?.score;
-                  const animeId= response?.entry?.mal_id
-                  
+                  const animeId = response?.entry?.mal_id;
+
                   return (
-                    <div className="flex flex-col gap-4 cursor-pointer " key={index}                       onClick={()=> navigate(`/special/${animeId}`)}
+                    <div
+                      className="flex flex-col gap-4 cursor-pointer  "
+                      key={index}
+                      onClick={() => navigate(`/special/${animeId}`)}
                     >
                       <div className="bg-gray-800 rounded-[.2rem] w-full">
                         {" "}
+                        <div className="w-full  relative">
                         <img
                           className="h-[15rem]   w-[100%] "
                           src={images}
                           alt=""
                         />
+                        <div className="text-xl text-red-800  absolute bottom-[50%] left-[44%]"> <img
+                      src="playBut.png"
+                      className="text-xs w-24 "
+                      alt="play button"
+                    /></div>
+                        </div>
+                       
                         <div className="flex flex-row justify-between px-1 py-1">
                           <div className="flex flex-row  gap-2 items-center justify-start ">
                             <span className="bg-teal-900 p-1 text-xs rounded">
@@ -145,6 +156,7 @@ const SeriesDisplaySection = ({
                           </div>
                           <div>{type}</div>
                         </div>
+                       
                       </div>
 
                       <div> {titles}</div>
@@ -206,12 +218,11 @@ const SeriesDisplaySection = ({
                   const rank = response?.rank;
                   const type = response?.type;
                   const score = response?.score;
-                  const animeId= response?.mal_id;
+                  const animeId = response?.mal_id;
                   return (
                     <div
                       key={index}
-                      onClick={()=> navigate(`/special/${animeId}`)}
-
+                      onClick={() => navigate(`/special/${animeId}`)}
                       className="grid rounded-lg grid-cols-[1fr,2fr,6fr] gap-2 items-center px-2 bg-[#101010] "
                     >
                       <div className="text-[3.3rem] font-bold text-center">
@@ -395,13 +406,12 @@ const SeriesDisplaySection = ({
                 //  const rank=response?.rank;
                 const type = response?.type;
                 const score = response?.score;
-                const animeId= response?.mal_id;
+                const animeId = response?.mal_id;
                 //  const popularity=response?.popularity
                 const favorites = response?.favorites;
                 return (
                   <div
-                  onClick={()=> navigate(`/special/${animeId}`)}
-
+                    onClick={() => navigate(`/special/${animeId}`)}
                     key={index}
                     className="grid rounded-lg md:grid-cols-[0.2fr,auto,6fr]
                   mobile:grid-cols-[.6fr,auto,2fr] mobile:gap-2 lgMobile:grid-cols-[.6fr,1fr,3fr] gap-4 items-center 

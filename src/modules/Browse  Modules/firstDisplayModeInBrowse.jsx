@@ -49,7 +49,7 @@ const FirstDisplayModeInBrowse = ({
                 <div
                   key={index}
                   onClick={()=> navigate(`/special/${animeId}`)}
-                  className="  hover:bg-teal-700 w-full h-auto flex flex-col gap-3 rounded-xl text-sm  p-3"
+                  className="  hover:bg-teal-700 w-full h-auto flex flex-col gap-3 cursor-pointer rounded-xl text-sm  p-3"
                   style={{
                     backgroundColor: "rgb(40,42,47)",
                     background:
