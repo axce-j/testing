@@ -10,9 +10,9 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Pagination } from 'swiper/modules';
-const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,topAnimeData})=>{
+const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,topAnimeData,navigate})=>{
  const animeHeaderContent=topAnimeData?.data?.data
-//  console.log(animeHeaderContent)
+ console.log(animeHeaderContent,"wwww")
     return(
         
       <div className=" w-[96vw]  ">
@@ -25,6 +25,7 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,topAnimeData})=>
  const animeRating=response?.rating;
  const synopsis= response?.synopsis;
  const animeYear=response?.year;
+ const animeId=response?.mal_id
 
 //  console.log({synopsis})
 
@@ -113,6 +114,8 @@ const SwiperSliding=({subtitle,rating,viewPortWidth,animeTitles,topAnimeData})=>
 
      <div  className="   w-full flex justify-start mobile:justify-center"> 
        <CustomButton
+                                onClick={()=> navigate(`/special/${animeId}`)}
+
              classname=" flex flex-row text-white rounded-xl p-3 items-center gap-3  font-bold
                bg-teal-800 mobile:items-centerhover:bg-teal-900
                "

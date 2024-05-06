@@ -15,10 +15,10 @@ function App() {
       <Route path="/home"  element={<Home/>}  />
       <Route path="/trending" element={<Trending/>} />
       <Route path="/newRelease"element={<NewRelease/>} />
-      <Route path="/special" element={<Special/>} />
+      <Route path="/special/:animeId" element={<Special/>} />
       <Route path="/browse" element={<BrowsePage/>} />
-      <Route path="/news" id="" element={<NewsPage/>} />
-      <Route path="/newsPage/:newsId" id="" element={<NewsMainPage/>} />
+      <Route path="/news"  element={<NewsPage/>} />
+      <Route path="/newsPage/:newsId" element={<NewsMainPage/>} />
       <Route path="/readManga" element={<ReadMangaPage/>} />
       <Route path="error"/>
     </Routes>

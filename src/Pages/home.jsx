@@ -5,6 +5,7 @@ import MiddleSection from "../modules/homePage  Modules/middleSection.jsx"
 import FooterSection from "../modules/homePage  Modules/footerSection.jsx"
 import NavBarSection from "../modules/homePage  Modules/navbarrSection.jsx"
 import AnimeOnSearchData from "../hooks/useAnimeSearch.jsx";
+import { useNavigate } from "react-router-dom";
  
 
 // import  Axios  from "axios";
@@ -43,6 +44,8 @@ const tabsData = [
   const [contentState,setContentState]=useState(contentData[0])
   const [searchOption,setSearchOption]= useState("")
   
+
+  const navigate=useNavigate()
   // const topWidth=topDiv.offsetWidth
   // console.log(topWidth)
   const handleTabData=(i)=>{
@@ -185,7 +188,7 @@ const tabsData = [
 
         <div className="w-full mt-10 z-30">
           {" "}
-          <MiddleSection tabsData={tabsData} tabState={tabState} contentData={contentData} handleContentData={handleContentData} contentState={contentState} handleTabData={handleTabData} viewPortWidth={viewPortWidth} subtitle={subtitle} rating={rating} animeBlocks={animeBlocks} method={method} Days={Days} viewPortWidth2={viewPortWidth2} handleDisplaysection={handleDisplaysection} displaySection={displaySection} setDisplaySection={setDisplaySection}   />
+          <MiddleSection tabsData={tabsData} tabState={tabState} contentData={contentData} handleContentData={handleContentData} contentState={contentState} handleTabData={handleTabData} viewPortWidth={viewPortWidth} subtitle={subtitle} rating={rating} animeBlocks={animeBlocks} method={method} Days={Days} viewPortWidth2={viewPortWidth2} handleDisplaysection={handleDisplaysection} displaySection={displaySection} setDisplaySection={setDisplaySection} navigate={navigate}  />
          
         
         </div>

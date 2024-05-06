@@ -14,6 +14,7 @@ const MiddleSectionWatchAnime = ({
   animeDataIdData,
   setAnimeOption,
   animeOnSearchRelatedData,
+  navigate,
 }) => {
   const reviewsDataContent = reviewsData?.data?.data;
   const animeEpisodesDataContent = animeEpisodesData?.data?.data;
@@ -85,11 +86,11 @@ const MiddleSectionWatchAnime = ({
                         <CustomButton
                           onClick={() => handleCurrentEpisode(episodeNumber)}
                           key={episodeNumber}
-                          classname={` grid grid-cols-[0.01fr,auto] lg:grid-cols-[auto,1fr] gap-5 px-3 hover:bg-[rgba(255,255,255,0.8)] hover:text-black hover:font-bold  focus:bg-white focus:text-black focus:font-bold  ${
+                          classname={` grid grid-cols-[0.01fr,auto] lg:grid-cols-[auto,1fr] lg:text-[12px] justify-start  items-center gap-5 px-3 hover:bg-[rgba(255,255,255,0.8)] hover:text-black hover:font-bold  focus:bg-white focus:text-black focus:font-bold  ${
                             episodeNumber % 2 === 0
                               ? `bg-teal-700`
                               : `bg-teal-900`
-                          } lg:text-[12px] justify-start `}
+                          } `}
                         >
                           <div className="flex w-full justify-end">
                             {episodeNumber}
@@ -133,7 +134,7 @@ const MiddleSectionWatchAnime = ({
                     </span>
                   </div>
                   <div
-                    className=" bg-pink-700 w-full h-48 px-4 justify-center text-xs lg:text-base flex flex-col gap-3 py-3"
+                    className="  w-full h-auto min-h-48 px-4 justify-center text-xs lg:text-base flex flex-col gap-3 py-3"
                     style={{
                       background: "rgba( 35, 27, 27, 0.5 )",
                       boxShadow: " 0 2px 2px 0 rgba( 31, 38, 135, 0.37 )",
@@ -168,31 +169,31 @@ const MiddleSectionWatchAnime = ({
             </div>
 
             <div className="mobile:flex lgMobile:flex sm:flex  mobile:flex-col-reverse lgMobile:flex-col-reverse sm:flex-col-reverse lg:grid lg:grid-cols-[2fr,1fr]  w-full lg:w-[75vw] p-2 gap-5 justify-start lg:h-72 ">
-              <div className="w-full flex flex-row">
-                <div className="w-full h-32">
-                  <img src={`url(${imagesDataContent})`} alt="image" />
+              <div className="w-full flex flex-row justify-start items-center" >
+                <div className="w-full  p-4">
+                  <img src={imagesDataContent} alt="image" className="object-cover w-full object-center" />
                 </div>
 
-                <div className="flex flex-col gap-3">
-                  <div className="flex flex-col text-xs">
+                <div className="flex flex-col w-full gap-3">
+                  <div className="flex flex-col text-xs lg-text-sm">
                     <div className="text-2xl">{titlesDataContent}</div>
                     <div className="italic">
                       <span>{ratingDataContent}</span> <span></span>
                       {typeDataContent}
                     </div>
                   </div>
-                  <div className="text-[10px]">{synopsisDataContent}</div>
-                  <div className="text-[10px] font-semibold grid grid-cols-2">
+                  <div className="text-[10px] lg:text-[14px]">{synopsisDataContent}</div>
+                  <div className="text-[10px] lg:text-[14px] font-semibold grid grid-cols-2">
                     <div>
                       {" "}
-                      <span className="text-teal-300 font-sm text-[10px]">
+                      <span className="text-teal-300 font-sm text-[10px] lg:text-[13px]">
                         Episode:{" "}
                       </span>
                       <span>{episodesDataContent} </span>
                     </div>
                     <div>
                       {" "}
-                      <span className="text-teal-300 font-sm text-[10px]">
+                      <span className="text-teal-300 font-sm text-[10px] lg:text-[13px]">
                         Duration:{" "}
                       </span>
                       <span>{durationDataContent}</span>
@@ -200,49 +201,49 @@ const MiddleSectionWatchAnime = ({
 
                     <div>
                       {" "}
-                      <span className="text-teal-300 font-sm text-[10px]">
+                      <span className="text-teal-300 font-sm text-[10px] lg:text-[13px]">
                         rank:{" "}
                       </span>
                       <span>{rank}</span>
                     </div>
                     <div>
                       {" "}
-                      <span className="text-teal-300 font-sm text-[10px]">
+                      <span className="text-teal-300 font-sm text-[10px] lg:text-[13px]">
                         score:{" "}
                       </span>
                       <span>{scoreDataContent}</span>
                     </div>
                     <div>
                       {" "}
-                      <span className="text-teal-300 font-sm text-[10px]">
+                      <span className="text-teal-300 font-sm text-[10px] lg:text-[13px]">
                         season:{" "}
                       </span>
                       <span>{seasonDataContent}</span>
                     </div>
                     <div>
                       {" "}
-                      <span className="text-teal-300 font-sm text-[10px]">
+                      <span className="text-teal-300 font-sm text-[10px] lg:text-[13px]">
                         source:{" "}
                       </span>
                       <span>{sourceDataContent}</span>
                     </div>
                     <div>
                       {" "}
-                      <span className="text-teal-300 font-sm text-[10px]">
+                      <span className="text-teal-300 font-sm text-[10px] lg:text-[13px]">
                         favorites:{" "}
                       </span>
                       <span>{favoritesDataContent}</span>
                     </div>
                     <div>
                       {" "}
-                      <span className="text-teal-300 font-sm text-[10px]">
+                      <span className="text-teal-300 font-sm text-[10px] lg:text-[13px]">
                         popularity:{" "}
                       </span>
                       <span>{popularityDataContent}</span>
                     </div>
                     <div>
                       {" "}
-                      <span className="text-teal-300 font-sm text-[10px]">
+                      <span className="text-teal-300 font-sm text-[10px] lg:text-[13px]">
                         producers:{" "}
                       </span>
                       <span>
@@ -254,7 +255,7 @@ const MiddleSectionWatchAnime = ({
 
                     <div>
                       {" "}
-                      <span className="text-teal-300 font-sm text-[10px]">
+                      <span className="text-teal-300 font-sm text-[10px] lg:text-[13px]">
                         year:{" "}
                       </span>
                       <span>{yearDataContent}</span>
@@ -303,13 +304,16 @@ const MiddleSectionWatchAnime = ({
                   //  const rank=response?.rank;
                   const type = response?.type;
                   const score = response?.score;
+                  const animeId= response?.mal_id;
                   //  const popularity=response?.popularity
                   //  const favorites=response?.favorites
                   //  console.log(response);
                   return (
                     <div
+                    onClick={()=> navigate(`/special/${animeId}`)}
+
                       key={index}
-                      className="grid rounded-lg grid-cols-[1fr,2fr,6fr] gap-2 items-center px-2 bg-[#101010] "
+                      className="grid rounded-lg grid-cols-[1fr,2fr,6fr] cursor-pointer gap-2 items-center px-2 bg-[#101010] "
                     >
                       <div className="lg:text-[2.3rem] text-[1.5rem] font-bold text-center">
                         {index}
@@ -343,7 +347,7 @@ const MiddleSectionWatchAnime = ({
           </div>
         </div>
 
-        <div className="lg:grid lg:grid-cols-[4fr,1.5fr] gap-5 flex flex-col-reverse">
+        <div className="lg:grid lg:grid-cols-[4fr,1.5fr] gap-5 mt-6flex flex-col-reverse">
           <div className="flex w-full min-h-[20px] items-center justify-center flex-col bg-[rgba(20,184,166,0.36)] py-4">
           <div className="font-bold">No comments at the moment</div>
             <div className="text-[20rem] text-red-400">X</div>{" "}
@@ -362,13 +366,16 @@ const MiddleSectionWatchAnime = ({
                   //  const rank=response?.rank;
                   const type = response?.type;
                   const score = response?.score;
+                  const animeId= response?.mal_id;
                   //  const popularity=response?.popularity
                   //  const favorites=response?.favorites
                   //  console.log(response);
                   return (
                     <div
+                    onClick={()=> navigate(`/special/${animeId}`)}
+
                       key={index}
-                      className="grid rounded-lg grid-cols-[1fr,2fr,6fr] gap-2 items-center px-2 bg-[#101010] "
+                      className="grid rounded-lg grid-cols-[1fr,2fr,6fr] gap-2 cursor-pointer items-center px-2 bg-[#101010] "
                     >
                       <div className="text-[2.3rem] font-bold text-center">
                         {index + 1}

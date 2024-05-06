@@ -5,6 +5,7 @@ import FirstDisplayModeInBrowse from "../Browse  Modules/firstDisplayModeInBrows
 import SecondDisplayModeInBrowse from "../Browse  Modules/secondDisplayModeInBrowse.jsx";
 import ThirdDisplayModeInBrowse from "../Browse  Modules/ThirdDisplayModeInBrowse.jsx";
 import BrowsePagePaginationComponent from "../../Components/browsePagePaginationComponent.jsx"
+// import { useNavigate } from "react-router-dom";
 
 const BrowseMiddleSection = ({
   animeBlocks,
@@ -96,6 +97,7 @@ const BrowseMiddleSection = ({
                 animeDataContent={animeDataContent}
                 filterList={filterList} 
                 setFilterList={setFilterList}
+                navigate={navigate}
               />
               <SecondDisplayModeInBrowse
                 filterDisplay={filterDisplay}
@@ -104,6 +106,7 @@ const BrowseMiddleSection = ({
                 animeDataContent={animeDataContent}
                 filterList={filterList} 
                 setFilterList={setFilterList}
+                navigate={navigate}
               />
               <ThirdDisplayModeInBrowse
                 filterDisplay={filterDisplay}
@@ -111,6 +114,7 @@ const BrowseMiddleSection = ({
                 animeDataContent={animeDataContent}
                 filterList={filterList} 
                 setFilterList={setFilterList}
+                navigate={navigate}
               />
             </div>
           </div>
@@ -147,12 +151,14 @@ const BrowseMiddleSection = ({
                   //  const rank=response?.rank;
                   const type = response?.type;
                   const score = response?.score;
+                  const animeId=response?.entry?.mal_id
                   //  const popularity=response?.popularity
                   //  const favorites=response?.favorites
                   //  console.log(response);
                   return (
                     <div
                       key={index}
+                      onClick={()=> navigate(`/special/${animeId}`)}
                       className="grid rounded-lg grid-cols-[1fr,2fr,6fr] gap-2 items-center px-2 bg-[#101010] "
                     >
                       <div className="text-[3.3rem] font-bold text-center">

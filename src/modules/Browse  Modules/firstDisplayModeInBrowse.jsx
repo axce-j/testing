@@ -6,6 +6,7 @@ const FirstDisplayModeInBrowse = ({
   animeDataContent,
   filterList,
   setFilterList,
+  navigate,
 }) => {
   // const minSelectedScore = Math.min(...filterList[7]) 
   // const scoresAboveThreshold = animeDataContent
@@ -42,9 +43,12 @@ const FirstDisplayModeInBrowse = ({
               const type = response?.type;
               const score = response?.score;
               const status = response?.status;
+              const animeId =response?.mal_id
+              console.log(animeId);
               return (
                 <div
                   key={index}
+                  onClick={()=> navigate(`/special/${animeId}`)}
                   className="  hover:bg-teal-700 w-full h-auto flex flex-col gap-3 rounded-xl text-sm  p-3"
                   style={{
                     backgroundColor: "rgb(40,42,47)",
@@ -170,9 +174,11 @@ const FirstDisplayModeInBrowse = ({
                 const type = response?.type;
                 const score = response?.score;
                 const status = response?.status;
+                const animeId=response?.mal_id
                 return (
                   <div
                     key={index}
+                    onClick={()=> navigate(`/special/${animeId}`)}
                     className="  hover:bg-teal-700 w-full h-auto flex flex-col gap-3 rounded-xl text-sm  p-3"
                     style={{
                       backgroundColor: "rgb(40,42,47)",

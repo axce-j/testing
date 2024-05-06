@@ -1,6 +1,6 @@
 import CustomButton from "./customButton";
 
-const NewlyAddedSectionHomepage = ({animeBlocks,subtitle,viewPortWidth,viewPortWidth2,method ,displaySection,seasonData}) => {
+const NewlyAddedSectionHomepage = ({animeBlocks,subtitle,viewPortWidth,viewPortWidth2,method ,displaySection,seasonData,navigate}) => {
  const seasonDataContent= seasonData?.data?.data
   return (<>
   <div className={` w-full grid grid-cols-auto  gap-4 py-2 ${viewPortWidth2? (displaySection===1? `block`:`hidden`) :``} `}>
@@ -26,9 +26,12 @@ const NewlyAddedSectionHomepage = ({animeBlocks,subtitle,viewPortWidth,viewPortW
                        const type= response?.type;
                        const score=response?.score;
                        const popularity=response?.popularity
+                       const animeId= response?.mal_id
                       //  const favorites=response?.favorites
                     return (
                       <div
+                      onClick={()=> navigate(`/special/${animeId}`)}
+
                         key={index}
                         className={`grid rounded-lg  gap-5 items-center px-2 py-2  bg-[#101010] ${viewPortWidth?`grid-cols-[.6fr,5fr] `:`grid-cols-[2fr,5fr] `}`}
                       >

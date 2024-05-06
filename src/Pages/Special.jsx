@@ -10,13 +10,17 @@ import MiddleSectionWatchAnime from "../modules/View Anime Modules/middleSection
 import TopAnimeReviewsData from "../hooks/useTopAnimeReviews.jsx";
 import AnimeEpisodes, { AnimeStreamingLink } from "../hooks/useAnimeEpisodes and streaming.jsx";
 import { AnimeDataId } from "../hooks/useAnime.jsx";
+import { useNavigate, useParams } from "react-router-dom";
 // import AnimeEpisodes from "../hooks/useAnimeEpisodes.jsx";
 
 // import  Axios  from "axios";
 const Special = () => {
 
-
- 
+  const params= useParams()
+  const {animeId}= useParams()
+  const mainAnimeId=animeId
+const navigate=useNavigate()
+ console.log(animeId,"wwwwhjgjgjh");
   
 //  console.log(data);
 
@@ -49,6 +53,8 @@ const tabsData = [
   const [searchOption,setSearchOption]= useState("")
   const [currentEpisode,setCurrentEpisode]=useState("")
   const [animeOption,setAnimeOption]=useState("")
+  const [clickedAnimeID,setClickedAnimeID]=useState(mainAnimeId)
+
 
 
   const handleCurrentEpisode=(episodeValue)=>{
@@ -176,7 +182,7 @@ const tabsData = [
   // }
   const {isError:reviewsIsError,isLoading:reviewsIsLoading,data:reviewsData,error:reviewsError}=TopAnimeReviewsData(4);
 
-   const {isError:animeEpisodesIsError,isLoading:animeEpisodesIsLoading,data:animeEpisodesData,error:animeEpisodesError}=AnimeEpisodes(29,1);
+   const {isError:animeEpisodesIsError,isLoading:animeEpisodesIsLoading,data:animeEpisodesData,error:animeEpisodesError}=AnimeEpisodes(clickedAnimeID,1);
 
    const {isError:animeOnSearchRelatedIsError,isLoading:animeOnSearchRelatedIsLoading,data:animeOnSearchRelatedData,error:animeOnSearchRelatedError,refetch:refetchanimeOnSearchRelated}=AnimeOnSearchRelatedData(animeOption);
    useEffect(() => {
@@ -186,8 +192,8 @@ const tabsData = [
   }, [animeOption]);
   
 
-const {isError:animeStreamingLinkIsError,isLoading:animeStreamingLinkIsLoading,data:animeStreamingLinkData,error:animeStreamingLinkError}=AnimeStreamingLink(20)
-const {isError:animeDataIdIsError,isLoading:animeDataIdIsLoading,data:animeDataIdData,error:animeDataIdError}=AnimeDataId(20);
+const {isError:animeStreamingLinkIsError,isLoading:animeStreamingLinkIsLoading,data:animeStreamingLinkData,error:animeStreamingLinkError}=AnimeStreamingLink(clickedAnimeID)
+const {isError:animeDataIdIsError,isLoading:animeDataIdIsLoading,data:animeDataIdData,error:animeDataIdError,refetch:refetchCliquedAnime}=AnimeDataId(clickedAnimeID);
 // console.log(animeDataIdData);
   const { isError:animeSearchIsError, isLoading:animeSearchIsLoading, data:animeSearchData, error:animeSearchError,refetch:refetchingSearch } = AnimeOnSearchData(searchOption);
   useEffect(() => {
@@ -195,6 +201,13 @@ const {isError:animeDataIdIsError,isLoading:animeDataIdIsLoading,data:animeDataI
   
   
   }, [searchOption]);
+  useEffect(() => {
+    setClickedAnimeID(mainAnimeId);
+    refetchCliquedAnime();
+    
+  
+  
+  }, [mainAnimeId])
   
   // console.log(animeOption,"www")
   return (
@@ -214,7 +227,7 @@ const {isError:animeDataIdIsError,isLoading:animeDataIdIsLoading,data:animeDataI
         <div className="w-full mt-24 z-30">
           {" "}
           
-          <MiddleSectionWatchAnime viewPortWidth={viewPortWidth} tabState={tabState} tabsData={tabsData} handleTabData={handleTabData} reviewsData={reviewsData} animeEpisodesData={animeEpisodesData} currentEpisode={currentEpisode} setCurrentEpisode={setCurrentEpisode} handleCurrentEpisode={handleCurrentEpisode} animeStreamingLinkData={animeStreamingLinkData} animeDataIdData={animeDataIdData} setAnimeOption={setAnimeOption} animeOnSearchRelatedData={animeOnSearchRelatedData}/>
+          <MiddleSectionWatchAnime viewPortWidth={viewPortWidth} tabState={tabState} tabsData={tabsData} handleTabData={handleTabData} reviewsData={reviewsData} animeEpisodesData={animeEpisodesData} currentEpisode={currentEpisode} setCurrentEpisode={setCurrentEpisode} handleCurrentEpisode={handleCurrentEpisode} animeStreamingLinkData={animeStreamingLinkData} animeDataIdData={animeDataIdData} setAnimeOption={setAnimeOption} animeOnSearchRelatedData={animeOnSearchRelatedData} navigate={navigate}/>
         
         </div>
 

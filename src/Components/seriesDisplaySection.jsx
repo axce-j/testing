@@ -23,13 +23,14 @@ const SeriesDisplaySection = ({
   handleContentData,
   managePreviousButtonHome,
   manageNextButtonHome,
-  topAnimeData
+  topAnimeData,
+  navigate,
 }) => {
-  const seasonDataContent=seasonData?.data?.data;
-  const reviewsDataContent=reviewsData?.data?.data
-  const topAnimeDataContent=topAnimeData?.data?.data
+  const seasonDataContent = seasonData?.data?.data;
+  const reviewsDataContent = reviewsData?.data?.data;
+  const topAnimeDataContent = topAnimeData?.data?.data;
 
-  console.log(seasonDataContent)
+  console.log(reviewsDataContent);
   return (
     <>
       <section className=" flex mt-20 box-border   px-4   flex-col gap-[10rem] w-full">
@@ -39,19 +40,22 @@ const SeriesDisplaySection = ({
           }`}
         >
           <div className="flex flex-col gap-3">
-            <div className="w-full h-48 bg-teal-700 rounded-xl flex justify-between px-12 items-center"> 
-            <div className="w-24 h-24 rounded-full bg-black  flex items-center justify-center">
-              <img src="logo3.png" alt="logo" className="w-12 " />
+            <div className="w-full h-48 bg-teal-700 rounded-xl flex justify-between px-12 items-center">
+              <div className="w-24 h-24 rounded-full bg-black  flex items-center justify-center">
+                <img src="logo3.png" alt="logo" className="w-12 " />
               </div>
-            <div className="text-white font-black text-xl">Welcome</div>
-            <div className="w-24 h-24 rounded-full bg-black italic flex items-center font-bold text-lg justify-center text-blue-700 text-center">to</div>
-                <div  className="text-white font-black text-xl"><span>Anime</span><span className="text-blue-800">Wave</span>
-                </div>
-
-            <div className="w-24 h-24 rounded-full bg-black  flex items-center justify-center">
-              <img src="logo3.png" alt="logo" className="w-12 " />
+              <div className="text-white font-black text-xl">Welcome</div>
+              <div className="w-24 h-24 rounded-full bg-black italic flex items-center font-bold text-lg justify-center text-blue-700 text-center">
+                to
+              </div>
+              <div className="text-white font-black text-xl">
+                <span>Anime</span>
+                <span className="text-blue-800">Wave</span>
               </div>
 
+              <div className="w-24 h-24 rounded-full bg-black  flex items-center justify-center">
+                <img src="logo3.png" alt="logo" className="w-12 " />
+              </div>
             </div>
 
             <div className="flex md:flex-row  items-center min-h-[80px] justify-between mobile:flex-col mobile:items-start mobile:min-h-[60px]">
@@ -80,10 +84,10 @@ const SeriesDisplaySection = ({
                 </span>
 
                 <span className="flex flex-row gap-4">
-                  <CustomButton onClick={()=>managePreviousButtonHome()} >
+                  <CustomButton onClick={() => managePreviousButtonHome()}>
                     {"<"}
                   </CustomButton>
-                  <CustomButton onClick={()=>manageNextButtonHome()} >
+                  <CustomButton onClick={() => manageNextButtonHome()}>
                     {">"}
                   </CustomButton>
                 </span>
@@ -108,42 +112,43 @@ const SeriesDisplaySection = ({
                   const date = response?.date;
                   const type = response?.type;
                   const score = response?.score;
+                  const animeId= response?.entry?.mal_id
+                  
                   return (
-                    
-                      <div className="flex flex-col gap-4 " key={index}>
-                        <div className="bg-gray-800 rounded-[.2rem] w-full">
-                          {" "}
-                          <img
-                            className="h-[15rem]   w-[100%] "
-                            src={images}
-                            alt=""
-                          />
-                          <div className="flex flex-row justify-between px-1 py-1">
-                            <div className="flex flex-row  gap-2 items-center justify-start ">
-                              <span className="bg-teal-900 p-1 text-xs rounded">
-                                {score}
-                              </span>
-                              <span>
-                                <i>
-                                  <img
-                                    className="bg-teal-900 p-1 rounded"
-                                    src="mic.png"
-                                    width="20"
-                                    alt=""
-                                  />
-                                </i>
-                              </span>
-                              <span className="bg-teal-900 p-1 text-xs rounded">
-                                {rank}
-                              </span>
-                            </div>
-                            <div>{type}</div>
+                    <div className="flex flex-col gap-4 cursor-pointer " key={index}                       onClick={()=> navigate(`/special/${animeId}`)}
+                    >
+                      <div className="bg-gray-800 rounded-[.2rem] w-full">
+                        {" "}
+                        <img
+                          className="h-[15rem]   w-[100%] "
+                          src={images}
+                          alt=""
+                        />
+                        <div className="flex flex-row justify-between px-1 py-1">
+                          <div className="flex flex-row  gap-2 items-center justify-start ">
+                            <span className="bg-teal-900 p-1 text-xs rounded">
+                              {score}
+                            </span>
+                            <span>
+                              <i>
+                                <img
+                                  className="bg-teal-900 p-1 rounded"
+                                  src="mic.png"
+                                  width="20"
+                                  alt=""
+                                />
+                              </i>
+                            </span>
+                            <span className="bg-teal-900 p-1 text-xs rounded">
+                              {rank}
+                            </span>
                           </div>
+                          <div>{type}</div>
                         </div>
-
-                        <div> {titles}</div>
                       </div>
-                    
+
+                      <div> {titles}</div>
+                    </div>
                   );
                 })}
               </div>
@@ -152,10 +157,16 @@ const SeriesDisplaySection = ({
                   viewPortWidth ? `flex` : `hidden`
                 }`}
               >
-                <CustomButton onClick={()=>managePreviousButtonHome()} classname=" bg-[rgba(32,32,35,1)] w-[45vw] h-[40px] rounded-lg hover:bg-[rgba(32,32,135,.2)] ">
+                <CustomButton
+                  onClick={() => managePreviousButtonHome()}
+                  classname=" bg-[rgba(32,32,35,1)] w-[45vw] h-[40px] rounded-lg hover:bg-[rgba(32,32,135,.2)] "
+                >
                   {"<"}
                 </CustomButton>
-                <CustomButton onClick={()=>manageNextButtonHome()} classname=" bg-[rgba(32,32,35,1)] w-[45vw]  h-[40px] rounded-lg hover:bg-[rgba(32,32,135,.2)] ">
+                <CustomButton
+                  onClick={() => manageNextButtonHome()}
+                  classname=" bg-[rgba(32,32,35,1)] w-[45vw]  h-[40px] rounded-lg hover:bg-[rgba(32,32,135,.2)] "
+                >
                   {">"}
                 </CustomButton>
               </div>
@@ -195,9 +206,12 @@ const SeriesDisplaySection = ({
                   const rank = response?.rank;
                   const type = response?.type;
                   const score = response?.score;
+                  const animeId= response?.mal_id;
                   return (
                     <div
                       key={index}
+                      onClick={()=> navigate(`/special/${animeId}`)}
+
                       className="grid rounded-lg grid-cols-[1fr,2fr,6fr] gap-2 items-center px-2 bg-[#101010] "
                     >
                       <div className="text-[3.3rem] font-bold text-center">
@@ -237,7 +251,10 @@ const SeriesDisplaySection = ({
             }`}
           >
             {contentData?.map((items, index) => (
-              <div className="flex-[1] flex justify-center items-center" key={index}>
+              <div
+                className="flex-[1] flex justify-center items-center"
+                key={index}
+              >
                 <CustomButton
                   onClick={() => {
                     handleDisplaysection(index);
@@ -279,6 +296,7 @@ const SeriesDisplaySection = ({
             viewPortWidth2={viewPortWidth2}
             displaySection={displaySection}
             seasonData={seasonData}
+            navigate={navigate}
           />
           <NewlyAddedSectionHomepage
             subtitle={subtitle}
@@ -288,6 +306,7 @@ const SeriesDisplaySection = ({
             viewPortWidth2={viewPortWidth2}
             displaySection={displaySection}
             seasonData={seasonData}
+            navigate={navigate}
           />
           <JustCompletedSectionHomepage
             subtitle={subtitle}
@@ -297,6 +316,7 @@ const SeriesDisplaySection = ({
             viewPortWidth2={viewPortWidth2}
             displaySection={displaySection}
             seasonData={seasonData}
+            navigate={navigate}
           />
         </div>
         <div
@@ -319,19 +339,18 @@ const SeriesDisplaySection = ({
               </span>
             </div>
             <div className="flex w-full flex-row gap-8 mobile:gap-5 mobile:text-2xl  lgMobile:gap-5 lgMobile:text-2xl text-5xl font-bold overflow-hidden">
-              {Days.map((items,index) => {
-                return (
-                
-                    <div key={index}>{items}</div>
-                  
-                );
+              {Days.map((items, index) => {
+                return <div key={index}>{items}</div>;
               })}
             </div>
           </div>
-          <div >
+          <div>
             {animeBlocks.map((items, index) => {
               return (
-                <div key={index} className="bg-[#101010] grid grid-cols-[.5fr,4fr,1fr] w-full gap-4 p-3 text-lg">
+                <div
+                  key={index}
+                  className="bg-[#101010] grid grid-cols-[.5fr,4fr,1fr] w-full gap-4 p-3 text-lg"
+                >
                   <span className="flex justify-end"> {`${index}:00`}</span>
                   <span className="flex justify-start">{items}</span>
                   <span className="flex justify-start">
@@ -344,7 +363,7 @@ const SeriesDisplaySection = ({
             })}
           </div>
         </div>
-        <div 
+        <div
           className={` w-full grid grid-cols-auto  gap-3 py-2 ${
             viewPortWidth ? `block` : `hidden`
           } `}
@@ -371,15 +390,18 @@ const SeriesDisplaySection = ({
               ?.sort((a, b) => b.favorites - a.favorites)
               ?.slice(0, 10)
               ?.map((response, index) => {
-                const images = response?.images?.jpg?.image_url;
+                const images = response?.entry?.images?.jpg?.image_url;
                 const titles = response?.title_english;
                 //  const rank=response?.rank;
                 const type = response?.type;
                 const score = response?.score;
+                const animeId= response?.mal_id;
                 //  const popularity=response?.popularity
                 const favorites = response?.favorites;
                 return (
                   <div
+                  onClick={()=> navigate(`/special/${animeId}`)}
+
                     key={index}
                     className="grid rounded-lg md:grid-cols-[0.2fr,auto,6fr]
                   mobile:grid-cols-[.6fr,auto,2fr] mobile:gap-2 lgMobile:grid-cols-[.6fr,1fr,3fr] gap-4 items-center 
