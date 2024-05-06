@@ -108,12 +108,14 @@ const NavBarInput = ({
                       const producers = items?.producers[0]?.name;
                       const images = items?.images?.jpg?.image_url;
                       const year = items?.year;
-                      const mal_id = items?.mal_id;
+                      const animeId = items?.mal_id;
 
                       return (
                         <div
-                          key={mal_id}
-                          className=" grid grid-cols-[1fr,4fr] gap-2 items-center px-3 py-1 bg-gray-800"
+                        onClick={()=> navigate(`/special/${animeId}`)}
+
+                          key={animeId}
+                          className=" grid grid-cols-[1fr,4fr] cursor-pointer gap-2 items-center px-3 py-1 bg-gray-800"
                         >
                           <div className=" w-full">
                             {" "}

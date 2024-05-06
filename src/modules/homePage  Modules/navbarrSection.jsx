@@ -100,6 +100,7 @@ const NavBarSection = ({
               setSearchOption={setSearchOption}
               manageInputSearchOption={manageInputSearchOption}
               animeSearchDataContent={animeSearchDataContent}
+              navigate={navigate}
               className={`${viewPortWidth ? `hidden` : `block`}`}
             />
           </div>
