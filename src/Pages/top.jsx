@@ -38,7 +38,7 @@ const Top = () => {
           background: "linear-gradient(to bottom, #2f44466b,  black )",
           backdropFilter: "grayscale(100%)",
         }}
-        className="p-3 h-[100vh] w-full relative overflow-hidden"
+        className="p-3 h-[100vh] w-full  overflow-hidden"
       >
         <div className="text-white text-center text-9xl flex flex-col justify-center items-center gap-4">
           <div>
@@ -48,7 +48,7 @@ const Top = () => {
             <HomeInput className="md:w-[35rem] w-[sm:25rem]" height="2rem" placeholder="Search anime..."/>
           </div>
         </div>
-        <div className="text-white bg-black    ">
+        <div className="text-white bg-black  w-full relative   ">
           <CustomButton
             onClick={() => handleIndividualClick("home")}
             classname={`  bg-[rgba(11,10,8)] rounded-full h-[6rem] w-[6rem] p-6  break-words text-m font-bold absolute  lg:inset-x-[47%]  lg:inset-y-[12%] sm:inset-x-[8%] sm:inset-y-[42%] inset-x-[42%] inset-y-[10%]  ${
