@@ -366,7 +366,7 @@ const MiddleSectionWatchAnime = ({
                   //  const rank=response?.rank;
                   const type = response?.type;
                   const score = response?.score;
-                  const animeId= response?.mal_id;
+                  const animeId= response?.entry?.mal_id;
                   //  const popularity=response?.popularity
                   //  const favorites=response?.favorites
                   //  console.log(response);
