@@ -56,7 +56,7 @@ const Top = () => {
           <div className="text-white bg-black w-full    ">
             <CustomButton
               onClick={() => handleIndividualClick("home")}
-              classname={`  bg-[rgba(11,10,8)] rounded-full h-[6rem] w-[6rem] p-6  break-words text-m font-bold absolute  lg:inset-x-[47%]  lg:inset-y-[12%] sm:inset-x-[8%] sm:inset-y-[42%] inset-x-[42%] inset-y-[10%]  ${
+              classname={`  bg-[rgba(11,10,8)] rounded-full h-[6rem] w-[6rem] p-6  break-words text-m font-bold absolute  lg:inset-x-[47%]  lg:inset-y-[20%] sm:inset-x-[8%] sm:inset-y-[42%] inset-x-[42%] inset-y-[10%]  ${
                 clicked ? `hidden` : `block`
               }`}
             >
@@ -89,7 +89,7 @@ const Top = () => {
             <CustomButton
               onClick={() => handleIndividualClick("readManga")}
               classname={`
-                                                      bg-[rgba(26,13,23)] rounded-full h-[6rem] w-[6rem] p-4  break-words text-m font-bold absolute lg:inset-x-[47%] lg:inset-y-[78%] sm:inset-x-[85%] sm:inset-y-[39%] inset-x-[39%] inset-y-[65%] ${
+                                                      bg-[rgba(26,13,23)] rounded-full h-[6rem] w-[6rem] p-4  break-words text-m font-bold absolute lg:inset-x-[47%] lg:inset-y-[74%] sm:inset-x-[85%] sm:inset-y-[39%] inset-x-[39%] inset-y-[65%] ${
                                                         clicked
                                                           ? `hidden`
                                                           : `block`
