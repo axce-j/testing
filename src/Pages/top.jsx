@@ -29,9 +29,9 @@ const Top = () => {
   return (
     <div
       style={{
-        backgroundImage: "url(img12.jpg) ",
+        backgroundImage: "url(img8.jpg) ",
       }}
-      className="h-screen  bg-[url(img12.jpg)] w-screen bg-cover bg-center bg-no-repeat box-border bg-white"
+      className="h-screen  bg-[url(img8.jpg)] w-screen bg-cover bg-center bg-no-repeat box-border bg-white"
     >
       <div
         style={{
