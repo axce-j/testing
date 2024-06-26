@@ -111,30 +111,34 @@ const SeriesDisplaySection = ({
                   const rank = response?.rank;
                   const date = response?.date;
                   const type = response?.type;
+                  const tags=response?.tags
                   const score = response?.score;
                   const animeId = response?.entry?.mal_id;
-
+                  const review = response?.review;
+                  console.log(reviewsDataContent);
                   return (
                     <div
-                      className="flex flex-col gap-4 cursor-pointer  "
+                      className="flex flex-col gap-4 cursor-pointer  relative "
                       key={index}
                       onClick={() => navigate(`/special/${animeId}`)}
                     >
                       <div className="bg-gray-800 rounded-[.2rem] w-full">
                         {" "}
                         <div className="w-full  relative">
-                        <img
-                          className="h-[15rem]   w-[100%] "
-                          src={images}
-                          alt=""
-                        />
-                        <div className="text-xl text-red-800  absolute bottom-[50%] left-[44%]"> <img
-                      src="playBut.png"
-                      className="text-xs w-24 "
-                      alt="play button"
-                    /></div>
+                          <img
+                            className="h-[15rem]   w-[100%] "
+                            src={images}
+                            alt=""
+                          />
+                          {/* <div className="text-xl text-red-800  absolute bottom-[50%] left-[44%] top-[50%]">
+                            {" "}
+                            <img
+                              src="playBut.png"
+                              className="text-xs w-12  "
+                              alt="play button"
+                            />
+                          </div> */}
                         </div>
-                       
                         <div className="flex flex-row justify-between px-1 py-1">
                           <div className="flex flex-row  gap-2 items-center justify-start ">
                             <span className="bg-teal-900 p-1 text-xs rounded">
@@ -156,7 +160,21 @@ const SeriesDisplaySection = ({
                           </div>
                           <div>{type}</div>
                         </div>
-                       
+                      </div>
+                      <div className={`bg-[#0e1212fa] w-64 z-30 absolute right-[-15rem] h-[300px] ${onmouseenter?`flex flex-col`:`hidden`}   justify-between px-4 py-3`}>
+                        <div className="text-[12px] font-bold"> {titles}</div>
+
+                        <div className=" text-xs">
+                          {" "}
+                          <span>review</span>
+                          {review.split(" ").slice(0, 35).join(" ") + " ...."}
+                        </div>
+
+                        <div className="w-full flex justify-center   ">
+                          <div className="flex items-center p-1 text-center w-fit text-[10px] bg-indigo-700 ">Remarks</div>
+                          <div  className="w-full  grid grid-cols-[1fr,auto,auto] gap-2 h-8 bg-teal-200 text-center justify-between  px-4 text-black text-[10px] items-center font-bold"> <span>{tags}</span> <span className="w-2 h-8 bg-indigo-700"></span> <span className="text-sm">{score}</span></div>
+                        </div>
+                        <CustomButton classname="w-full  h-8 bg-teal-200 text-center text-black font-bold"> Watch</CustomButton>
                       </div>
 
                       <div> {titles}</div>
